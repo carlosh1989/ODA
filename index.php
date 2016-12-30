@@ -1,12 +1,6 @@
 <?php  
 require __DIR__ . '/vendor/autoload.php';
 use App\Controllers\Partida as Par;
-use App\Controllers\Traslado as Tras;
-
-
-
-
-
 
 
 $arr = array('cosa' => 'uno');
@@ -18,9 +12,9 @@ $krumo->dump($arr);
 
 
 
-$traslado = new Tras();
+
 $partida = new Par();
 
-$traslado->hola();
-$partida->hola();
+
+$partida->hola2();
 
