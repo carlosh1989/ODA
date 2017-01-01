@@ -6,29 +6,23 @@ $requestURI = explode( '/', $control );
 // Eliminamos los espacios del principio y final
 // y recalculamos los índices del vector.
 $requestURI = array_values( array_filter( $requestURI ) );
+$controlador = $requestURI[1];
 
-//Modulo de hmvc
-$modulo = $requestURI[1];
-
-//controlador adentro de la carperta d e dicho modulo
-$controlador = $requestURI[2];
-
-//el metodo de ese controlador
-$metodo = $requestURI[3];
+$metodo = $requestURI[2];
 
 list($nombreControlador,$ext) = explode('.', $controlador);
 //echo $requestURI[2];
 $nombreClase = ucfirst($nombreControlador);
-require 'app/'.$modulo.'/controllers'.'/'.$nombreClase.'.php';
+require 'app/controllers/'.$nombreClase.'.php';
 
-//colocamos la ruta completa de la clase haciendo uso de los namespace
-$cargarClase =  '\App\\'.$modulo.'\\controllers\\'.$nombreClase.'';
-
+//colocamos la ruta completa de la clase haciendi uso de los namespace
+$cargarClase =  '\App\\Controllers\\'.$nombreClase.'';
+  
 //llamamos a la clase
 $controller = new $cargarClase();
 
 //llamamos al metodo
-$controller->$metodo();
+$controller->$metodo(); 
 
 //crear template desde bash
 //http://stackoverflow.com/questions/6214743/create-new-file-from-templates-with-bash-script
