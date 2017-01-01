@@ -19,7 +19,6 @@ $metodo = $requestURI[3];
 list($nombreControlador,$ext) = explode('.', $controlador);
 //echo $requestURI[2];
 $nombreClase = ucfirst($nombreControlador);
-require 'app/'.$modulo.'/controllers'.'/'.$nombreClase.'.php';
 
 //colocamos la ruta completa de la clase haciendo uso de los namespace
 $cargarClase =  '\App\\'.$modulo.'\\controllers\\'.$nombreClase.'';
