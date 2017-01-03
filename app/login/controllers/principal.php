@@ -8,7 +8,7 @@ class Login extends PrincipalController
     public function index()
     {
         echo "<hr>";
-        echo "partida";
+        echo "Metodo index de el controlador LOGIN que es DEFAULT";
         echo "<hr>";
     }
 }

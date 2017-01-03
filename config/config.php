@@ -5,14 +5,13 @@ Ruta Base del proyecto
 --------------------------------------------------------------
 */
 $baseUrl = 'localhost/ODA';
-
 /*
 --------------------------------------------------------------
 Constantes de Controlador por defecto
 ---------------------------------------------------------------
 */
-$ClaseDefault = 'App\traslado\controllers\Login';
-$metodoDefault = 'index';
+$ClaseDefault = '';
+$metodoDefault = '';
 
 /*
 ---------------------------------------------------------------

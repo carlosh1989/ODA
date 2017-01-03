@@ -8,9 +8,7 @@ class Principal extends PrincipalController
     public function index()
     {
         echo "<hr>";
-        echo "partida";
-        echo "<hr>";
-        $this->principal();
+        echo "Metodo index de el controlador Traslado";
         echo "<hr>";
     }
 }

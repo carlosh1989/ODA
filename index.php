@@ -54,13 +54,18 @@ if(baseUrl)
 		}
 		else
 		{
-
+		    ob_start();
+		    include('config/messages/controllerDefault.php');
+		    echo ob_get_clean();
 		}
 	}
 }
 else
 {
-	echo "Error, cofigure el baseUrl en config/config.php";
+	//echo "Error, cofigure el baseUrl en config/config.php";
+    ob_start();
+    include('config/messages/baseUrl.php');
+    echo ob_get_clean();
 }
 //llamamos al metodo
 
