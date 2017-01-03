@@ -1,1 +1,3 @@
-config.php
+<?php
+
+define("CONTROLLER_DEFAULT", "");
