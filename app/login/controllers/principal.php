@@ -3,14 +3,12 @@ namespace App\traslado\controllers;
 
 use System\PrincipalController;
 
-class Principal extends PrincipalController
+class Login extends PrincipalController
 {
     public function index()
     {
         echo "<hr>";
         echo "partida";
-        echo "<hr>";
-        $this->principal();
         echo "<hr>";
     }
 }
