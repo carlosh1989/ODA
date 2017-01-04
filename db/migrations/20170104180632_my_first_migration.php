@@ -2,7 +2,7 @@
 
 use Phinx\Migration\AbstractMigration;
 
-class MyNewMigration extends AbstractMigration
+class MyFirstMigration extends AbstractMigration
 {
     /**
      * Change Method.
@@ -27,6 +27,10 @@ class MyNewMigration extends AbstractMigration
      */
     public function change()
     {
-
+        // create the table
+        $table = $this->table('user_logins');
+        $table->addColumn('user_id', 'integer')
+              ->addColumn('created', 'datetime')
+              ->create();
     }
 }

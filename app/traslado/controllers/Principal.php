@@ -14,6 +14,6 @@ class Principal extends PrincipalController
 
     public function test()
     {
-    	echo "test";
+        echo "test";
     }
 }

@@ -4,25 +4,25 @@
 
 if [ $1 ] && [ $1 ]; then
    if [ "revizar" = $1 ]; then
-		bash ./consola/revizar.sh $2
+		bash ./cli/codesniffer/revizar.sh $2 $3
 	fi
 
 	if [ "reparar" = $1 ]; then
-		bash ./consola/reparar.sh $2
+		bash ./cli/codesniffer/reparar.sh $2 $3
 	fi
 
 	if [ "db" = $1 ]; then
 		if [ $2 ]; then
 			if [ "create" = $2 ]; then
-				bash ./consola/phinx/create.sh $3
+				bash ./cli/phinx/migrations/create.sh $3
 			fi
 
 			if [ "migrate" = $2 ]; then
-				bash ./consola/phinx/migrate.sh
+				bash ./cli/phinx/migrations/migrate.sh
 			fi
 
 			if [ "rollback" = $2 ]; then
-				bash ./consola/phinx/rollback.sh
+				bash ./cli/phinx/migrations/rollback.sh
 			fi
 		else
 		   echo faltan variables

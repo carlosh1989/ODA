@@ -14,6 +14,13 @@ class Users extends AbstractSeed
      */
     public function run()
     {
-
+      $faker = Faker\Factory::create();
+      $data = [];
+      for ($i = 0; $i < 100; $i++) {
+          $data[] = [
+              'user_id'      => $faker->randomDigit,
+          ];
+      }
+      $this->insert('user_logins', $data);
     }
 }
