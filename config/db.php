@@ -1,6 +1,8 @@
 <?php
-define('DB_HOST', '127.0.0.1');
-define('DB_NAME', 'myproject');
+define('DB_ADAPTER', 'mysql');
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'frame');
 define('DB_USER', 'root');
-define('DB_PASSWORD', 'root');
-define('DB_PORT', 3306);
+define('DB_PASSWORD', 'Adm15.');
+define('DB_PORT', 5432);
+

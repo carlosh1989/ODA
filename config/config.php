@@ -19,7 +19,6 @@ Definiendo las constantes
 ---------------------------------------------------------------
 */
 
-
 if($baseUrl)
 {
 	define('baseUrl',$baseUrl);
