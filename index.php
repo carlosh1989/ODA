@@ -14,7 +14,7 @@ if(baseUrl)
 {
 	//Verificando si la ruta MODULO -> CONTROLADOR -> METODO
 	//esta completa.
-	if($requestURI[1] and $requestURI[2] and $requestURI[3])
+	if($requestURI[1] and $requestURI[2])
 	{
 		//Modulo de hmvc
 		$modulo = $requestURI[1];
@@ -35,6 +35,13 @@ if(baseUrl)
 		//llamamos a la clase
 		$controller = new $cargarClase();
 
+		//Si no se pasa un tercer parametro URI entonces se sobre entiende de que 
+		//el metodo a llamar es INDEX
+		if(!$metodo)
+		{
+			//Llamando al metodo index por defecto.
+			$controller->index();
+		}
 		//llamamos al metodo
 		$controller->$metodo();
 	}

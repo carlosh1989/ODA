@@ -19,7 +19,7 @@
 			  </div>
 			  <div class="panel-body">
 			  <br>
-				No se ha configurado el <b class="text-info">ClaseDefault</b> y <b class="text-info">metodoDefault</b>. Dirigirse a la carpeta <b class="alert alert-info">config/config.php</b> e ingrese una clase default, por ejemplo: <b class="text-success">App\traslado\controllers\Login</b>, a su vez ingrese metodo default, por ejemplo:  <b class="text-success">index</b>
+				No se ha configurado el <b class="text-info">ClaseDefault</b> y <b class="text-info">metodoDefault</b>. Dirigirse a la carpeta <b class="alert alert-info">config/config.php</b> e ingrese una clase default, por ejemplo: <b class="text-success">App\login\controllers\Login</b>, a su vez ingrese metodo default, por ejemplo:  <b class="text-success">index</b>
 				<hr>
 			  </div>
 			</div>

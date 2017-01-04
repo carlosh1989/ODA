@@ -1,5 +1,5 @@
 <?php
-namespace App\traslado\controllers;
+namespace App\login\controllers;
 
 use System\PrincipalController;
 

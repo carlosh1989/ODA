@@ -11,4 +11,9 @@ class Principal extends PrincipalController
         echo "Metodo index de el controlador Traslado";
         echo "<hr>";
     }
+
+    public function test()
+    {
+    	echo "test";
+    }
 }
