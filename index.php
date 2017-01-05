@@ -74,8 +74,6 @@ else
     include('config/messages/baseUrl.php');
     echo ob_get_clean();
 }
-//llamamos al metodo
-
 
 //crear template desde bash
 //http://stackoverflow.com/questions/6214743/create-new-file-from-templates-with-bash-script

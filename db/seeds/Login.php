@@ -2,7 +2,7 @@
 
 use Phinx\Seed\AbstractSeed;
 
-class Users extends AbstractSeed
+class Login extends AbstractSeed
 {
     /**
      * Run Method.
@@ -14,13 +14,6 @@ class Users extends AbstractSeed
      */
     public function run()
     {
-      $faker = Faker\Factory::create();
-      $data = [];
-      for ($i = 0; $i < 10; $i++) {
-          $data[] = [
-              'user_id'      => $faker->randomDigit,
-          ];
-      }
-      $this->insert('user_logins', $data);
+
     }
 }
