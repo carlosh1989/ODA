@@ -1,19 +1,19 @@
 #!/bin/bash
-OPTION=$(whiptail --title "Test Menu Dialog" --menu "Choose your option" 15 60 4 \
+OPTION=$(whiptail --title "HERRAMIENTAS" --menu "" 15 60 4 \
 "1" "DATABASE" \
 "2" "DEBUG" 3>&1 1>&2 2>&3)
 
 exitstatus=$?
 if [ $exitstatus = 0 ]; then
 	if [[ $OPTION = 1 ]]; then
-		DATABASE=$(whiptail --title "Test Menu Dialog" --menu "Choose your option" 15 60 4 \
+		DATABASE=$(whiptail --title "DATABASE" --menu "" 15 60 4 \
 		"1" "MIGRATIONS" \
 		"2" "SEEDS" 3>&1 1>&2 2>&3)
 
 		exitstatus=$?
 		if [ $exitstatus = 0 ]; then
 			if [[ $DATABASE = 1 ]]; then
-				MIGRATIONS=$(whiptail --title "Test Menu Dialog" --menu "Choose your option" 15 60 4 \
+				MIGRATIONS=$(whiptail --title "MIGRATIONS" --menu "" 15 60 4 \
 				"1" "Create" \
 				"2" "Migrate" \
 				"3" "Rollback" 3>&1 1>&2 2>&3) 
@@ -21,13 +21,13 @@ if [ $exitstatus = 0 ]; then
 				exitstatus=$?
 				if [ $exitstatus = 0 ]; then
 				    if [[ $MIGRATIONS = 1 ]]; then
-						MIGRATIONSCREATE=$(whiptail --title "Test Free-form Input Box" --inputbox "What is your pet's name?" 10 60 Wigglebutt 3>&1 1>&2 2>&3)
+						MIGRATIONSCREATE=$(whiptail --title "MIGRATIONS - CREATE" --inputbox "Ingrese nombre de Migración" 10 60 3>&1 1>&2 2>&3)
 						 
 						exitstatus=$?
 						if [ $exitstatus = 0 ]; then
 		    				./cli/cli.sh db:migration create $MIGRATIONSCREATE
 						else
-						    echo "You chose Cancel."
+						    echo "Cerrado";
 						fi
 				    fi
 
@@ -39,11 +39,11 @@ if [ $exitstatus = 0 ]; then
 				    	./cli/cli.sh db:migration rollback
 				    fi
 				else
-				    echo "You chose Cancel."
+				    echo "Cerrado";
 				fi
 			fi
 			if [[ $DATABASE = 2 ]]; then
-				SEEDS=$(whiptail --title "Test Menu Dialog" --menu "Choose your option" 15 60 4 \
+				SEEDS=$(whiptail --title "SEEDS" --menu "" 15 60 4 \
 				"1" "Create" \
 				"2" "Run" \
 				"3" "Run Seed" 3>&1 1>&2 2>&3) 
@@ -51,13 +51,13 @@ if [ $exitstatus = 0 ]; then
 				exitstatus=$?
 				if [ $exitstatus = 0 ]; then
 				    if [[ $SEEDS = 1 ]]; then
-						SEEDSCREATE=$(whiptail --title "Test Free-form Input Box" --inputbox "What is your pet's name?" 10 60 Wigglebutt 3>&1 1>&2 2>&3)
+						SEEDSCREATE=$(whiptail --title "SEEDS - CREATE" --inputbox "Ingrese nombre de Seed" 10 60 3>&1 1>&2 2>&3)
 						 
 						exitstatus=$?
 						if [ $exitstatus = 0 ]; then
 		    				./cli/cli.sh db:seed create $SEEDSCREATE
 						else
-						    echo "You chose Cancel."
+						    echo "Cerrado";
 						fi
 				    fi
 
@@ -66,71 +66,71 @@ if [ $exitstatus = 0 ]; then
 				    fi
 
 				    if [[ $SEEDS = 3 ]]; then
-						SEEDSRUN=$(whiptail --title "Test Free-form Input Box" --inputbox "What is your pet's name?" 10 60 Wigglebutt 3>&1 1>&2 2>&3)
+						SEEDSRUN=$(whiptail --title "SEEDS - RUN" --inputbox "Ingrese nombre de Seed a ejecutar." 10 60 3>&1 1>&2 2>&3)
 						 
 						exitstatus=$?
 						if [ $exitstatus = 0 ]; then
 		    				./cli/cli.sh db:seed run $SEEDSRUN
 						else
-						    echo "You chose Cancel."
+						    echo "Cerrado";
 						fi
 
 				    fi
 				else
-				    echo "You chose Cancel."
+				    echo "Cerrado";
 				fi
 
 			fi
 		else
-		    echo "You chose Cancel."
+		    echo "Cerrado";
 		fi
 	fi
 	if [[ $OPTION = 2 ]]; then
-		DEBUG=$(whiptail --title "Test Menu Dialog" --menu "Choose your option" 15 60 4 \
+		DEBUG=$(whiptail --title "DEBUG" --menu "" 15 60 4 \
 		"1" "Revizar" \
 		"2" "Reparar" 3>&1 1>&2 2>&3) 
 
 		exitstatus=$?
 		if [ $exitstatus = 0 ]; then
 		    if [[ $DEBUG = 1 ]]; then
-				DEBUGREVIZARMODULO=$(whiptail --title "Test Free-form Input Box" --inputbox "What is your pet's name?" 10 60 Wigglebutt 3>&1 1>&2 2>&3)
+				DEBUGREVIZARMODULO=$(whiptail --title "DEBUG - REVIZAR" --inputbox "Ingrese Modulo" 10 60 3>&1 1>&2 2>&3)
 				 
 				exitstatus=$?
 				if [ $exitstatus = 0 ]; then
-					DEBUGREVIZARCONTROLADOR=$(whiptail --title "Test Free-form Input Box" --inputbox "What is your pet's name?" 10 60 Wigglebutt 3>&1 1>&2 2>&3)
+					DEBUGREVIZARCONTROLADOR=$(whiptail --title "DEBUG - REVIZAR" --inputbox "Ingrese Controlador" 10 60 3>&1 1>&2 2>&3)
 					 
 					exitstatus=$?
 					if [ $exitstatus = 0 ]; then
 	    				./cli/cli.sh revizar $DEBUGREVIZARMODULO $DEBUGREVIZARCONTROLADOR
 					else
-					    echo "You chose Cancel."
+					    echo "Cerrado";
 					fi
 				else
-				    echo "You chose Cancel."
+				    echo "Cerrado";
 				fi
 		    fi
 
 		    if [[ $DEBUG = 2 ]]; then
-				DEBUGREPARARMODULO=$(whiptail --title "Test Free-form Input Box" --inputbox "What is your pet's name?" 10 60 Wigglebutt 3>&1 1>&2 2>&3)
+				DEBUGREPARARMODULO=$(whiptail --title "DEBUG - REPARAR" --inputbox "Ingrese Modulo" 10 60 3>&1 1>&2 2>&3)
 				 
 				exitstatus=$?
 				if [ $exitstatus = 0 ]; then
-					DEBUGREPARARCONTROLADOR=$(whiptail --title "Test Free-form Input Box" --inputbox "What is your pet's name?" 10 60 Wigglebutt 3>&1 1>&2 2>&3)
+					DEBUGREPARARCONTROLADOR=$(whiptail --title "DEBUG - REPARAR" --inputbox "Ingrese Controlador" 10 60 3>&1 1>&2 2>&3)
 					 
 					exitstatus=$?
 					if [ $exitstatus = 0 ]; then
 	    				./cli/cli.sh reparar $DEBUGREPARARMODULO $DEBUGREPARARCONTROLADOR
 					else
-					    echo "You chose Cancel."
+					    echo "Cerrado";
 					fi
 				else
-				    echo "You chose Cancel."
+				    echo "Cerrado";
 				fi
 		    fi
 		else
-		    echo "You chose Cancel."
+		    echo "Cerrado";
 		fi
 	fi
 else
-    echo "You chose Cancel."
+    echo "Cerrado";
 fi
