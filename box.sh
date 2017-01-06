@@ -1,55 +1,136 @@
 #!/bin/bash
-# -*- ENCODING: UTF-8 -*-
-#proyecto=@@nombre_proyecto@@
+OPTION=$(whiptail --title "Test Menu Dialog" --menu "Choose your option" 15 60 4 \
+"1" "DATABASE" \
+"2" "DEBUG" 3>&1 1>&2 2>&3)
 
-if [ $1 ] && [ $1 ]; then
-   if [ "revizar" = $1 ]; then
-		bash ./cli/codesniffer/revizar.sh $2 $3
-	fi
+exitstatus=$?
+if [ $exitstatus = 0 ]; then
+	if [[ $OPTION = 1 ]]; then
+		DATABASE=$(whiptail --title "Test Menu Dialog" --menu "Choose your option" 15 60 4 \
+		"1" "MIGRATIONS" \
+		"2" "SEEDS" 3>&1 1>&2 2>&3)
 
-	if [ "reparar" = $1 ]; then
-		bash ./cli/codesniffer/reparar.sh $2 $3
-	fi
+		exitstatus=$?
+		if [ $exitstatus = 0 ]; then
+			if [[ $DATABASE = 1 ]]; then
+				MIGRATIONS=$(whiptail --title "Test Menu Dialog" --menu "Choose your option" 15 60 4 \
+				"1" "Create" \
+				"2" "Migrate" \
+				"3" "Rollback" 3>&1 1>&2 2>&3) 
 
-	if [ "db:migration" = $1 ]; then
-		if [ $2 ]; then
-			if [ "create" = $2 ]; then
-				bash ./cli/phinx/migrations/create.sh $3
+				exitstatus=$?
+				if [ $exitstatus = 0 ]; then
+				    if [[ $MIGRATIONS = 1 ]]; then
+						MIGRATIONSCREATE=$(whiptail --title "Test Free-form Input Box" --inputbox "What is your pet's name?" 10 60 Wigglebutt 3>&1 1>&2 2>&3)
+						 
+						exitstatus=$?
+						if [ $exitstatus = 0 ]; then
+		    				./cli/cli.sh db:migration create $MIGRATIONSCREATE
+						else
+						    echo "You chose Cancel."
+						fi
+				    fi
+
+				    if [[ $MIGRATIONS = 2 ]]; then
+						./cli/cli.sh db:migration migrate
+				    fi
+
+				    if [[ $MIGRATIONS = 3 ]]; then
+				    	./cli/cli.sh db:migration rollback
+				    fi
+				else
+				    echo "You chose Cancel."
+				fi
 			fi
+			if [[ $DATABASE = 2 ]]; then
+				SEEDS=$(whiptail --title "Test Menu Dialog" --menu "Choose your option" 15 60 4 \
+				"1" "Create" \
+				"2" "Run" \
+				"3" "Run Seed" 3>&1 1>&2 2>&3) 
 
-			if [ "migrate" = $2 ]; then
-				bash ./cli/phinx/migrations/migrate.sh
-			fi
+				exitstatus=$?
+				if [ $exitstatus = 0 ]; then
+				    if [[ $SEEDS = 1 ]]; then
+						SEEDSCREATE=$(whiptail --title "Test Free-form Input Box" --inputbox "What is your pet's name?" 10 60 Wigglebutt 3>&1 1>&2 2>&3)
+						 
+						exitstatus=$?
+						if [ $exitstatus = 0 ]; then
+		    				./cli/cli.sh db:seed create $SEEDSCREATE
+						else
+						    echo "You chose Cancel."
+						fi
+				    fi
 
-			if [ "rollback" = $2 ]; then
-				bash ./cli/phinx/migrations/rollback.sh
+				    if [[ $SEEDS = 2 ]]; then
+						./cli/cli.sh db:seed run
+				    fi
+
+				    if [[ $SEEDS = 3 ]]; then
+						SEEDSRUN=$(whiptail --title "Test Free-form Input Box" --inputbox "What is your pet's name?" 10 60 Wigglebutt 3>&1 1>&2 2>&3)
+						 
+						exitstatus=$?
+						if [ $exitstatus = 0 ]; then
+		    				./cli/cli.sh db:seed run $SEEDSRUN
+						else
+						    echo "You chose Cancel."
+						fi
+
+				    fi
+				else
+				    echo "You chose Cancel."
+				fi
+
 			fi
 		else
-		   echo faltan variables
-		   echo Ejemplo box db create MiPrimeraMigracion	
-		   echo Ejemplo box db migrate 
-		   echo Ejemplo box db rollback 
+		    echo "You chose Cancel."
 		fi
 	fi
+	if [[ $OPTION = 2 ]]; then
+		DEBUG=$(whiptail --title "Test Menu Dialog" --menu "Choose your option" 15 60 4 \
+		"1" "Revizar" \
+		"2" "Reparar" 3>&1 1>&2 2>&3) 
 
-	if [ "db:seed" = $1 ]; then
-		if [ $2 ]; then
-			if [ "create" = $2 ]; then
-				bash ./cli/phinx/seeds/create.sh $3
-			fi
+		exitstatus=$?
+		if [ $exitstatus = 0 ]; then
+		    if [[ $DEBUG = 1 ]]; then
+				DEBUGREVIZARMODULO=$(whiptail --title "Test Free-form Input Box" --inputbox "What is your pet's name?" 10 60 Wigglebutt 3>&1 1>&2 2>&3)
+				 
+				exitstatus=$?
+				if [ $exitstatus = 0 ]; then
+					DEBUGREVIZARCONTROLADOR=$(whiptail --title "Test Free-form Input Box" --inputbox "What is your pet's name?" 10 60 Wigglebutt 3>&1 1>&2 2>&3)
+					 
+					exitstatus=$?
+					if [ $exitstatus = 0 ]; then
+	    				./cli/cli.sh revizar $DEBUGREVIZARMODULO $DEBUGREVIZARCONTROLADOR
+					else
+					    echo "You chose Cancel."
+					fi
+				else
+				    echo "You chose Cancel."
+				fi
+		    fi
 
-			if [ "run" = $2 ]; then
-				bash ./cli/phinx/seeds/run.sh $3
-			fi
+		    if [[ $DEBUG = 2 ]]; then
+				DEBUGREPARARMODULO=$(whiptail --title "Test Free-form Input Box" --inputbox "What is your pet's name?" 10 60 Wigglebutt 3>&1 1>&2 2>&3)
+				 
+				exitstatus=$?
+				if [ $exitstatus = 0 ]; then
+					DEBUGREPARARCONTROLADOR=$(whiptail --title "Test Free-form Input Box" --inputbox "What is your pet's name?" 10 60 Wigglebutt 3>&1 1>&2 2>&3)
+					 
+					exitstatus=$?
+					if [ $exitstatus = 0 ]; then
+	    				./cli/cli.sh reparar $DEBUGREPARARMODULO $DEBUGREPARARCONTROLADOR
+					else
+					    echo "You chose Cancel."
+					fi
+				else
+				    echo "You chose Cancel."
+				fi
+		    fi
 		else
-		   echo faltan variables
-		   echo Ejemplo box db create MiPrimeraMigracion	
-		   echo Ejemplo box db migrate 
-		   echo Ejemplo box db rollback 
+		    echo "You chose Cancel."
 		fi
 	fi
 else
-   echo faltan variables
-   echo Ejemplo box revizar traslado	
+    echo "You chose Cancel."
 fi
-
