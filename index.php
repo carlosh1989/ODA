@@ -43,7 +43,8 @@ if(baseUrl)
 			$controller->index();
 		}
 		//llamamos al metodo
-		$controller->$metodo();
+		//$controller->$metodo();
+		echo DB_ADAPTER;
 	}
 	else
 	{

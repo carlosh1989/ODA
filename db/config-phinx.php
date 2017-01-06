@@ -1,5 +1,5 @@
 <?php
-require 'config/db.php';
+require_once 'vendor/autoload.php';
 return [
   'paths' => [
     'migrations' => 'db/migrations',

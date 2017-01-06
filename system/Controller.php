@@ -3,10 +3,10 @@ namespace System;
 
 class PrincipalController
 {
-	function principal()
+	function principal($var1,$var2)
 	{
+		echo $var1;
 		echo "<hr>";
-		echo "Principal Controller";
-		echo "<hr>";
+		echo $var2;
 	}
 }

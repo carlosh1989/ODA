@@ -2,7 +2,7 @@
 
 use Phinx\Migration\AbstractMigration;
 
-class Foooo extends AbstractMigration
+class Ugggggg extends AbstractMigration
 {
     /**
      * Change Method.
