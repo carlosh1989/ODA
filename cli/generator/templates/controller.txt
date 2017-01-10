@@ -1,0 +1,19 @@
+<?php
+namespace App\${modulo}\controllers;
+
+use System\PrincipalController;
+
+class ${controller} extends PrincipalController
+{
+    public function ${vista}()
+    {
+        echo "<hr>";
+        echo "Metodo index de el controlador Traslado";
+        echo "<hr>";
+    }
+
+    public function test()
+    {
+        echo "test";
+    }
+}
