@@ -3,6 +3,11 @@
 #proyecto=@@nombre_proyecto@@
 
 if [ $1 ] && [ $1 ]; then
+
+	if [ "generar" = $1 ]; then
+		bash ./cli/generator/generator.sh $2 $3 $4
+	fi
+
    if [ "revizar" = $1 ]; then
 		bash ./cli/codesniffer/revizar.sh $2 $3
 	fi

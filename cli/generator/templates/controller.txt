@@ -5,15 +5,13 @@ use System\PrincipalController;
 
 class ${controller} extends PrincipalController
 {
-    public function ${vista}()
+    function __construct(argument)
     {
-        echo "<hr>";
-        echo "Metodo index de el controlador Traslado";
-        echo "<hr>";
+        # code...
     }
 
-    public function test()
+    public function ${vista}()
     {
-        echo "test";
+        
     }
 }

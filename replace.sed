@@ -1,3 +1,4 @@
 
-s/${i}/traslado/
-s/${name}/Principal/
+s/${modulo}/traspaso/
+s/${controller}/Principal/
+s/${vista}/index/
