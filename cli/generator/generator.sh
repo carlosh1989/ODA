@@ -40,6 +40,7 @@ do
 		then
 			mkdir -m 777 $APP/$MODULO/'views/theme'
 			touch $APP/$MODULO/'views/theme/'$MODULO'.php'
+			./cli/generator/make/makeTheme.sh $MODULO $CONTROLLER $VISTA
 			if [ -f $APP/$MODULO/$VIEWS_FOLDER/$VISTA ];
 			then
 				echo "Sí, sí existe app/"$MODULO/$VIEWS_FOLDER/$VISTA
@@ -76,4 +77,3 @@ do
   x=$(( $x + 1 ))
 done
 
-composer dump-autoload -o

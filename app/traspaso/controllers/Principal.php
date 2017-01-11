@@ -5,13 +5,13 @@ use System\PrincipalController;
 
 class Principal extends PrincipalController
 {
-    function __construct(argument)
+    function __construct()
     {
         # code...
     }
 
     public function index()
     {
-        echo "asdasd";
+        $this->view('traslado/all', $data);
     }
 }

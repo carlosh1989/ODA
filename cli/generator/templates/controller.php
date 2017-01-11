@@ -5,13 +5,13 @@ use System\PrincipalController;
 
 class ${controller} extends PrincipalController
 {
-    function __construct(argument)
+    function __construct()
     {
         # code...
     }
 
     public function ${vista}()
     {
-        
+        echo "${vista}";
     }
 }

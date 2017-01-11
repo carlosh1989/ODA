@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>index</title>
+	<title>${modulo}</title>
 </head>
 <body>
-	<h1>index</h1>
+	<h1>${modulo}</h1>
 </body>
 </html>

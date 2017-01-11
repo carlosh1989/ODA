@@ -4,4 +4,4 @@ s/${modulo}/'$1'/
 s/${controller}/'${2^}'/
 s/${vista}/'$3'/' > ./cli/generator/replace.sed
 
-sed -f ./cli/generator/replace.sed ./cli/generator/templates/controller.txt > ./app/$1/controllers/${2^}.php
+sed -f ./cli/generator/replace.sed ./cli/generator/templates/controller.php > ./app/$1/controllers/${2^}.php

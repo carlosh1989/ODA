@@ -2,6 +2,7 @@
 printf '
 s/${modulo}/'$1'/
 s/${controller}/'${2^}'/
-s/${vista}/'$3'/' > replace.sed
+s/${vista}/'$3'/' > ./cli/generator/replace.sed
 
-sed -f replace.sed templates/controller.txt > ../../app/$1/controllers/${2^}.php
+sed -f ./cli/generator/replace.sed ./cli/generator/templates/theme.php > ./app/$1/views/theme/$1.php
+
