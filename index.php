@@ -73,5 +73,4 @@ else
     echo ob_get_clean();
 }
 
-//crear template desde bash
-//http://stackoverflow.com/questions/6214743/create-new-file-from-templates-with-bash-script
+
