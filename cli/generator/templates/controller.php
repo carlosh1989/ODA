@@ -10,8 +10,8 @@ class ${controller} extends PrincipalController
         # code...
     }
 
-    public function ${vista}()
+    public function index()
     {
-        echo "${vista}";
+		$this->view('${modulo}/${vista}');
     }
 }

@@ -8,7 +8,7 @@
 				</b></h3>
 			</div>
 			<div class="panel-body">
-				Vista <b>index</b> del mudulo <b>traspaso</b>
+				Vista <b>index</b> del mudulo <b>cuentas</b>
 			</div>
 		</div>
 	</div>

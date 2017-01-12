@@ -1,4 +1,4 @@
 
-s/${modulo}/traspaso/
-s/${controller}/Principal/
+s/${modulo}/cuentas/
+s/${controller}/Login/
 s/${vista}/index/

@@ -1,9 +1,9 @@
 <?php
-namespace App\traspaso\controllers;
+namespace App\cuentas\controllers;
 
 use System\PrincipalController;
 
-class Principal extends PrincipalController
+class Login extends PrincipalController
 {
     function __construct()
     {
@@ -12,6 +12,6 @@ class Principal extends PrincipalController
 
     public function index()
     {
-        echo "index";
+		$this->view('cuentas/index');
     }
 }
