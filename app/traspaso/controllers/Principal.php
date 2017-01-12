@@ -12,6 +12,6 @@ class Principal extends PrincipalController
 
     public function index()
     {
-        $this->view('traslado/all', $data);
+        echo "index";
     }
 }

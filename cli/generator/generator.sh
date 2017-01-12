@@ -47,6 +47,7 @@ do
 			else
 			echo "Creado app/"$MODULO/$VIEWS_FOLDER/$VISTA
 			touch $APP/$MODULO/$VIEWS_FOLDER/$VISTA'.php'
+			./cli/generator/make/makeVista.sh $MODULO $CONTROLLER $VISTA
 			#./generator.sh $MODULO $CONTROLADOR $VISTA
 			fi
 		else

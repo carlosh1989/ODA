@@ -37,7 +37,9 @@ if(baseUrl)
 
 		//Si no se pasa un tercer parametro URI entonces se sobre entiende de que 
 		//el metodo a llamar es INDEX
-
+		if (!$metodo) {
+			$controller->index();
+		}
 		//llamamos al metodo
 		$controller->$metodo();
 	}

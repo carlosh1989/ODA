@@ -16,9 +16,10 @@ class PrincipalController
             }
         }
 
+        list($modulo, $vista) = explode('/', $vista);
+
         $view->baseUrl = baseUrl;
-        $view->menu = $view->render('app/views/templates/menu.php');
-        $view->content = $view->render('app/views/modules/'.$vista.'.php');
-        echo $view->render('app/views/templates/main.php');
+        $view->content = $view->render('app/'.$modulo.'/views/'.$vista.'.php');
+        echo $view->render('app/'.$modulo.'/views/theme/'.$modulo.'.php');
     }
 }
