@@ -1,15 +1,15 @@
 <?php
 /*------------------------------------------------------------
-Ruta Base del proyecto
---------------------------------------------------------------
-*/
+CONFIGURACIONES GENERALES DE SISTEMA
+--------------------------------------------------------------*/ 
+
+/* Url base del Sistema */
 $baseUrl = 'localhost/ODA/';
-/*
---------------------------------------------------------------
-Constantes de Controlador por defecto
---------------------------------------------------------------
-*/
+
+/* Ruta de la Clase Default */
 $ClaseDefault = 'App\login\controllers\Test';
+
+/* Metodo Default */
 $metodoDefault = 'index';
 
 
