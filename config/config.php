@@ -1,6 +1,6 @@
 <?php
 /*------------------------------------------------------------
-CONFIGURACIONES GENERALES DE SISTEMA
+Configuraciones Generales del Sistema
 --------------------------------------------------------------*/ 
 
 /* Url base del Sistema */
