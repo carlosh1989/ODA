@@ -30,6 +30,7 @@ else
 
 define('DB_ADAPTER_DOCTRINE', $adapter_Doctrine);
 define('DB_ADAPTER_PHINX', $adapter_Phinx);
+//ADAPTADOR UNIVERSAL
 define('DB_ADAPTER', $adapter);
 define('DB_HOST', $host);
 define('DB_NAME', $dbname);
