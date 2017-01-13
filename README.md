@@ -10,3 +10,5 @@
 
 ###POR LEER
 http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/basic-mapping.html
+
+https://www.funcion13.com/creando-un-pequeno-orm-en-php/

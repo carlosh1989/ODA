@@ -1,7 +1,5 @@
 <?php
 namespace App\cuentas\models;
-
-use Illuminate\Database\Eloquent\Model as Eloquent;
  
 class Task extends Eloquent
 {

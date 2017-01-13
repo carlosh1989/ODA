@@ -2,10 +2,11 @@
 // bootstrap.php
 require_once 'vendor/autoload.php';
 
-use Doctrine\ORM\Tools\Setup;
-use Doctrine\ORM\EntityManager;
 
-$paths = array("/path/to/entity-files");
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\Tools\Setup;
+
+$paths = array("db");
 $isDevMode = false;
 
 // the connection configuration

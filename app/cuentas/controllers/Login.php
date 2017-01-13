@@ -4,6 +4,7 @@ namespace App\cuentas\controllers;
 use App\cuentas\models\Task;
 use System\PrincipalController;
 use Illuminate\Database\Capsule\Manager as Capsule;
+
 class Login extends PrincipalController
 {
     function __construct()
@@ -18,21 +19,20 @@ class Login extends PrincipalController
         Task::index();
         //$tasks->index();
         
-        $capsule = new Capsule();
+        $capsule = new Capsule;
         $capsule->addConnection([
-            'driver'    => DB_ADAPTER,
-            'host'      => DB_HOST,
-            'database'  => DB_NAME,
-            'username'  => DB_USER,
-            'password'  => DB_PASSWORD,
-            'charset'   => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix'    => '',
-            'strict'    => false,
+          'driver' => 'mysql',
+          'host' => DB_HOST,
+          'port' => DB_PORT,
+          'database' => DB_NAME,
+          'username' => DB_USER,
+          'password' => DB_PASSWORD,
+          'charset' => 'utf8',
+          'collation' => 'utf8_unicode_ci',
         ]);
-        $capsule->setAsGlobal();
         $capsule->bootEloquent();
-    
+        $capsule->setAsGlobal();
+
         Task::create([
             'title' => 'Task 1',
             'body' => 'Lorem ipsum'
@@ -40,6 +40,7 @@ class Login extends PrincipalController
          
         // get all the records from the table
         dd(Task::all()->toArray());
+        
     }
 
     public function create()
