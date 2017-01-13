@@ -1,7 +1,7 @@
 <?php  
 namespace System;
 
-use System\View;
+use System\Template;
 
 class PrincipalController
 {

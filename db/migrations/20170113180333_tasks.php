@@ -2,7 +2,7 @@
 
 use Phinx\Migration\AbstractMigration;
 
-class Foooo extends AbstractMigration
+class Tasks extends AbstractMigration
 {
     /**
      * Change Method.
@@ -27,6 +27,12 @@ class Foooo extends AbstractMigration
      */
     public function change()
     {
-
+        // create the table
+        $table = $this->table('tasks');
+        $table->addColumn('title','string')
+              ->addColumn('body','string')
+              ->addColumn('created', 'datetime')
+              ->create();    
     }
 }
+

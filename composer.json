@@ -13,7 +13,8 @@
         "squizlabs/php_codesniffer": "2.*",
         "fzaninotto/faker": "^1.6",
         "robmorgan/phinx": "^0.6.5",
-        "doctrine/orm": "*"
+        "doctrine/orm": "*",
+        "illuminate/database": "^5.2"
     },
     "autoload": {
         "psr-4": {
