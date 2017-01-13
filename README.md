@@ -14,3 +14,7 @@ http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/basic
 https://www.funcion13.com/creando-un-pequeno-orm-en-php/
 
 http://redbeanphp.com/index.php
+
+http://stackoverflow.com/questions/108699/good-php-orm-library
+
+https://github.com/bcosca/fatfree
