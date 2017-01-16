@@ -12,7 +12,7 @@ class Template
     public function __set($name, $value)
     {
         if ($name == 'view_template_file') {
-            throw new Exception("Cannot bind variable named 'view_template_file'");
+            throw new Exception("No puede haber una variable llamada 'view_template_file'");
         }
         $this->vars[$name] = $value;
     }
@@ -20,7 +20,7 @@ class Template
     public function render($view_template_file)
     {
         if (array_key_exists('view_template_file', $this->vars)) {
-            throw new Exception("Cannot bind variable called 'view_template_file'");
+            throw new Exception("No puede haber una variable llamada 'view_template_file'");
         } 
         extract($this->vars);
         ob_start();

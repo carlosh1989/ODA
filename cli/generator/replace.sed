@@ -1,4 +1,4 @@
 
-s/${modulo}/cuentas/
-s/${controller}/Login/
-s/${vista}/create/
+s/${modulo}/partidas/
+s/${controller}/Principal/
+s/${vista}/index/
