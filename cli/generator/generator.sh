@@ -11,6 +11,7 @@ VISTA=$3
 METODO=$3
 
 MODELS_FOLDER="models"
+MODELO=${2^}'Model.php'
 
 x=1
 while [ $x -le 3 ]
@@ -35,6 +36,23 @@ do
 		mkdir -m 777 $APP/$MODULO/'controllers'
 		fi
 
+		#CARPETA MODELS
+		if [ -d $APP/$MODULO/$MODELS_FOLDER ];
+		then
+			#CONTROLLADOR
+			if [ -f $APP/$MODULO/$MODELS_FOLDER/$MODELO ];
+			then
+				echo "Sí, sí existe app/"$MODULO/'controllers/'$MODELO
+			else
+			echo "Creado app/"$MODULO/'models/'$MODELO
+			touch $APP/$MODULO/$MODELS_FOLDER/$MODELO
+			./cli/generator/make/makeModel.sh $MODULO $CONTROLLER $VISTA
+			fi
+		else
+		echo "Creado app/"$MODULO/'models/'
+		mkdir -m 777 $APP/$MODULO/'models'
+		fi
+
 		#CARPETA VIEWS
 		if [ -d $APP/$MODULO/$VIEWS_FOLDER ];
 		then
@@ -54,27 +72,12 @@ do
 		echo "Creado app/"$MODULO/'views/'
 		mkdir -m 777 $APP/$MODULO/'views'
 		fi
-
-		#CARPETA MODELS
-		if [ -d $APP/$MODULO/$MODELS_FOLDER ];
-		then
-			#CONTROLLADOR
-			# if [ -f app/$MODULO/$CONTROLADOR_FOLDER/$CONTROLADOR ];
-			# then
-			# 	echo "Sí, sí existe app/"$MODULO/'controllers/'$CONTROLADOR
-			# else
-			# echo "N app/"$MODULO/'controllers/'$CONTROLADOR
-			# touch app/$MODULO/$CONTROLADOR_FOLDER/$CONTROLADOR
-			# fi
-			echo "SI, si existe app/"$MODULO/'models/'
-		else
-		echo "Creado app/"$MODULO/'models/'
-		mkdir -m 777 $APP/$MODULO/'models'
-		fi
 	else
-	echo "Creado app/"$MODULO/"models/"
+	#echo "Creado app/"$MODULO/"models/"
 	mkdir -m 777 $APP/$MODULO
 	fi
   x=$(( $x + 1 ))
 done
+
+composer dump-autoload -o
 

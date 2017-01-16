@@ -14,9 +14,4 @@ class Principal extends PrincipalController
     {
 		$this->view('partidas/index');
     }
-
-    public function dos()
-    {
-    	echo "segundo metodo"; 
-    }
 }
