@@ -1,5 +1,5 @@
 <?php
-namespace App\${i}\models;
+namespace App\${modulo}\models;
 
 use System\ORM;
 

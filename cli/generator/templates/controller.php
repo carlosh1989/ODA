@@ -1,6 +1,7 @@
 <?php
 namespace App\${modulo}\controllers;
 
+use App\partidas\models\${controller}Model;
 use System\PrincipalController;
 
 class ${controller} extends PrincipalController

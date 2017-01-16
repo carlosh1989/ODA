@@ -14,7 +14,8 @@
         "fzaninotto/faker": "^1.6",
         "robmorgan/phinx": "^0.6.5",
         "doctrine/orm": "*",
-        "vlucas/phpdotenv": "^2.4"
+        "vlucas/phpdotenv": "^2.4",
+        "phpdocumentor/phpdocumentor": "^2.9"
     },
     "autoload": {
         "psr-4": {

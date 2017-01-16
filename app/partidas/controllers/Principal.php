@@ -1,6 +1,7 @@
 <?php
 namespace App\partidas\controllers;
 
+use App\partidas\models\PrincipalModel;
 use System\PrincipalController;
 
 class Principal extends PrincipalController
@@ -13,5 +14,10 @@ class Principal extends PrincipalController
     public function index()
     {
 		$this->view('partidas/index');
+    }
+
+    public function dos()
+    {
+    	echo PrincipalModel::dos();
     }
 }

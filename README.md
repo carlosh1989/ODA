@@ -22,3 +22,7 @@ https://github.com/bcosca/fatfree
 papa: 0424-5675833
 
 daniel: 0412-520-7106
+
+https://github.com/vlucas/phpdotenv
+
+https://www.phpdoc.org/docs/latest/getting-started/your-first-set-of-documentation.html
