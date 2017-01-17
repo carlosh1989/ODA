@@ -1,6 +1,9 @@
 <?php
 // Dividimos la URL.
 require_once __DIR__ . '/vendor/autoload.php';
+$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv->load();
+require('config/define/execute.php');
 //Separando la cadena de la ruta en dos partes, la ruta para el modulo/clase/metodo y los parametros.
 list($control,$parametros) = explode('?', $_SERVER['REQUEST_URI']);
 $requestURI = explode( '/', $control );

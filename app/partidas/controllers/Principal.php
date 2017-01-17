@@ -43,4 +43,9 @@ class Principal extends PrincipalController
     {
     	echo PrincipalModel::dos();
     }
+
+    public function variables()
+    {
+    	echo getenv('ENV_DB_ADAPTER_PHINX');
+    }
 }

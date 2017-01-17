@@ -23,8 +23,7 @@
             "Config\\": "config/",
             "System\\": "system/",
             "Migrations\\": "migrations/"
-        },
-        "files": [ "config/define/execute.php" ]
+        }
     },
     "config": {
             "optimize-autoloader": true
