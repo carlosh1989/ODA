@@ -26,3 +26,12 @@ daniel: 0412-520-7106
 https://github.com/vlucas/phpdotenv
 
 https://www.phpdoc.org/docs/latest/getting-started/your-first-set-of-documentation.html
+
+-----------------------------------------------------------------------------------------------------------
+Fecha: 01/18/2017
+
+Leer lo de las rutas y el ORM
+
+http://tutorialzine.com/2013/02/24-cool-php-libraries-you-should-know-about/
+
+* ACORDARSE DE HACER EL APP/PROVIDERS para la autocargas de clases. 
