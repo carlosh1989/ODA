@@ -4,16 +4,13 @@ Configuraciones Generales del Sistema
 --------------------------------------------------------------*/ 
 
 /* Url base del Sistema */
-$baseUrl = $_SERVER['ENV_BASE_URL'];
+$baseUrl = 'localhost/ODA/';
 
 /* Ruta de la Clase Default */
-$ClaseDefault = $_SERVER['ENV_CLASE_DEFAULT'];
+$ClaseDefault = 'App\login\controllers\Test';
 
 /* Metodo Default */
-$metodoDefault = $_SERVER['ENV_METODO_DEFAULT'];
-
-
-
+$metodoDefault = 'index';
 
 
 

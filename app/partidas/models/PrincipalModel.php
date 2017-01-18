@@ -1,7 +1,7 @@
 <?php
 namespace App\partidas\models;
 
-use System\ORM;
+use System\database\ORM;
 
 class PrincipalModel extends ORM
 {
