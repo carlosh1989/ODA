@@ -10,7 +10,7 @@ class Principal extends BaseController
 {
     function __construct()
     {
-        # code...
+        # code....
     }
 
     public function index()
