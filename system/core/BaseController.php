@@ -1,9 +1,9 @@
 <?php  
-namespace System;
+namespace System\core;
 
-use System\Template;
+use System\template\Template;
 
-class PrincipalController
+class BaseController
 {
     public function view($vista, $array)
     {

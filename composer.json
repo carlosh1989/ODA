@@ -15,7 +15,8 @@
         "robmorgan/phinx": "^0.6.5",
         "doctrine/orm": "*",
         "vlucas/phpdotenv": "^2.4",
-        "phpdocumentor/phpdocumentor": "^2.9"
+        "phpdocumentor/phpdocumentor": "^2.9",
+        "particle/validator": "^2.2"
     },
     "autoload": {
         "psr-4": {

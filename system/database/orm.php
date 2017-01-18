@@ -1,5 +1,5 @@
 <?php  
-namespace System;
+namespace System\database;
 
 class ORM
 {

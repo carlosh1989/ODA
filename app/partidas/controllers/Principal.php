@@ -2,29 +2,24 @@
 namespace App\partidas\controllers;
 
 use App\partidas\models\PrincipalModel;
-use System\PrincipalController;
+use Particle\Validator\Validator;
+use System\core\BaseController;
+use System\template\View;
 
-class Principal extends PrincipalController
+class Principal extends BaseController
 {
     function __construct()
     {
         # code...
     }
 
-	/**
-	* A summary informing the user what the associated element does.
-	*
-	* A *description*, that can span multiple lines, to go _in-depth_ into the details of this element
-	* and to provide some background information or textual references.
-	*
-	* @param string $myArgument With a *description* of this argument, these may also
-	*    span multiple lines.
-	*
-	* @return void
-	*/
     public function index()
     {
-		$this->view('partidas/index');
+		//$this->view('partidas/index');
+        $data['titulo'] = 'Este es un titulo';
+        $data['contenido'] = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis unde quam, possimus. Dolorum illum, ex non placeat esse nam enim autem quibusdam, adipisci, eius at quaerat, tenetur. Sapiente, aperiam. Vitae.';
+        
+        View::ver('partidas/index', $data);
     }
 
     public function dos()
@@ -35,5 +30,49 @@ class Principal extends PrincipalController
     public function variables()
     {
     	echo getenv('ENV_DB_ADAPTER_PHINX');
+    }
+
+    public function validator()
+    {
+        $v = new Validator;
+
+        $v->required('Nombre')->lengthBetween(2, 50)->alpha();
+        $v->required('Apellido')->lengthBetween(2, 50)->alpha();
+        $v->required('newsletter')->bool();
+
+        $result = $v->validate([
+            
+            'Nombre' => 'John',
+            'Apellido' => 'D',
+            'newsletter' => true,
+        ]);
+
+        $result->isValid(); // bool(false).
+        var_dump($result->getMessages()); 
+        echo "<hr>";
+        $krumo = new \Krumo;
+        $krumo->dump($result->getMessages());
+        echo "<hr>";
+        $mensaje = $result->getMessages();
+
+        foreach ($mensaje as $key => $value) {
+            foreach ($value as $key => $value) {
+                echo $value;
+            }
+        }
+        echo "<hr>";
+
+        if ($result->isValid() == True) {
+            echo "VALIDADO";
+        }
+        else
+        {
+            echo "NO ESTA VALIDADO";
+        }
+    }
+
+    public function validador()
+    {
+
     }
 }
