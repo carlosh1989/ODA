@@ -1,6 +1,7 @@
 <?php
 // Dividimos la URL.
 require_once __DIR__ . '/vendor/autoload.php';
+use System\core\BaseController, System\template\View;
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 require('config/define/execute.php');
@@ -29,7 +30,7 @@ if(baseUrl)
 		$metodo = $requestURI[3];
 
 		list($nombreControlador,$ext) = explode('.', $controlador);
-		//echo $requestURI[2];
+
 		$nombreClase = ucfirst($nombreControlador);
 
 		//colocamos la ruta completa de la clase haciendo uso de los namespace

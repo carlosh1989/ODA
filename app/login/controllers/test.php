@@ -1,9 +1,9 @@
 <?php
 namespace App\login\controllers;
 
-use System\PrincipalController;
+use System\core\BaseController;
 
-class Test extends PrincipalController
+class Test extends BaseController
 {
     public function index()
     {

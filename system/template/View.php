@@ -22,4 +22,9 @@ class View
         $view->content = $view->render('app/'.$modulo.'/views/'.$vista.'.php');
         echo $view->render('app/'.$modulo.'/views/theme/'.$modulo.'.php');
     }
+
+    public function prueba()
+    {
+        echo "asdasdad";
+    }
 }
