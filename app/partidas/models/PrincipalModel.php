@@ -10,9 +10,8 @@ class PrincipalModel extends ORM
         # code...
     }
 
-    public function dos()
+    public function testModel()
     {
-    	$string = 'Principal model';
-    	return $string;
+    	echo "test model";
     }
 }

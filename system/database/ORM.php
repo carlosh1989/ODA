@@ -8,8 +8,9 @@ class ORM
 		echo "ORM";
 	}
 
-	public function orm()
+	public function testORM()
 	{
-		echo "ORM";
+		$var = "asdasdas";
+		return $var;
 	}
 }
