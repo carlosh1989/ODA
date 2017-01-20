@@ -3,15 +3,10 @@ namespace App\partidas\models;
 
 use System\database\ORM;
 
-class PrincipalModel extends ORM
+class PrincipalModel 
 {
     function __construct()
     {
         # code...
-    }
-
-    public function testModel()
-    {
-    	echo parent::testORM();
     }
 }
