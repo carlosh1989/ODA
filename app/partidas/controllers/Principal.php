@@ -86,6 +86,11 @@ class Principal extends BaseController
 
     public function vali()
     {   
-        $this->test();
+        echo PrincipalModel::testORM();
+    }
+
+    public function vali2()
+    {
+        echo PrincipalModel::testModel2();
     }
 }

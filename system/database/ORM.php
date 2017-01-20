@@ -1,7 +1,7 @@
 <?php  
 namespace System\database;
 
-class ORM
+abstract class ORM
 {
 	public function index()
 	{
@@ -10,7 +10,13 @@ class ORM
 
 	public function testORM()
 	{
-		$var = "asdasdas";
+		$var = "test ORM";
+		return $var;
+	}
+
+	public function testORM2()
+	{
+		$var = "test ORM 2";
 		return $var;
 	}
 }

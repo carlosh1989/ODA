@@ -12,6 +12,6 @@ class PrincipalModel extends ORM
 
     public function testModel()
     {
-    	echo "test model";
+    	echo parent::testORM();
     }
 }
