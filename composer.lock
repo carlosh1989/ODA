@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2eb03b62251bfe31f2af11126bf7c54c",
-    "content-hash": "ab247dd05d535e5a2ec5eb6b6a41bc63",
+    "hash": "8f4cfc6130df3fe11a7108881c3cda5c",
+    "content-hash": "f091941177306b9c0216d25260dccbbf",
     "packages": [
         {
             "name": "cilex/cilex",
@@ -151,62 +151,6 @@
             ],
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "time": "2014-12-30 15:22:37"
-        },
-        {
-            "name": "danielstjules/stringy",
-            "version": "1.10.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/danielstjules/Stringy.git",
-                "reference": "4749c205db47ee5b32e8d1adf6d9aff8db6caf3b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/danielstjules/Stringy/zipball/4749c205db47ee5b32e8d1adf6d9aff8db6caf3b",
-                "reference": "4749c205db47ee5b32e8d1adf6d9aff8db6caf3b",
-                "shasum": ""
-            },
-            "require": {
-                "ext-mbstring": "*",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Stringy\\": "src/"
-                },
-                "files": [
-                    "src/Create.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Daniel St. Jules",
-                    "email": "danielst.jules@gmail.com",
-                    "homepage": "http://www.danielstjules.com"
-                }
-            ],
-            "description": "A string manipulation library with multibyte support",
-            "homepage": "https://github.com/danielstjules/Stringy",
-            "keywords": [
-                "UTF",
-                "helpers",
-                "manipulation",
-                "methods",
-                "multibyte",
-                "string",
-                "utf-8",
-                "utility",
-                "utils"
-            ],
-            "time": "2015-07-23 00:54:12"
         },
         {
             "name": "doctrine/annotations",
@@ -851,6 +795,51 @@
             "time": "2016-11-02 15:56:58"
         },
         {
+            "name": "fuelphp/alias",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fuelphp/alias.git",
+                "reference": "5d9f2f23796ad95d16bd96bdd25f856a9c668d18"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fuelphp/alias/zipball/5d9f2f23796ad95d16bd96bdd25f856a9c668d18",
+                "reference": "5d9f2f23796ad95d16bd96bdd25f856a9c668d18",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "codeception/codeception": "~2.0",
+                "codeception/mockery-module": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Fuel\\Alias\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "FuelPHP Development Team",
+                    "email": "team@fuelphp.com"
+                }
+            ],
+            "description": "Class alias resolving.",
+            "homepage": "https://github.com/fuelphp/alias",
+            "keywords": [
+                "Aliassing",
+                "alias"
+            ],
+            "time": "2015-01-01 15:38:31"
+        },
+        {
             "name": "fzaninotto/faker",
             "version": "v1.6.0",
             "source": {
@@ -1016,99 +1005,6 @@
             ],
             "abandoned": true,
             "time": "2013-10-30 17:23:01"
-        },
-        {
-            "name": "illuminate/contracts",
-            "version": "v5.0.33",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/contracts.git",
-                "reference": "b8b11d78724a6f8a62be3b1dfa20fa372f861398"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/b8b11d78724a6f8a62be3b1dfa20fa372f861398",
-                "reference": "b8b11d78724a6f8a62be3b1dfa20fa372f861398",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Illuminate\\Contracts\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylorotwell@gmail.com"
-                }
-            ],
-            "description": "The Illuminate Contracts package.",
-            "homepage": "http://laravel.com",
-            "time": "2015-05-15 07:22:28"
-        },
-        {
-            "name": "illuminate/support",
-            "version": "v5.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/support.git",
-                "reference": "306ceb305f5b480608d94355ac3a0a730b21a905"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/306ceb305f5b480608d94355ac3a0a730b21a905",
-                "reference": "306ceb305f5b480608d94355ac3a0a730b21a905",
-                "shasum": ""
-            },
-            "require": {
-                "danielstjules/stringy": "~1.8",
-                "doctrine/inflector": "~1.0",
-                "ext-mbstring": "*",
-                "illuminate/contracts": "5.0.*",
-                "php": ">=5.4.0"
-            },
-            "suggest": {
-                "jeremeamia/superclosure": "Required to be able to serialize closures (~2.0)."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Illuminate\\Support\\": ""
-                },
-                "files": [
-                    "helpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylorotwell@gmail.com"
-                }
-            ],
-            "description": "The Illuminate Support package.",
-            "time": "2015-02-03 22:40:35"
         },
         {
             "name": "jms/metadata",
@@ -3088,6 +2984,64 @@
                 "templating"
             ],
             "time": "2017-01-11 19:36:15"
+        },
+        {
+            "name": "typo3/class-alias-loader",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TYPO3/class-alias-loader.git",
+                "reference": "a9dd295c81ed0b51455644be420ab9210cad688f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TYPO3/class-alias-loader/zipball/a9dd295c81ed0b51455644be420ab9210cad688f",
+                "reference": "a9dd295c81ed0b51455644be420ab9210cad688f",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0",
+                "php": ">=5.3.7"
+            },
+            "replace": {
+                "helhum/class-alias-loader": "*"
+            },
+            "require-dev": {
+                "composer/composer": "dev-master",
+                "mikey179/vfsstream": "1.4.*@dev",
+                "phpunit/phpunit": "~4.7.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "TYPO3\\ClassAliasLoader\\Plugin",
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "TYPO3\\ClassAliasLoader\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Helmut Hummel",
+                    "email": "info@helhum.io"
+                }
+            ],
+            "description": "Amends the composer class loader to support class aliases to provide backwards compatibility for packages",
+            "homepage": "http://github.com/TYPO3/class-alias-loader",
+            "keywords": [
+                "alias",
+                "autoloader",
+                "classloader",
+                "composer"
+            ],
+            "time": "2015-10-06 10:25:44"
         },
         {
             "name": "vlucas/phpdotenv",

@@ -1,8 +1,11 @@
-<?php
-require_once __DIR__ . '/vendor/autoload.php';
-$aliases = require 'config/aliases.php';
-Config\facades\AliasLoader::getInstance($aliases)->register();
-var_dump($aliases);
+<?php            
+class A
+{
+}
 
+class_alias('A', 'B');
 
-View::ver('partidas/index', $data);
+$object = new B;
+
+$r = new ReflectionClass('B');
+var_dump($r->getName());

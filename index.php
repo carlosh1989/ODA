@@ -1,7 +1,7 @@
 <?php
 // Dividimos la URL.
 require_once __DIR__ . '/vendor/autoload.php';
-use System\core\BaseController, System\template\View;
+
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 require('config/define/execute.php');
