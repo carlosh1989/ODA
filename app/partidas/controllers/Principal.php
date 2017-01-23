@@ -2,15 +2,16 @@
 namespace App\partidas\controllers;
 
 use App\partidas\models\PrincipalModel;
+use Config\facades\AliasLoader;
 use Particle\Validator\Validator;
 use System\core\BaseController;
-use System\template\View;
+//use System\template\View;
+
 
 class Principal extends BaseController
 {
     function __construct()
     {
-        # code.....
     }
 
     public function index()
@@ -19,6 +20,9 @@ class Principal extends BaseController
         $data['titulo'] = 'Este es un titulo';
         $data['contenido'] = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis unde quam, possimus. Dolorum illum, ex non placeat esse nam enim autem quibusdam, adipisci, eius at quaerat, tenetur. Sapiente, aperiam. Vitae.';
         
+        $aliases = require 'config/aliases.php';
+        AliasLoader::getInstance($aliases)->register();
+        var_dump($aliases);
         View::ver('partidas/index', $data);
     }
 
