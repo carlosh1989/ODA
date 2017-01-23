@@ -6,6 +6,7 @@ use Particle\Validator\Validator;
 use Controller, View;
 class Principal extends Controller
 {
+    
     function __construct()
     {
         # code....
