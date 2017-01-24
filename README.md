@@ -37,3 +37,6 @@ http://tutorialzine.com/2013/02/24-cool-php-libraries-you-should-know-about/
 * ACORDARSE DE HACER EL APP/PROVIDERS para la autocargas de clases. 
 
 http://container.thephpleague.com/installation/
+
+******
+http://stackoverflow.com/questions/359047/detecting-request-type-in-php-get-post-put-or-delete
