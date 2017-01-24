@@ -1,11 +1,15 @@
-<?php            
-class A
-{
+<?php
+spl_autoload_register(function ($name) {
+    var_dump($name);
+});
+
+class Foo extends ITest {
 }
 
-class_alias('A', 'B');
+$cosa = new Cosa();
+/*
+string(5) "ITest"
 
-$object = new B;
-
-$r = new ReflectionClass('B');
-var_dump($r->getName());
+Fatal error: Interface 'ITest' not found in ...
+*/
+?>

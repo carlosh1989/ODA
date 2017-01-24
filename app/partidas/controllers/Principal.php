@@ -3,7 +3,8 @@ namespace App\partidas\controllers;
 
 use App\partidas\models\PrincipalModel;
 use Particle\Validator\Validator;
-use Controller, View;
+use Controller,View;
+
 class Principal extends Controller
 {
     
