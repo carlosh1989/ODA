@@ -1,4 +1,4 @@
 
-s/${modulo}/traslados/
-s/${controller}/Principal/
+s/${modulo}/partidas/
+s/${controller}/Secundario/
 s/${vista}/index/

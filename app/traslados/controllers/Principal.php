@@ -8,11 +8,17 @@ class Principal extends Controller
 {
     function __construct()
     {
-        # code...
+        // code...
     }
 
     public function index()
     {
-		View::ver('traslados/index');
+        View::ver('traslados/index');
+    }
+
+    public function store()
+    {
+    	extract($_POST);
+    	echo $var;
     }
 }

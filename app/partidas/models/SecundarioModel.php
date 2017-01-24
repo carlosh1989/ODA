@@ -1,9 +1,9 @@
 <?php
-namespace App\traslados\models;
+namespace App\partidas\models;
 
 use System\ORM;
 
-class PrincipalModel extends ORM
+class SecundarioModel extends ORM
 {
     function __construct()
     {

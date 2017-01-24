@@ -43,8 +43,33 @@ if(baseUrl)
 
 		//Si no se pasa un tercer parametro URI entonces se sobre entiende de que 
 		//el metodo a llamar es INDEX
+		$method = $_SERVER['REQUEST_METHOD'];
+		$request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
+		
 		if (!$metodo) {
-			$controller->index();
+			switch ($method) {
+			  case 'PUT':
+			    do_something_with_put($request);  
+			    break;
+			  case 'POST':
+				$controller->index(); 
+			    break;
+			  case 'GET':
+				$controller->index(); 
+			    break;
+			  case 'HEAD':
+			    do_something_with_head($request);  
+			    break;
+			  case 'DELETE':
+			    do_something_with_delete($request);  
+			    break;
+			  case 'OPTIONS':
+			    do_something_with_options($request);    
+			    break;
+			  default:
+			    handle_error($request);  
+			    break;
+			}
 		}
 		//llamamos al metodo
 		$controller->$metodo();
