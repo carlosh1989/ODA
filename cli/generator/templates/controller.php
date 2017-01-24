@@ -2,9 +2,9 @@
 namespace App\${modulo}\controllers;
 
 use App\partidas\models\${controller}Model;
-use System\PrincipalController;
+use Controller,View;
 
-class ${controller} extends PrincipalController
+class ${controller} extends Controller
 {
     function __construct()
     {
@@ -13,6 +13,6 @@ class ${controller} extends PrincipalController
 
     public function index()
     {
-		$this->view('${modulo}/${vista}');
+		View::ver('${modulo}/${vista}');
     }
 }
