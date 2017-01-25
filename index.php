@@ -117,7 +117,13 @@ if(baseUrl)
 			  case 'POST':
 				$id = $metodo;
 				$params = array($id);
-				$metodo = 'update';
+			  	if ($requestURI[4] == 'put') {
+			  		$metodo = 'update';
+			  	}
+
+			  	if ($requestURI[4] == 'delete') {
+			  		$metodo = 'destroy';
+			  	}
 			    break;
 			  default:
 			    handle_error($request);  

@@ -23,8 +23,7 @@ class Principal extends Controller
 
     public function store()
     {
-    	extract($_POST);
-    	echo $var;
+    	//Guardar datos enviados de -create-
     }
 
     public function show($id)
@@ -35,11 +34,16 @@ class Principal extends Controller
     public function edit($id)
     {
     	$data['id'] = $id;
-    	View::ver('traslados/principal/edit', $data);
+    	View::ver('traslados/principal/edit', $id);
     }
 
     public function update($id)
     {
-    	echo "update: ".$id;
+    	//Actualizar datos con el ID
+    }
+
+    public function destroy($id)
+    {
+    	echo 'Destroy: '.$id;
     }
 }
