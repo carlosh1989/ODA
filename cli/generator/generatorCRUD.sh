@@ -13,6 +13,11 @@ METODO=$3
 MODELS_FOLDER="models"
 MODELO=${2^}'Model.php'
 
+$INDEX="index"
+$CREATE="create"
+$SHOW="show"
+$EDIT="edit"
+
 x=1
 while [ $x -le 4 ]
 do
@@ -67,8 +72,15 @@ do
 					echo "Sí, sí existe app/"$MODULO/$VIEWS_FOLDER/$CONTROLLER/$VISTA
 				else
 				echo "Creado app/"$MODULO/$VIEWS_FOLDER/$CONTROLLER/$VISTA
-				touch $APP/$MODULO/$VIEWS_FOLDER/$CONTROLLER/$VISTA'.php'
-				./cli/generator/make/makeVista.sh $MODULO $CONTROLLER $VISTA
+				touch $APP/$MODULO/$VIEWS_FOLDER/$CONTROLLER/'create.php'
+				touch $APP/$MODULO/$VIEWS_FOLDER/$CONTROLLER/'edit.php'
+				touch $APP/$MODULO/$VIEWS_FOLDER/$CONTROLLER/'index.php'
+				touch $APP/$MODULO/$VIEWS_FOLDER/$CONTROLLER/'show.php'
+
+				./cli/generator/make/crud/makeCreate.sh $MODULO $CREATE 
+				./cli/generator/make/crud/makeEdit.sh $MODULO $EDIT 
+				./cli/generator/make/crud/makeIndex.sh $MODULO $INDEX 
+				./cli/generator/make/crud/makeShow.sh $MODULO $SHOW 
 				#./generator.sh $MODULO $CONTROLADOR $VISTA
 				fi
 			else

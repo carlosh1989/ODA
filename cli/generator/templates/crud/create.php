@@ -4,11 +4,11 @@
 			<div class="panel-heading">
 				<h3 class="panel-title">
 				<b class="text-info"><i class="fa fa-check" aria-hidden="true"></i>
-				ESTE ES EL SECUNDARIO
+				${vista}
 				</b></h3>
 			</div>
 			<div class="panel-body">
-				Vista <b>index</b> del mudulo <b>partidas</b>
+				Vista <b>${vista}</b> del mudulo <b>${modulo}</b>
 			</div>
 		</div>
 	</div>

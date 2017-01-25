@@ -1,9 +1,9 @@
 <?php
 namespace App\partidas\models;
 
-use System\database\ORM;
+use System\ORM;
 
-class PrincipalModel 
+class PrincipalModel extends ORM
 {
     function __construct()
     {
