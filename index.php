@@ -30,6 +30,8 @@ if(baseUrl)
 		//el metodo de ese controlador
 		$metodo = $requestURI[3];
 
+		$parametro = $requestURI[4];
+
 		list($nombreControlador,$ext) = explode('.', $controlador);
 
 		$nombreClase = ucfirst($nombreControlador);
@@ -47,17 +49,23 @@ if(baseUrl)
 		if (!$metodo) {
 			switch ($method) {
 			  case 'PUT':
+				$id = $metodo;
+				$params = array($id);
 				$metodo = 'update';
 			    break;
 			  case 'POST':
 				$metodo = 'store';
 			    break;
 			  case 'GET':
-			  	if ($requestURI[4] and $requestURI[4] == 'create') {
-			  		$metodo = 'create';
-			  	} else {
+			  	if (!$requestURI[4]) 
+			  	{
 			  		$metodo = 'index';
 			  	}
+
+			  	if ($requestURI[4] == 'create') {
+			  		//$metodo = 'create';
+			  	}
+
 				$metodo = 'index';
 			    break;
 			  case 'HEAD':
@@ -74,8 +82,53 @@ if(baseUrl)
 			    break;
 			}
 		}
+
+		if($metodo){
+			switch ($method) {
+			  case 'GET':
+			  	if($metodo=='create')
+			  	{
+			  		$metodo = $metodo;
+			  	}
+			  	else
+			  	{
+			  		$num = is_numeric($metodo);
+			  		if($num == true)
+			  		{
+			  			if($parametro and $parametro == 'edit')
+			  			{
+				  			$id = $metodo;
+				  			$params = array($id);
+				  			$metodo = 'edit';
+			  			}
+			  			else
+			  			{
+				  			$id = $metodo;
+				  			$params = array($id);
+				  			$metodo = 'show';
+			  			}
+			  		} 
+			  		else 
+			  		{
+			  			$metodo = $metodo;	
+			  		}
+			  	}
+			    break;
+			  case 'POST':
+				$id = $metodo;
+				$params = array($id);
+				$metodo = 'update';
+			    break;
+			  default:
+			    handle_error($request);  
+			    break;
+			}
+		}
+
+		//pone vacio los aprametros para los metodos que no tengan.
+		if(!$params){$params = array();}
 		//llamamos al metodo
-		call_user_func(array(__NAMESPACE__ .$cargarClase, $metodo));
+		call_user_func_array(array(__NAMESPACE__ .$cargarClase, $metodo),$params);
 	}
 	else
 	{

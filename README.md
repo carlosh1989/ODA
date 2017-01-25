@@ -40,3 +40,8 @@ http://container.thephpleague.com/installation/
 
 ******
 http://stackoverflow.com/questions/359047/detecting-request-type-in-php-get-post-put-or-delete
+
+******************
+Corregir en views y colocar de la siguiente forma 
+
+views/*nombre de controlador*/*nombre de vista*

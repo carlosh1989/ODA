@@ -16,10 +16,10 @@ class View
             }
         }
 
-        list($modulo, $vista) = explode('/', $vista);
+        list($modulo, $controlador,$vista) = explode('/', $vista);
 
         $view->baseUrl = baseUrl;
-        $view->content = $view->render('app/'.$modulo.'/views/'.$vista.'.php');
+        $view->content = $view->render('app/'.$modulo.'/views/'.$controlador.'/'.$vista.'.php');
         echo $view->render('app/'.$modulo.'/views/theme/'.$modulo.'.php');
     }
 
