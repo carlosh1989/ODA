@@ -4,8 +4,12 @@
 
 if [ $1 ] && [ $1 ]; then
 
-	if [ "generar" = $1 ]; then
+	if [ "generar:clean" = $1 ]; then
 		bash ./cli/generator/generator.sh $2 $3 $4
+	fi
+
+	if [ "generar:crud" = $1 ]; then
+		bash ./cli/generator/generatorCRUD.sh $2 $3 $4
 	fi
 
    if [ "revizar" = $1 ]; then

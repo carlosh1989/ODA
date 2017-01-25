@@ -134,22 +134,55 @@ if [ $exitstatus = 0 ]; then
 	fi
 
 	if [[ $OPTION = 3 ]]; then
-		GENERATORMODULO=$(whiptail --title "GENERATOR" --inputbox "Ingrese Modulo" 10 60 3>&1 1>&2 2>&3)
+		GENERATOR=$(whiptail --title "DEBUG" --menu "" 15 60 4 \
+		"1" "Clean" \
+		"2" "Restful CRUD" 3>&1 1>&2 2>&3) 
+
 		exitstatus=$?
 		if [ $exitstatus = 0 ]; then
-			GENERATORCONTROLADOR=$(whiptail --title "GENERATOR" --inputbox "Ingrese Controlador" 10 60 3>&1 1>&2 2>&3)
-			exitstatus=$?
-			if [ $exitstatus = 0 ]; then
-				GENERATORVISTA=$(whiptail --title "GENERATOR" --inputbox "Ingrese Vista/Metodo" 10 60 3>&1 1>&2 2>&3)
+		    if [[ $GENERATOR = 1 ]]; then
+				GENERATORMODULO=$(whiptail --title "GENERATOR" --inputbox "Ingrese Modulo" 10 60 3>&1 1>&2 2>&3)
 				exitstatus=$?
 				if [ $exitstatus = 0 ]; then
-					./cli/cli.sh generar $GENERATORMODULO $GENERATORCONTROLADOR $GENERATORVISTA
+					GENERATORCONTROLADOR=$(whiptail --title "GENERATOR" --inputbox "Ingrese Controlador" 10 60 3>&1 1>&2 2>&3)
+					exitstatus=$?
+					if [ $exitstatus = 0 ]; then
+						GENERATORVISTA=$(whiptail --title "GENERATOR" --inputbox "Ingrese Vista/Metodo" 10 60 3>&1 1>&2 2>&3)
+						exitstatus=$?
+						if [ $exitstatus = 0 ]; then
+							./cli/cli.sh generar:clean $GENERATORMODULO $GENERATORCONTROLADOR $GENERATORVISTA
+						else
+						    echo "Cerrado";
+						fi
+					else
+					    echo "Cerrado";
+					fi
 				else
 				    echo "Cerrado";
 				fi
-			else
-			    echo "Cerrado";
-			fi
+		    fi
+
+		    if [[ $GENERATOR = 2 ]]; then
+				GENERATORMODULO=$(whiptail --title "GENERATOR" --inputbox "Ingrese Modulo" 10 60 3>&1 1>&2 2>&3)
+				exitstatus=$?
+				if [ $exitstatus = 0 ]; then
+					GENERATORCONTROLADOR=$(whiptail --title "GENERATOR" --inputbox "Ingrese Controlador" 10 60 3>&1 1>&2 2>&3)
+					exitstatus=$?
+					if [ $exitstatus = 0 ]; then
+						GENERATORVISTA=$(whiptail --title "GENERATOR" --inputbox "Ingrese Vista/Metodo" 10 60 3>&1 1>&2 2>&3)
+						exitstatus=$?
+						if [ $exitstatus = 0 ]; then
+							./cli/cli.sh generar:crud $GENERATORMODULO $GENERATORCONTROLADOR $GENERATORVISTA
+						else
+						    echo "Cerrado";
+						fi
+					else
+					    echo "Cerrado";
+					fi
+				else
+				    echo "Cerrado";
+				fi
+		    fi
 		else
 		    echo "Cerrado";
 		fi
