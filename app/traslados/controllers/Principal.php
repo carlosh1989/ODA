@@ -16,6 +16,11 @@ class Principal extends Controller
         View::ver('traslados/index');
     }
 
+    public function create()
+    {
+    	echo "aqui va formulario";
+    }
+
     public function store()
     {
     	extract($_POST);

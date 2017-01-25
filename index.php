@@ -1,7 +1,6 @@
 <?php
 // Dividimos la URL.
 require_once __DIR__ . '/vendor/autoload.php';
-
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 require('config/define/execute.php');
@@ -44,27 +43,31 @@ if(baseUrl)
 		//Si no se pasa un tercer parametro URI entonces se sobre entiende de que 
 		//el metodo a llamar es INDEX
 		$method = $_SERVER['REQUEST_METHOD'];
-		$request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 		
 		if (!$metodo) {
 			switch ($method) {
 			  case 'PUT':
-			    do_something_with_put($request);  
+				$metodo = 'update';
 			    break;
 			  case 'POST':
-				$controller->index(); 
+				$metodo = 'store';
 			    break;
 			  case 'GET':
-				$controller->index(); 
+			  	if ($requestURI[4] and $requestURI[4] == 'create') {
+			  		$metodo = 'create';
+			  	} else {
+			  		$metodo = 'index';
+			  	}
+				$metodo = 'index';
 			    break;
 			  case 'HEAD':
-			    do_something_with_head($request);  
+				$metodo = 'update';
 			    break;
 			  case 'DELETE':
-			    do_something_with_delete($request);  
+				$metodo = 'delete';
 			    break;
 			  case 'OPTIONS':
-			    do_something_with_options($request);    
+				$metodo = 'optons';  
 			    break;
 			  default:
 			    handle_error($request);  
@@ -72,7 +75,7 @@ if(baseUrl)
 			}
 		}
 		//llamamos al metodo
-		$controller->$metodo();
+		call_user_func(array(__NAMESPACE__ .$cargarClase, $metodo));
 	}
 	else
 	{
