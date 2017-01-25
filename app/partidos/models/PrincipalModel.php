@@ -1,5 +1,5 @@
 <?php
-namespace App\partidas\models;
+namespace App\partidos\models;
 
 use System\ORM;
 

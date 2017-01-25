@@ -8,12 +8,7 @@
 				</b></h3>
 			</div>
 			<div class="panel-body">
-				Vista <b>index</b> del mudulo <b>traslados</b>
-				<hr>
-				<form action="<?php echo baseUrl ?>traslados/principal/<?php echo $id ?>" method="POST">
-					<input type="text" name="var">
-					<input type="submit">
-				</form>
+				Vista <b>index</b> del mudulo <b>partidos</b>
 			</div>
 		</div>
 	</div>

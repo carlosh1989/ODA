@@ -13,10 +13,10 @@ METODO=$3
 MODELS_FOLDER="models"
 MODELO=${2^}'Model.php'
 
-$INDEX="index"
-$CREATE="create"
-$SHOW="show"
-$EDIT="edit"
+INDEX="index"
+CREATE="create"
+SHOW="show"
+EDIT="edit"
 
 x=1
 while [ $x -le 4 ]
@@ -34,7 +34,7 @@ do
 			else
 			echo "Creado app/"$MODULO/'controllers/'$CONTROLADOR
 			touch $APP/$MODULO/$CONTROLADOR_FOLDER/$CONTROLADOR
-			./cli/generator/make/makeController.sh $MODULO $CONTROLLER $VISTA
+			./cli/generator/make/crud/makeController.sh $MODULO $CONTROLLER $VISTA
 			fi
 		else
 		echo "Creado existe app/"$MODULO/'controllers/'
@@ -77,10 +77,10 @@ do
 				touch $APP/$MODULO/$VIEWS_FOLDER/$CONTROLLER/'index.php'
 				touch $APP/$MODULO/$VIEWS_FOLDER/$CONTROLLER/'show.php'
 
-				./cli/generator/make/crud/makeCreate.sh $MODULO $CREATE 
-				./cli/generator/make/crud/makeEdit.sh $MODULO $EDIT 
-				./cli/generator/make/crud/makeIndex.sh $MODULO $INDEX 
-				./cli/generator/make/crud/makeShow.sh $MODULO $SHOW 
+				./cli/generator/make/crud/makeCreate.sh $MODULO $CONTROLLER $CREATE 
+				./cli/generator/make/crud/makeEdit.sh $MODULO $CONTROLLER $EDIT 
+				./cli/generator/make/crud/makeIndex.sh $MODULO $CONTROLLER $INDEX 
+				./cli/generator/make/crud/makeShow.sh $MODULO $CONTROLLER $SHOW 
 				#./generator.sh $MODULO $CONTROLADOR $VISTA
 				fi
 			else
