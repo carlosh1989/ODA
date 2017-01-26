@@ -1,5 +1,3 @@
-<div class="row">
-	<div class="col-ms-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h3 class="panel-title">
@@ -11,5 +9,3 @@
 				Vista <b>index</b> del mudulo <b>modulo</b>
 			</div>
 		</div>
-	</div>
-</div>
