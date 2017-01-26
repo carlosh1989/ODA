@@ -1,0 +1,12 @@
+<?php
+namespace App\modulo\models;
+
+use System\ORM;
+
+class PrincipalModel extends ORM
+{
+    function __construct()
+    {
+        # code...
+    }
+}

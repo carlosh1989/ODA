@@ -41,15 +41,17 @@ class Principal extends Controller
         View::ver('partidos/principal/edit',$data);
     }
 
-    // localhost/proyecto/partidos/principal/ID/put
+    // localhost/proyecto/partidos/principal/ID
     public function update($id)
     {
     	//Actualizar datos con el ID
+        echo 'Actualizado: '$id;
     }
 
     // localhost/proyecto/partidos/principal/ID/delete
     public function destroy($id)
     {
+        echo 'Eliminado: ' $id;
     	//Borrar un registro usando el ID
     }
 }
