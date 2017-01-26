@@ -45,13 +45,13 @@ class Principal extends Controller
     public function update($id)
     {
     	//Actualizar datos con el ID
-        echo 'Actualizado: '$id;
+        echo 'Actualizado: '. $id;
     }
 
     // localhost/proyecto/partidos/principal/ID/delete
     public function destroy($id)
     {
-        echo 'Eliminado: ' $id;
+        echo 'Eliminado: ' . $id;
     	//Borrar un registro usando el ID
     }
 }
