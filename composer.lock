@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8f4cfc6130df3fe11a7108881c3cda5c",
-    "content-hash": "f091941177306b9c0216d25260dccbbf",
+    "hash": "cca172c2022e10df87771e2e10cb9c1c",
+    "content-hash": "9352bf9f84a9d727403501e59e27ed30",
     "packages": [
         {
             "name": "cilex/cilex",
@@ -432,16 +432,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "v2.5.9",
+            "version": "v2.5.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "0d2f8187d4b4c7b72d8e2acba359e25c36feaf5e"
+                "reference": "fc376f7a61498e18520cd6fa083752a4ca08072b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/0d2f8187d4b4c7b72d8e2acba359e25c36feaf5e",
-                "reference": "0d2f8187d4b4c7b72d8e2acba359e25c36feaf5e",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/fc376f7a61498e18520cd6fa083752a4ca08072b",
+                "reference": "fc376f7a61498e18520cd6fa083752a4ca08072b",
                 "shasum": ""
             },
             "require": {
@@ -499,7 +499,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2017-01-19 13:27:33"
+            "time": "2017-01-23 23:17:10"
         },
         {
             "name": "doctrine/inflector",
@@ -2052,6 +2052,47 @@
                 "psr-3"
             ],
             "time": "2016-10-10 12:19:37"
+        },
+        {
+            "name": "rcastera/session",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rcastera/Session-Class.git",
+                "reference": "03716309602cc84683adb20b7e48ab4b4098af08"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rcastera/Session-Class/zipball/03716309602cc84683adb20b7e48ab4b4098af08",
+                "reference": "03716309602cc84683adb20b7e48ab4b4098af08",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "rcastera\\Browser\\Session": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Richard Castera",
+                    "email": "richard.castera@gmail.com"
+                }
+            ],
+            "description": "Session Class",
+            "homepage": "http://www.richardcastera.com",
+            "keywords": [
+                "php",
+                "session"
+            ],
+            "time": "2013-09-28 21:19:58"
         },
         {
             "name": "robmorgan/phinx",

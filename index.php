@@ -117,19 +117,33 @@ if(baseUrl)
 			  case 'POST':
 				$id = $metodo;
 				$params = array($id);
-				if (!$requestURI[4]) 
+				$num = is_numeric($metodo);
+				if (!$metodo) {
+					$metodo = 'store';
+				} 
+				else 
 				{
-					$metodo = 'update';
-				}
-				else
-				{
-					if ($requestURI[4] == 'delete') {
-			  		$metodo = 'destroy';
-			  		}	
-			  		else
-			  		{
-			  			$metodo = $metodo;
-			  		}
+					if($num == true)
+					{
+						if (!$requestURI[4]) 
+						{
+							$metodo = 'update';
+						}
+						else
+						{
+							if ($requestURI[4] == 'delete') {
+								$metodo = 'destroy';
+							}	
+							else
+							{
+								$metodo = $metodo;
+							}
+						}
+					} 
+					else 
+					{
+						$metodo = $metodo;	
+					}
 				}
 			    break;
 			  default:

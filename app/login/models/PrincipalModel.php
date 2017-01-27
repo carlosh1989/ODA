@@ -1,5 +1,5 @@
 <?php
-namespace App\traslados\models;
+namespace App\login\models;
 
 use System\ORM;
 
