@@ -11,8 +11,8 @@
         </div>
         <div class="box-body">
           <form action="<?php echo baseUrl ?>login/principal/verificar" method="POST">
-            <input type="text" name="user" placeholder="Usuario">
-            <input type="text" name="password" placeholder="Clave">
+            <input type="text" name="usuario" placeholder="Usuario">
+            <input type="text" name="clave" placeholder="Clave">
             <br><br>
             <button type="submit" class="btn btn-sm btn-success">Login</button>
           </form>
