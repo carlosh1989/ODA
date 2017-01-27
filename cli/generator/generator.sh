@@ -89,7 +89,7 @@ done
 composer dump-autoload -o
 
 if [ "index" = $3 ]; then
-	bash -c "xdg-open http://localhost/"${PWD##*/}"/"$1"/"$3"" 2> /dev/null
+	bash -c "xdg-open http://localhost/"${PWD##*/}"/"$1"/"$2"/"$3 2> /dev/null
 fi
 
 

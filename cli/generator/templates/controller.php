@@ -13,6 +13,6 @@ class ${controller} extends Controller
 
     public function index()
     {
-		View::ver('${modulo}/${vista}');
+		View::ver('${modulo}/${controllerView}/${vista}');
     }
 }
