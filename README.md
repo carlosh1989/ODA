@@ -45,3 +45,11 @@ http://stackoverflow.com/questions/359047/detecting-request-type-in-php-get-post
 Corregir en views y colocar de la siguiente forma 
 
 views/*nombre de controlador*/*nombre de vista*
+
+**************************************
+
+hacer un modulo llamado "door" el cual tendra dos controladores:
+
+Principal-> el cual se encargara de mostrar el "index" y el "login"
+Login -> tendra dos metodos "login" y "logout"
+Router-> el cual tendra un metodo llamado "check" el cual se encarga de redireccionar o bien a login si se expiro la session o a el panel que le toque

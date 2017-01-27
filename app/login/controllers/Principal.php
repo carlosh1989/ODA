@@ -56,7 +56,7 @@ class Principal extends Controller
 	        // If it has, end the session and redirect to login.
 	        if ($session->isExpired()) {
 	            $session->end();
-	            //header('location: login.php');
+	            header('location: location: http://localhost/ODA/login/principal/login');
 	            exit;
 	        } else {
 	            // Keep renewing the session as long as they keep taking action.
