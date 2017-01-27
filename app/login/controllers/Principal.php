@@ -62,6 +62,10 @@ class Principal extends Controller
 	            // Keep renewing the session as long as they keep taking action.
 	            $session->renew();
 	            echo "esta logueado";
+	            echo "<hr>";
+	            \krumo::dump($session->getSession());
+	            $user = (object) $session->get('current_user');
+	            echo $user->role;	
 	        }
 	    } else {
 	        header('location: http://localhost/ODA/login/principal/login');
