@@ -98,8 +98,10 @@ do
   x=$(( $x + 1 ))
 done
 
+#volvemos a crear el road map para autocargar los nuevos controladores
 composer dump-autoload -o
 
+#comando para abrir la vista recien creada en el explorador
 bash -c "xdg-open http://localhost/"${PWD##*/}"/"$1"/"$2"" 2> /dev/null
 
 

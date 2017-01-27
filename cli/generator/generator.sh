@@ -86,8 +86,12 @@ do
   x=$(( $x + 1 ))
 done
 
+#volvemos a crear el road map para autocargar los nuevos controladores
 composer dump-autoload -o
 
+#comando para abrir la vista recien creada en el explorador pero solo si es la vista index para no 
+#sobre poblaar el explorador con pestañas y porque no se ha logrado insertar public function() en el
+#controlador de forma dinamica hasta entonces esto quedara asi para la creacion de vistas individuales.
 if [ "index" = $3 ]; then
 	bash -c "xdg-open http://localhost/"${PWD##*/}"/"$1"/"$2"/"$3 2> /dev/null
 fi
