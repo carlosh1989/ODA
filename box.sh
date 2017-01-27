@@ -169,13 +169,7 @@ if [ $exitstatus = 0 ]; then
 					GENERATORCONTROLADOR=$(whiptail --title "GENERATOR" --inputbox "Ingrese Controlador" 10 60 3>&1 1>&2 2>&3)
 					exitstatus=$?
 					if [ $exitstatus = 0 ]; then
-						GENERATORVISTA=$(whiptail --title "GENERATOR" --inputbox "Ingrese Vista/Metodo" 10 60 3>&1 1>&2 2>&3)
-						exitstatus=$?
-						if [ $exitstatus = 0 ]; then
-							./cli/cli.sh generar:crud $GENERATORMODULO $GENERATORCONTROLADOR $GENERATORVISTA
-						else
-						    echo "Cerrado";
-						fi
+						./cli/cli.sh generar:crud $GENERATORMODULO $GENERATORCONTROLADOR
 					else
 					    echo "Cerrado";
 					fi

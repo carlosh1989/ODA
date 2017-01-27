@@ -1,4 +1,4 @@
 
-s/${modulo}/ventas/
+s/${modulo}/modulo/
 s/${controller}/Principal/
-s/${vista}/show/
+s/${vista}/index/

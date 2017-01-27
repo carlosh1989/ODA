@@ -7,8 +7,8 @@ CONTROLADOR=${2^}'.php'
 
 VIEWS_FOLDER="views"
 THEME_FOLDER="views/theme"
-VISTA=$3
-METODO=$3
+VISTA=''
+METODO=''
 
 MODELS_FOLDER="models"
 MODELO=${2^}'Model.php'
@@ -100,13 +100,6 @@ done
 
 composer dump-autoload -o
 
-if [ "index" = $3 ]; then
-	#!/bin/bash
-	python -mwebbrowser http://localhost/${PWD##*/}/$1/$2/$3
-	# Consigue el PID
-	PID=$!
-	# espera 1 segundo
-	sleep 1	
-	# mata el proceso
-	kill $PID
-fi
+bash -c "xdg-open http://localhost/"${PWD##*/}"/"$1"/"$2"" 2> /dev/null
+
+

@@ -9,7 +9,7 @@ if [ $1 ] && [ $1 ]; then
 	fi
 
 	if [ "generar:crud" = $1 ]; then
-		bash ./cli/generator/generatorCRUD.sh $2 $3 $4
+		bash ./cli/generator/generatorCRUD.sh $2 $3
 	fi
 
    if [ "revizar" = $1 ]; then

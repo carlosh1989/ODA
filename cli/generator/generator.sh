@@ -89,14 +89,7 @@ done
 composer dump-autoload -o
 
 if [ "index" = $3 ]; then
-	#!/bin/bash
-	python -mwebbrowser http://localhost/${PWD##*/}/$1/$2/$3
-	# Consigue el PID
-	PID=$!
-	# espera 1 segundo
-	sleep 1	
-	# mata el proceso
-	kill $PID
+	bash -c "xdg-open http://localhost/"${PWD##*/}"/"$1"/"$3"" 2> /dev/null
 fi
 
 
