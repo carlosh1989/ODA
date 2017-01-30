@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/carlosh1989/ODA/badge.svg?branch=master)](https://coveralls.io/github/carlosh1989/ODA?branch=master)
+
 # FRAMEWORK ODA
 > Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi placeat praesentium recusandae delectus sint, nesciunt. Iure laboriosam error ea dolorem dignissimos labore? Molestias blanditiis labore, autem suscipit dicta earum, voluptates.
 

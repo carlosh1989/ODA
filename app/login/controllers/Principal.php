@@ -23,9 +23,10 @@ class Principal extends Controller
 
     public function verificar()
     {
+		$password = password_hash('test', PASSWORD_DEFAULT);
     	$errors = array();
 	    if (! empty($_POST)) {
-	        if ($_POST['usuario'] == 'test' && $_POST['clave'] == 'test') {
+	        if ($_POST['usuario'] == 'test' && password_verify($_POST['clave'], $password)) {
 	            $session = new Session();
 
 	            // You can define what you like to be stored.
@@ -79,5 +80,19 @@ class Principal extends Controller
 	    $session->end();
 	    header('location: http://localhost/ODA/login/principal/test');
 	    exit;
+    }
+
+    public function bycript()
+    {
+    	echo "asdasds";
+// Ver el ejemplo de password_hash() para ver de dónde viene este hash.
+//$hash = '$2y$07$BCryptRequires22Chrcte/VlQH0piJtjXl.0t1XkA8pw9dMXTpOq';
+$password = password_hash('rasmuslerdorf', PASSWORD_DEFAULT);
+$hash = $password;
+if (password_verify('rasmuslerdorf', $hash)) {
+    echo '¡La contraseña es válida!';
+} else {
+    echo 'La contraseña no es válida.';
+}
     }
 }
