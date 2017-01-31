@@ -7,7 +7,7 @@
             "name": "carlos silva",
             "email": "elmorochez22@gmail.com"
         }
-    ],
+    ],  
     "require": {
         "mmucklo/krumo": "^0.5.7",
         "squizlabs/php_codesniffer": "2.*",
@@ -20,7 +20,8 @@
         "league/container": "^2.2",
         "fuelphp/alias": "^2.0",
         "typo3/class-alias-loader": "^1.0",
-        "rcastera/session": "v1.0.0"
+        "rcastera/session": "v1.0.0",
+        "atoum/atoum": "^2.8"
     },
     "autoload": {
         "psr-4": {
