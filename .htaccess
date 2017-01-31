@@ -1,7 +1,7 @@
 RewriteEngine On
 
 #Checks to see if the user is attempting to access a valid file,
-#such as an image or css document, if this isn't true it sends thee
+#such as an image or css document, if this isn't true it sends theee
 #request to index.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
