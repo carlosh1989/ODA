@@ -1,7 +1,7 @@
 #!/bin/bash
 # -*- ENCODING: UTF-8 -*-
 #proyecto=@@nombre_proyecto@@
-
+#./vendor/bin/phpdoc -d app -t doc
 if [ $1 ] && [ $1 ]; then
 
 	if [ "generar:clean" = $1 ]; then
@@ -10,6 +10,10 @@ if [ $1 ] && [ $1 ]; then
 
 	if [ "generar:crud" = $1 ]; then
 		bash ./cli/generator/generatorCRUD.sh $2 $3
+	fi
+
+	if [ "documentar" = $1 ]; then
+		./vendor/bin/phpdoc -d app -t doc
 	fi
 
    if [ "revizar" = $1 ]; then

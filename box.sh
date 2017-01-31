@@ -2,7 +2,8 @@
 OPTION=$(whiptail --title "HERRAMIENTAS" --menu "" 15 60 4 \
 "1" "DATABASE" \
 "2" "DEBUG" \
-"3" "GENERATOR" 3>&1 1>&2 2>&3)
+"3" "GENERATOR" \
+"4" "DOCS" 3>&1 1>&2 2>&3)
 
 exitstatus=$?
 if [ $exitstatus = 0 ]; then
@@ -180,6 +181,10 @@ if [ $exitstatus = 0 ]; then
 		else
 		    echo "Cerrado";
 		fi
+	fi
+
+	if [[ $OPTION = 4 ]]; then
+		./cli/cli.sh documentar
 	fi
 else
     echo "Cerrado";
