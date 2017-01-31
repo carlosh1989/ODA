@@ -1,5 +1,3 @@
-[![Coverage Status](https://coveralls.io/repos/github/carlosh1989/ODA/badge.svg?branch=master)](https://coveralls.io/github/carlosh1989/ODA?branch=master)
-
 [![Build Status](https://travis-ci.org/carlosh1989/ODA.svg?branch=master)](https://travis-ci.org/carlosh1989/ODA)
 
 # FRAMEWORK ODA
