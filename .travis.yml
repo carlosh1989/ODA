@@ -4,4 +4,4 @@ php:
 - 5.5
 script: 
 - sudo ./cli/config/install.sh
-- box
+- sudo ./box.sh
