@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "325e41ed6fa6278d5e325011421e2225",
-    "content-hash": "9352bf9f84a9d727403501e59e27ed30",
+    "hash": "b3cdf9d37844ff77dabde5b6cb202146",
+    "content-hash": "1baad2a87eba33db9b88fcdec840ab63",
     "packages": [
         {
             "name": "cilex/cilex",
@@ -3133,6 +3133,46 @@
                 "environment"
             ],
             "time": "2016-09-01 10:05:43"
+        },
+        {
+            "name": "volnix/csrf",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/volnix/csrf.git",
+                "reference": "73743e18c22e680dfb6b34d0f7e8a649b4fc9532"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/volnix/csrf/zipball/73743e18c22e680dfb6b34d0f7e8a649b4fc9532",
+                "reference": "73743e18c22e680dfb6b34d0f7e8a649b4fc9532",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">= 5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Volnix\\CSRF\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nick Volgas",
+                    "email": "nvolgas@ark.org"
+                }
+            ],
+            "description": "CSRF protection library that compares provided token to session token to ensure request validity.",
+            "homepage": "https://github.com/volnix/csrf",
+            "time": "2015-11-24 15:32:52"
         },
         {
             "name": "zendframework/zend-cache",

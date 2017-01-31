@@ -3,6 +3,7 @@ namespace App\login\controllers;
 
 use App\partidas\models\PrincipalModel;
 use Controller,View;
+use Volnix\CSRF\CSRF;
 use rcastera\Browser\Session\Session;
 
 class Principal extends Controller
@@ -99,5 +100,17 @@ class Principal extends Controller
 		} else {
 		    echo 'La contraseña no es válida.';
 		}
+    }
+
+    public function csrf()
+    {
+		// generic POST data
+		if (CSRF::validate(\Volnix\CSRF\CSRF::TOKEN_NAME) ) {
+		    echo 'buen token';
+		} else {
+		    echo 'mal token';
+		}
+
+		\krumo::dump($_POST);
     }
 }
