@@ -3,7 +3,7 @@ namespace App\login\controllers;
 
 use App\partidas\models\PrincipalModel;
 use Controller,View;
-use Volnix\CSRF\CSRF;
+use System\tools\security\csrf;
 use rcastera\Browser\Session\Session;
 
 class Principal extends Controller
@@ -19,7 +19,18 @@ class Principal extends Controller
     }
     public function login()
     {
-    	View::ver('login/principal/login');
+		session_start();
+		 
+		$csrf = new csrf();
+		 
+		 
+		// Genera un identificador y lo valida
+		$data['token_id'] = $csrf->get_token_id();
+		$data['token_value'] = $csrf->get_token($token_id);
+		 
+		// Genera nombres aleatorios para el formulario
+		$data['form_names'] = $csrf->form_names(array('user', 'password'), false);
+    	View::ver('login/principal/login', $data);
     }
 
     public function verificar()
@@ -104,13 +115,44 @@ class Principal extends Controller
 
     public function csrf()
     {
-		// generic POST data
-		if (CSRF::validate(\Volnix\CSRF\CSRF::TOKEN_NAME) ) {
-		    echo 'buen token';
-		} else {
-		    echo 'mal token';
-		}
-
+		session_start();
+		$csrf = new csrf();
 		\krumo::dump($_POST);
+		echo "<hr>";
+		extract($_POST);
+		$nombres = csrf::form_names(array('user', 'password'), false);
+		\krumo::dump($nombres);
+		$user = $nombres['user'];
+		$password = $nombres['password'];
+		echo "<hr>";
+		echo $_POST[$user];
+		echo "<hr>";
+		echo csrf::form('user');
+
+		if(csrf::form('user') || csrf::form('password')) {
+		//if(isset($_POST[$form_names['user']], $_POST[$form_names['password']])) {
+		        // Revisa si el identificador y su valor son válidos.
+/*
+		        if($csrf->check_post()) {
+		                // Get the Form Variables.
+		                $user = $_POST[$form_names['user']];
+		                $password = $_POST[$form_names['password']];
+		 
+		                // La función Form va aquí
+		                echo "<hr>";
+		                echo "paso el chequeo";
+		        }*/
+
+		        // Regenera un valor aleatorio nuevo para el formulario.
+		        //$form_names = $csrf->form_names(array('user', 'password'), true);
+		        //csrf::check_post('post');
+//asdasdas
+		        if (csrf::check_post('post')) {
+		        	echo 'VERDADERO';
+		        } else {
+		        	echo 'FALSO';
+		        }
+		        
+		}	
     }
 }

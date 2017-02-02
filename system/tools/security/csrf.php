@@ -3,6 +3,10 @@ namespace System\tools\security;
 
 class csrf {
 
+    public function __construct()
+    {
+        		session_start();
+    }
 	public function get_token_id() {
 	        if(isset($_SESSION['token_id'])) { 
 	                return $_SESSION['token_id'];
@@ -37,6 +41,43 @@ class csrf {
 	        }
 	}
 
+	public function check_post($method)
+	{
+		if ($method == 'post') 
+		{
+	        if(isset($_SESSION['token_id'])) { 
+	                $token_id = $_SESSION['token_id'];
+	     
+	        } else {
+	                $token_id = $this->random(10);
+	                $_SESSION['token_id'] = $token_id;
+
+	        }
+
+	        if(isset($_SESSION['token_value'])) {
+	                $token = $_SESSION['token_value']; 
+	
+	        } else {
+	                $token = hash('sha256', $this->random(500));
+	                $_SESSION['token_value'] = $token;
+	        }
+
+			if(isset($_POST[$token_id]) && ($_POST[$token_id] == $token)) 
+			{
+				//echo 'TRUE';
+				return TRUE;
+			} 
+			else 
+			{
+				//echo 'FALSE';
+				return FALSE;  
+			}
+		}
+
+
+	}
+
+
 	public function form_names($names, $regenerate) {
 	 
 	        $values = array();
@@ -49,6 +90,28 @@ class csrf {
 	                $values[$n] = $s;       
 	        }
 	        return $values;
+	}
+
+	public function form_name($n, $regenerate=false) {
+		if($regenerate == true) 
+		{
+			unset($_SESSION[$n]);
+		}
+
+		$s = isset($_SESSION[$n]) ? $_SESSION[$n] : $this->random(10);
+		$_SESSION[$n] = $s;
+		return $s;
+	}
+
+	public function form($n, $regenerate=false) {
+		if($regenerate == true) 
+		{
+			unset($_SESSION[$n]);
+		}
+
+		$s = isset($_SESSION[$n]) ? $_SESSION[$n] : $this->random(10);
+		$_SESSION[$n] = $s;
+		return $_POST[$s];
 	}
 	
 	private function random($len) {
