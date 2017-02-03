@@ -41,7 +41,7 @@ class csrf {
 	        }
 	}
 
-	public function check_post($method)
+	public function check($method)
 	{
 		if ($method == 'post') 
 		{

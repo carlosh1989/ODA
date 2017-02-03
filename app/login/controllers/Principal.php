@@ -147,7 +147,7 @@ class Principal extends Controller
 		        //$form_names = $csrf->form_names(array('user', 'password'), true);
 		        //csrf::check_post('post');
 //asdasdas
-		        if (csrf::check_post('post')) {
+		        if (csrf::check('post')) {
 		        	echo 'VERDADERO';
 		        } else {
 		        	echo 'FALSO';
