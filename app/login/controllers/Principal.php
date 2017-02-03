@@ -18,18 +18,12 @@ class Principal extends Controller
 		View::ver('login/principal/index');
     }
     public function login()
-    {
-		session_start();
-		 
-		$csrf = new csrf();
-		 
-		 
+    { 
 		// Genera un identificador y lo valida
-		$data['token_id'] = $csrf->get_token_id();
-		$data['token_value'] = $csrf->get_token($token_id);
-		 
+		$data['token_id'] = csrf::get_token_id();
+		$nombres = ['user','password'];
 		// Genera nombres aleatorios para el formulario
-		$data['form_names'] = $csrf->form_names(array('user', 'password'), false);
+		$data['form_names'] = csrf::form_names($nombres, false);
     	View::ver('login/principal/login', $data);
     }
 
@@ -115,13 +109,18 @@ class Principal extends Controller
 
     public function csrf()
     {
-		if(csrf::form('user') || csrf::form('password')) {
-		        if (csrf::check('post')) {
-		        	echo 'VERDADERO';
-		        } else {
-		        	echo 'FALSO';
-		        }
-		        
+		if (csrf::check('post')) {
+		echo 'VERDADERO';
+		echo '<hr>';
+		echo csrf::form('user');
+		echo '<hr>';
+		echo csrf::form('password');
+		echo '<hr>';
+		echo $_POST[csrf::get_token_id()];
+		echo '<hr>';
+		echo csrf::get_token();
+		} else {
+		echo 'FALSO';
 		}	
     }
 }

@@ -76,8 +76,7 @@ class csrf {
 
 
 	}
-
-
+	
 	public function form_names($names, $regenerate) {
 	 
 	        $values = array();
@@ -114,7 +113,7 @@ class csrf {
 		return $_POST[$s];
 	}
 	
-	private function random($len) {
+	public function random($len) {
 	        if (@is_readable('/dev/urandom')) {
 	                $f=fopen('/dev/urandom', 'r');
 	                $urandom=fread($f, $len);
