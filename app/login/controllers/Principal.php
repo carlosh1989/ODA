@@ -115,38 +115,7 @@ class Principal extends Controller
 
     public function csrf()
     {
-		session_start();
-		$csrf = new csrf();
-		\krumo::dump($_POST);
-		echo "<hr>";
-		extract($_POST);
-		$nombres = csrf::form_names(array('user', 'password'), false);
-		\krumo::dump($nombres);
-		$user = $nombres['user'];
-		$password = $nombres['password'];
-		echo "<hr>";
-		echo $_POST[$user];
-		echo "<hr>";
-		echo csrf::form('user');
-
 		if(csrf::form('user') || csrf::form('password')) {
-		//if(isset($_POST[$form_names['user']], $_POST[$form_names['password']])) {
-		        // Revisa si el identificador y su valor son válidos.
-/*
-		        if($csrf->check_post()) {
-		                // Get the Form Variables.
-		                $user = $_POST[$form_names['user']];
-		                $password = $_POST[$form_names['password']];
-		 
-		                // La función Form va aquí
-		                echo "<hr>";
-		                echo "paso el chequeo";
-		        }*/
-
-		        // Regenera un valor aleatorio nuevo para el formulario.
-		        //$form_names = $csrf->form_names(array('user', 'password'), true);
-		        //csrf::check_post('post');
-//asdasdas
 		        if (csrf::check('post')) {
 		        	echo 'VERDADERO';
 		        } else {

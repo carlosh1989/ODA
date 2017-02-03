@@ -5,7 +5,7 @@ class csrf {
 
     public function __construct()
     {
-        		session_start();
+        	
     }
 	public function get_token_id() {
 	        if(isset($_SESSION['token_id'])) { 
