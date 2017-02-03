@@ -13,16 +13,11 @@
         "squizlabs/php_codesniffer": "2.*",
         "fzaninotto/faker": "^1.6",
         "robmorgan/phinx": "^0.6.5",
-        "doctrine/orm": "*",
         "vlucas/phpdotenv": "^2.4",
         "phpdocumentor/phpdocumentor": "^2.9",
         "particle/validator": "^2.2",
-        "league/container": "^2.2",
-        "fuelphp/alias": "^2.0",
         "typo3/class-alias-loader": "^1.0",
-        "rcastera/session": "v1.0.0",
-        "volnix/csrf": "~1.0",
-        "satooshi/php-coveralls": "^1.0"
+        "rcastera/session": "v1.0.0"
     },
     "autoload": {
         "psr-4": {
