@@ -21,7 +21,8 @@
         "fuelphp/alias": "^2.0",
         "typo3/class-alias-loader": "^1.0",
         "rcastera/session": "v1.0.0",
-        "volnix/csrf": "~1.0"
+        "volnix/csrf": "~1.0",
+        "satooshi/php-coveralls": "^1.0"
     },
     "autoload": {
         "psr-4": {
