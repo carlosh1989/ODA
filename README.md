@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/carlosh1989/ODA.svg?branch=master)](https://travis-ci.org/carlosh1989/ODA) ![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg)
+[![Build Status](https://travis-ci.org/carlosh1989/ODA.svg?branch=master)](https://travis-ci.org/carlosh1989/ODA) ![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg) [![ghit.me](https://ghit.me/badge.svg?repo=carlosh1989/ODA)](https://ghit.me/repo/carlosh1989/ODA)
+
 
 # FRAMEWORK ODA
 > Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi placeat praesentium recusandae delectus sint, nesciunt. Iure laboriosam error ea dolorem dignissimos labore? Molestias blanditiis labore, autem suscipit dicta earum, voluptates.
