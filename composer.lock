@@ -4,9 +4,53 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "133a7a03fe64284b899ed18ae51143b6",
-    "content-hash": "542aec27af492a225b566d1cf93308bb",
+    "hash": "42f47bd15cc1b5e8bb3f5e2db6bbb257",
+    "content-hash": "495c41b9bac82fbf06730330ea117b9f",
     "packages": [
+        {
+            "name": "bephp/activerecord",
+            "version": "v2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bephp/activerecord.git",
+                "reference": "a827ad80fc16678eca186cfc7be968c1dad7307d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bephp/activerecord/zipball/a827ad80fc16678eca186cfc7be968c1dad7307d",
+                "reference": "a827ad80fc16678eca186cfc7be968c1dad7307d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpdocumentor/phpdocumentor": "^2.8",
+                "phpunit/phpunit": "*",
+                "satooshi/php-coveralls": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "ActiveRecord.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "micro activerecord library in PHP(only 400 lines with comments), support chain calls and relations(HAS_ONE, HAS_MANY, BELONGS_TO).",
+            "homepage": "http://lloydzhou.github.io/activerecord/",
+            "keywords": [
+                "activerecord",
+                "database",
+                "micro",
+                "orm",
+                "pdo",
+                "relation"
+            ],
+            "time": "2016-10-22 08:58:47"
+        },
         {
             "name": "cilex/cilex",
             "version": "1.1.0",
@@ -596,6 +640,130 @@
             ],
             "abandoned": true,
             "time": "2013-10-30 17:23:01"
+        },
+        {
+            "name": "j4mie/idiorm",
+            "version": "v1.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/j4mie/idiorm.git",
+                "reference": "00b5fcd6e615a8572577eae401f80e41525efd5e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/j4mie/idiorm/zipball/00b5fcd6e615a8572577eae401f80e41525efd5e",
+                "reference": "00b5fcd6e615a8572577eae401f80e41525efd5e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.6"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "idiorm.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause",
+                "BSD-3-Clause",
+                "BSD-4-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Simon Holywell",
+                    "email": "treffynnon@php.net",
+                    "homepage": "http://simonholywell.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Jamie Matthews",
+                    "email": "jamie.matthews@gmail.com",
+                    "homepage": "http://j4mie.org",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Durham Hale",
+                    "email": "me@durhamhale.com",
+                    "homepage": "http://durhamhale.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "A lightweight nearly-zero-configuration object-relational mapper and fluent query builder for PHP5",
+            "homepage": "http://j4mie.github.com/idiormandparis",
+            "keywords": [
+                "idiorm",
+                "orm",
+                "query builder"
+            ],
+            "time": "2016-12-14 06:28:26"
+        },
+        {
+            "name": "j4mie/paris",
+            "version": "v1.5.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/j4mie/paris.git",
+                "reference": "2b085d94b015155a66269db557b294916214c0cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/j4mie/paris/zipball/2b085d94b015155a66269db557b294916214c0cb",
+                "reference": "2b085d94b015155a66269db557b294916214c0cb",
+                "shasum": ""
+            },
+            "require": {
+                "j4mie/idiorm": "1.5.*",
+                "php": ">=5.2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.6"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "paris.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause",
+                "BSD-3-Clause",
+                "BSD-4-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Simon Holywell",
+                    "email": "treffynnon@php.net",
+                    "homepage": "http://simonholywell.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Jamie Matthews",
+                    "email": "jamie.matthews@gmail.com",
+                    "homepage": "http://j4mie.org",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Durham Hale",
+                    "email": "me@durhamhale.com",
+                    "homepage": "http://durhamhale.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "A lightweight Active Record implementation for PHP5, built on top of Idiorm",
+            "homepage": "http://j4mie.github.com/idiormandparis",
+            "keywords": [
+                "Active Record",
+                "model",
+                "orm",
+                "paris"
+            ],
+            "time": "2016-12-14 07:14:31"
         },
         {
             "name": "jms/metadata",

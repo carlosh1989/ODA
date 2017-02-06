@@ -3,6 +3,8 @@ namespace App\login\controllers;
 
 use App\partidas\models\PrincipalModel;
 use Controller,View,Token,Session;
+use System\database\ORM;
+use \ArrayAccess;
 
 class Principal extends Controller
 {
@@ -109,5 +111,10 @@ class Principal extends Controller
 		echo $_POST[Token::id()];
 		echo '<hr>';
 		echo Token::id();
+    }
+
+    public function orm()
+    {
+    	ORM::test();
     }
 }

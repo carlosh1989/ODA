@@ -4,6 +4,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 require('config/define/execute.php');
+
 //Manejador de errores
 if (isset($_SERVER['ENV_ENVIRONMENT']) AND $_SERVER['ENV_ENVIRONMENT'] == 'local') {
 	$whoops = new \Whoops\Run;

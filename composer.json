@@ -1,7 +1,14 @@
 {
-    "name": "kennymartorres/oda",
+    "name": "carlosh1989/ODA",
     "description": "framework de la ODA",
+    "version": "1.0.0",
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/carlosh1989/ODA"
+        }
+    ],
     "authors": [
         {
             "name": "carlos silva",
@@ -18,7 +25,8 @@
         "particle/validator": "^2.2",
         "typo3/class-alias-loader": "^1.0",
         "rcastera/session": "v1.0.0",
-        "filp/whoops": "^2.1"
+        "filp/whoops": "^2.1",
+        "bephp/activerecord": "^2.1"
     },
     "autoload": {
         "psr-4": {
