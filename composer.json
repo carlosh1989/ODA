@@ -1,7 +1,7 @@
 {
     "name": "carlosh1989/oda",
     "description": "framework de la ODA",
-    "version": "1.0.0",
+    "version": "v1.0.1",
     "license": "MIT",
     "repositories": [
         {
