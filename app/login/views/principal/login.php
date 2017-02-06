@@ -19,17 +19,15 @@
           <hr>
 
         </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-          Footer
-        </div>
-        <!-- /.box-footer-->
+
 </div>
 
  
 <form action="<?php echo baseUrl ?>login/principal/csrf" method="POST">  
-  <input type="hidden" name="<?= $token_id; ?>" value="<?= $token_value; ?>" />
-  <input type="text" name="<?= $form_names['user']; ?>" /><br/>
-  <input type="text" name="<?= $form_names['password']; ?>" />
+  <?php Token::field() ?>
+  <input type="text" name="user" /><br/>
+  <input type="text" name="password" />
+  <br>
   <input type="submit" value="Login"/>
+
 </form>

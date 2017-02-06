@@ -38,3 +38,6 @@ define('DB_USER', $user);
 define('DB_PASSWORD', $password);
 define('DB_PORT', $port);
 
+//COMANDOS ESPECIALES HTML
+define('TOKEN_FIELD', '<input type="hidden" name="<?= Token::id() ?>" value="<?= Token::get() ?>" />');
+

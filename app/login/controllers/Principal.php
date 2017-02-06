@@ -2,9 +2,7 @@
 namespace App\login\controllers;
 
 use App\partidas\models\PrincipalModel;
-use Controller,View;
-use System\tools\security\csrf;
-use rcastera\Browser\Session\Session;
+use Controller,View,Token,Session;
 
 class Principal extends Controller
 {
@@ -20,10 +18,8 @@ class Principal extends Controller
     public function login()
     { 
 		// Genera un identificador y lo valida
-		$data['token_id'] = csrf::get_token_id();
-		$nombres = ['user','password'];
-		// Genera nombres aleatorios para el formulario
-		$data['form_names'] = csrf::form_names($nombres, false);
+		//$data['token_id'] = Token::id();
+		//$data['token_value'] = Token::get();
     	View::ver('login/principal/login', $data);
     }
 
@@ -109,16 +105,13 @@ class Principal extends Controller
 
     public function csrf()
     {
-		if (csrf::check('post')) {
+		if (Token::check('post')) {
 		echo 'VERDADERO';
 		echo '<hr>';
-		echo csrf::form('user');
 		echo '<hr>';
-		echo csrf::form('password');
+		echo $_POST[Token::id()];
 		echo '<hr>';
-		echo $_POST[csrf::get_token_id()];
-		echo '<hr>';
-		echo csrf::get_token();
+		echo Token::id();
 		} else {
 		echo 'FALSO';
 		}	
