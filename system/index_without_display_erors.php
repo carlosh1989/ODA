@@ -4,24 +4,10 @@ require_once __DIR__ . '/vendor/autoload.php';
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 require('config/define/execute.php');
-//Manejador de errores
-$whoops = new \Whoops\Run;
-$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
-$whoops->register();
-
 session_start();
-	
-$stringUrl = $_SERVER['REQUEST_URI'];
-$findme   = '?';
-$pos = strpos($stringUrl, $findme);
-if ($pos === false) {
-	$control = $stringUrl;
-} else {
-	list($control,$parametros) = explode('?', $_SERVER['REQUEST_URI']);
-}
 
 //Separando la cadena de la ruta en dos partes, la ruta para el modulo/clase/metodo y los parametros.
-
+list($control,$parametros) = explode('?', $_SERVER['REQUEST_URI']);
 $requestURI = explode( '/', $control );
 // Eliminamos los espacios del principio y final
 // y recalculamos los índices del vector.
@@ -44,10 +30,9 @@ if(baseUrl)
 		//el metodo de ese controlador
 		$metodo = $requestURI[3];
 
-		//$parametro = $requestURI[4];
+		$parametro = $requestURI[4];
 
-		$nombreControlador = $controlador;
-		//list($nombreControlador,$ext) = explode('.', $controlador);
+		list($nombreControlador,$ext) = explode('.', $controlador);
 
 		$nombreClase = ucfirst($nombreControlador);
 
@@ -168,26 +153,9 @@ if(baseUrl)
 		}
 
 		//pone vacio los aprametros para los metodos que no tengan.
-		if(!isset($params)){$params = array();}
+		if(!$params){$params = array();}
 		//llamamos al metodo
-
-		if($method == 'POST')
-		{
-			if (!Token::check('post')) {
-			    ob_start();
-			    include('resources/systemMessages/TokenInvalid.php');
-			    echo ob_get_clean();
-			}
-			else
-			{
-				call_user_func_array(array(__NAMESPACE__ .$cargarClase, $metodo),$params);
-			}
-		}
-		else
-		{
-			call_user_func_array(array(__NAMESPACE__ .$cargarClase, $metodo),$params);
-		}
-		
+		call_user_func_array(array(__NAMESPACE__ .$cargarClase, $metodo),$params);
 	}
 	else
 	{
@@ -218,5 +186,3 @@ else
     include('resources/systemMessages/baseUrl.php');
     echo ob_get_clean();
 }
-
-

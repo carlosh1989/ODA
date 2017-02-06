@@ -17,7 +17,8 @@
         "phpdocumentor/phpdocumentor": "^2.9",
         "particle/validator": "^2.2",
         "typo3/class-alias-loader": "^1.0",
-        "rcastera/session": "v1.0.0"
+        "rcastera/session": "v1.0.0",
+        "filp/whoops": "^2.1"
     },
     "autoload": {
         "psr-4": {

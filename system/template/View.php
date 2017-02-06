@@ -5,7 +5,7 @@ use System\template\Template;
 
 class View
 {
-    public function ver($vista, $array)
+    public function ver($vista, $array=Null)
     {
         $view = new Template();
         if ($array) {

@@ -12,7 +12,6 @@ class Token {
     {
     	$token_id = self::id();
 		$token = self::get();
-
 		$var = '<input type="hidden" name="'.$token_id.'" value="'.$token.'" />';
 		echo $var;
     }

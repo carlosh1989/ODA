@@ -15,12 +15,10 @@ class Principal extends Controller
     {
 		View::ver('login/principal/index');
     }
+    
     public function login()
     { 
-		// Genera un identificador y lo valida
-		//$data['token_id'] = Token::id();
-		//$data['token_value'] = Token::get();
-    	View::ver('login/principal/login', $data);
+    	View::ver('login/principal/login');
     }
 
     public function verificar()
@@ -105,15 +103,11 @@ class Principal extends Controller
 
     public function csrf()
     {
-		if (Token::check('post')) {
 		echo 'VERDADERO';
 		echo '<hr>';
 		echo '<hr>';
 		echo $_POST[Token::id()];
 		echo '<hr>';
 		echo Token::id();
-		} else {
-		echo 'FALSO';
-		}	
     }
 }
