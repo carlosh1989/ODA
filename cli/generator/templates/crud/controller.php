@@ -11,45 +11,47 @@ class ${controller} extends Controller
         // code...
     }
 
-    // localhost/proyecto/${modulo}/${controllerView}
+    // localhost/proyecto/modulo/principal
     public function index()
     {
         View::ver('${modulo}/${controllerView}/index');
     }
 
-    // localhost/proyecto/${modulo}/${controllerView}/create
+    // localhost/proyecto/modulo/principal/create
     public function create()
     {
         View::ver('${modulo}/${controllerView}/create');
     }
 
-    // localhost/proyecto/${modulo}/${controllerView}/
+    // localhost/proyecto/modulo/principal/
     public function store()
     {
-    	//Guardar datos enviados de -create-
+        //Guardar datos enviados de -create-
     }
 
-    // localhost/proyecto/${modulo}/${controllerView}/ID
+    // localhost/proyecto/modulo/principal/ID
     public function show($id)
     {
-        View::ver('${modulo}/${controllerView}/show',$data);
+        $data['id'] = $id;
+        View::ver('${modulo}/${controllerView}/show', $data);
     }
 
-    // localhost/proyecto/${modulo}/${controllerView}/ID/edit
+    // localhost/proyecto/modulo/principal/ID/edit
     public function edit($id)
     {
-        View::ver('${modulo}/${controllerView}/edit',$data);
+        $data['id'] = $id;
+        View::ver('${modulo}/${controllerView}/edit' , $data);
     }
 
-    // localhost/proyecto/${modulo}/${controllerView}/ID/put
+    // localhost/proyecto/modulo/principal/ID/put
     public function update($id)
     {
-    	//Actualizar datos con el ID
+        //Actualizar datos con el ID
     }
 
-    // localhost/proyecto/${modulo}/${controllerView}/ID/delete
+    // localhost/proyecto/modulo/principal/ID/delete
     public function destroy($id)
     {
-    	//Borrar un registro usando el ID
+        //Borrar un registro usando el ID
     }
 }

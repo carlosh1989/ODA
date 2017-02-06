@@ -11,6 +11,8 @@
         </div>
         <div class="box-body">
           Vista <b>show</b> del mudulo <b>${modulo}</b>
+          <hr>
+          ID: <b><?php echo $id ?></b>
         </div>
         <!-- /.box-body -->
         <div class="box-footer">

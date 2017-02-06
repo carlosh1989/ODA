@@ -10,7 +10,7 @@
           </div>
         </div>
         <div class="box-body">
-          Vista <b>show</b> del mudulo <b>modulo</b>
+          Vista <b>show</b> del mudulo <b>modular</b>
           <hr>
           ID: <b><?php echo $id ?></b>
         </div>

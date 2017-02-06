@@ -1,5 +1,5 @@
 <?php
-namespace App\modulo\controllers;
+namespace App\modular\controllers;
 
 use App\partidas\models\PrincipalModel;
 use Controller,View,Token,Session;
@@ -14,44 +14,44 @@ class Principal extends Controller
     // localhost/proyecto/modulo/principal
     public function index()
     {
-        View::ver('modulo/principal/index');
+        View::ver('modular/principal/index');
     }
 
     // localhost/proyecto/modulo/principal/create
     public function create()
     {
-        View::ver('modulo/principal/create');
+        View::ver('modular/principal/create');
     }
 
     // localhost/proyecto/modulo/principal/
     public function store()
     {
-    	//Guardar datos enviados de -create-
+        //Guardar datos enviados de -create-
     }
 
     // localhost/proyecto/modulo/principal/ID
     public function show($id)
     {
         $data['id'] = $id;
-        View::ver('modulo/principal/show',$data);
+        View::ver('modular/principal/show', $data);
     }
 
     // localhost/proyecto/modulo/principal/ID/edit
     public function edit($id)
     {
         $data['id'] = $id;
-        View::ver('modulo/principal/edit',$data);
+        View::ver('modular/principal/edit' , $data);
     }
 
     // localhost/proyecto/modulo/principal/ID/put
     public function update($id)
     {
-    	//Actualizar datos con el ID
+        //Actualizar datos con el ID
     }
 
     // localhost/proyecto/modulo/principal/ID/delete
     public function destroy($id)
     {
-    	//Borrar un registro usando el ID
+        //Borrar un registro usando el ID
     }
 }

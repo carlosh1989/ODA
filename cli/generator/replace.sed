@@ -1,4 +1,4 @@
 
-s/${modulo}/login/
+s/${modulo}/modular/
 s/${controller}/Principal/
-s/${vista}/login/
+s/${vista}/show/

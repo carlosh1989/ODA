@@ -12,7 +12,7 @@ class View
             foreach ($array as $name => $value) {
                 //$this->vars[$name] = $value;
                 $view->$name = $value;
-                echo $view->title;
+                //echo $view->title;
             }
         }
 

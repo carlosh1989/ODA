@@ -5,9 +5,11 @@ $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 require('config/define/execute.php');
 //Manejador de errores
-$whoops = new \Whoops\Run;
-$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
-$whoops->register();
+if (isset($_SERVER['ENV_ENVIRONMENT']) AND $_SERVER['ENV_ENVIRONMENT'] == 'local') {
+	$whoops = new \Whoops\Run;
+	$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+	$whoops->register();
+}
 
 session_start();
 	
@@ -33,7 +35,7 @@ if(baseUrl)
 {
 	//Verificando si la ruta MODULO -> CONTROLADOR -> METODO
 	//esta completa.
-	if($requestURI[1] and $requestURI[2])
+	if(isset($requestURI[1]) and isset($requestURI[2]))
 	{
 		//Modulo de hmvc
 		$modulo = $requestURI[1];
@@ -42,9 +44,23 @@ if(baseUrl)
 		$controlador = $requestURI[2];
 
 		//el metodo de ese controlador
-		$metodo = $requestURI[3];
+		if (isset($requestURI[3])) 
+		{
+			$metodo = $requestURI[3];
+		}
+		else 
+		{
+			$metodo = '';
+		}
+		
 
-		//$parametro = $requestURI[4];
+		if (isset($requestURI[4])) {
+			$parametro = $requestURI[4];
+		} else {
+			$parametro = '';
+		}
+		
+	
 
 		$nombreControlador = $controlador;
 		//list($nombreControlador,$ext) = explode('.', $controlador);
@@ -72,15 +88,16 @@ if(baseUrl)
 				$metodo = 'store';
 			    break;
 			  case 'GET':
-			  	if (!$requestURI[4]) 
+			  	if (!isset($requestURI[4])) 
 			  	{
 			  		$metodo = 'index';
 			  	}
-
-			  	if ($requestURI[4] == 'create') {
+			  	else
+			  	{
+			  		if ($requestURI[4] == 'create') {
 			  		//$metodo = 'create';
+			  		}
 			  	}
-
 				$metodo = 'index';
 			    break;
 			  case 'HEAD':
