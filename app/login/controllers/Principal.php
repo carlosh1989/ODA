@@ -121,6 +121,30 @@ class Principal extends Controller
     	]);
 
     	echo "guardado";
+    	echo '<hr>';
+    	$usuarios = User::all();
+    	foreach ($usuarios as $usu) 
+    	{
+    		echo $usu->email;
+    		echo '<hr>';
+    	}
+
+    	$usuario = User::find(25);
+
+    	$usuario->email = 'moro@gmail.com';
+    	$usuario->save();
+    	echo 'Actualizado';
+    	$usuario = User::find(25);
+    	echo '<hr>';
+    	echo $usuario->email;
+    	echo '<hr>';
+    	echo 'Entidad Relación';
+    	echo '<hr>';
+    	foreach ($usuario->tasks as $task) 
+    	{
+    		echo $task->title;
+    		echo '<hr>';
+    	}
     }
 
     public function orm2()
