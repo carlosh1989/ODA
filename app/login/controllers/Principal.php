@@ -3,8 +3,9 @@ namespace App\login\controllers;
 
 use App\partidas\models\PrincipalModel;
 use Controller,View,Token,Session;
+use DB\Database;
 use System\database\ORM;
-use \ArrayAccess;
+
 
 class Principal extends Controller
 {
@@ -115,6 +116,7 @@ class Principal extends Controller
 
     public function orm()
     {
-    	ORM::test();
+    	new Database();
+    	echo "asasdas";
     }
 }

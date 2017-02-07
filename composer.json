@@ -26,14 +26,15 @@
         "typo3/class-alias-loader": "^1.0",
         "rcastera/session": "v1.0.0",
         "filp/whoops": "^2.1",
-        "bephp/activerecord": "^2.1"
+        "illuminate/database": "5.1.8"
     },
     "autoload": {
         "psr-4": {
             "App\\": "app/",
             "Config\\": "config/",
             "System\\": "system/",
-            "Migrations\\": "migrations/"
+            "Migrations\\": "migrations/",
+            "DB\\": "db/"
         }
     },
     "config": {
