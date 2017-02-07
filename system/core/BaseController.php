@@ -2,12 +2,13 @@
 namespace System\core;
 
 use System\template\View;
+use Eloquent;
 
 class BaseController
 {
     function __construct()
     {
-        # code....
+		new Eloquent();
     }
 
 	public function test()

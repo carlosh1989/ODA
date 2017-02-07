@@ -2,17 +2,14 @@
 namespace App\login\controllers;
 
 use App\User;
-use App\partidas\models\PrincipalModel;
+use App\login\models\PrincipalModel;
 use Controller,View,Token,Session;
-use DB\Database;
-use System\database\ORM;
-
 
 class Principal extends Controller
 {
     function __construct()
     {
-        # code...
+        parent::__construct();
     }
 
     public function index()
@@ -117,8 +114,6 @@ class Principal extends Controller
 
     public function orm()
     {
-    	new Database();
-
     	$user = User::create([
     		'username'=>'carlos silva',
     		'email'=>'elmorochez22@gmail.com',
@@ -126,5 +121,10 @@ class Principal extends Controller
     	]);
 
     	echo "guardado";
+    }
+
+    public function orm2()
+    {
+    	PrincipalModel::test();
     }
 }

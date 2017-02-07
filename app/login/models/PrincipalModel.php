@@ -1,12 +1,15 @@
 <?php
 namespace App\login\models;
 
-use System\ORM;
-
-class PrincipalModel extends ORM
+class PrincipalModel
 {
     function __construct()
     {
         # code...
+    }
+
+    public function test()
+    {
+    	echo "test orm login";
     }
 }

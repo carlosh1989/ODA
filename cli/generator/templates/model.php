@@ -1,9 +1,7 @@
 <?php
 namespace App\${modulo}\models;
 
-use System\ORM;
-
-class ${controller}Model extends ORM
+class ${controller}Model 
 {
     function __construct()
     {

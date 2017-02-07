@@ -1,7 +1,7 @@
 <?php
 namespace App\${modulo}\controllers;
 
-use App\partidas\models\${controller}Model;
+use App\${modulo}\models\${controller}Model;
 use Controller,View,Token,Session;
 
 class ${controller} extends Controller
