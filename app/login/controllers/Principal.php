@@ -1,6 +1,7 @@
 <?php
 namespace App\login\controllers;
 
+use App\User;
 use App\partidas\models\PrincipalModel;
 use Controller,View,Token,Session;
 use DB\Database;
@@ -117,6 +118,13 @@ class Principal extends Controller
     public function orm()
     {
     	new Database();
-    	echo "asasdas";
+
+    	$user = User::create([
+    		'username'=>'carlos silva',
+    		'email'=>'elmorochez22@gmail.com',
+    		'password'=>'asdas556a1d1as65d1as56d1as516d'
+    	]);
+
+    	echo "guardado";
     }
 }
