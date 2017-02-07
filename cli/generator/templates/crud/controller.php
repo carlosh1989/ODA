@@ -8,7 +8,7 @@ class ${controller} extends Controller
 {
     function __construct()
     {
-        // code...
+        parent::__construct();
     }
 
     // localhost/proyecto/modulo/principal
