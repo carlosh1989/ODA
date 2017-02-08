@@ -121,7 +121,7 @@ class Principal extends Controller
     	]);
 
     	echo "guardado";
-    	echo '<hr>';
+    	echo '<pre>';
     	$usuarios = User::all();
     	foreach ($usuarios as $usu) 
     	{

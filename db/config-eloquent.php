@@ -7,11 +7,11 @@ class Database {
 	    function __construct() {
 	    $capsule = new Capsule;
 	    $capsule->addConnection([
-	     'driver' => 'mysql',
-	     'host' => 'localhost',
-	     'database' => 'frame',
-	     'username' => 'root',
-	     'password' => 'Adm15.',
+	     'driver' => $_SERVER['ENV_DB_ADAPTER'],
+	     'host' => $_SERVER['ENV_DB_HOST'],
+	     'database' => $_SERVER['ENV_DB_DATABASE'],
+	     'username' => $_SERVER['ENV_DB_USERNAME'],
+	     'password' => $_SERVER['ENV_DB_PASSWORD'],
 	     'charset' => 'utf8',
 	     'collation' => 'utf8_unicode_ci',
 	     'prefix' => '',
@@ -20,3 +20,4 @@ class Database {
 	    $capsule->bootEloquent();
 	}
 }
+
