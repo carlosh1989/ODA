@@ -13,7 +13,3 @@
 ##INSTALACIÓN
 > Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde necessitatibus quidem quis velit et tempore, voluptas adipisci! Porro, odio alias dignissimos architecto numquam praesentium inventore laudantium necessitatibus voluptatem, perspiciatis voluptate.
 
-
-###POR LEER
-
-https://code.tutsplus.com/tutorials/using-illuminate-database-with-eloquent-in-your-php-app-without-laravel--cms-27247
