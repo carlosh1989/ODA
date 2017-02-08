@@ -1,17 +1,7 @@
 #!/bin/bash      
 APP="./app"
-MODULO=$1
-CONTROLADOR_FOLDER="controllers"
-CONTROLLER=$2
-CONTROLADOR=${2^}'.php'
-
-VIEWS_FOLDER="views"
-THEME_FOLDER="views/theme"
-VISTA=$3
-METODO=$3
-
-MODELS_FOLDER="models"
-MODELO=${2^}'Model.php'
+MODEL=${1^}
+TABLA=$2
 
 x=1
 while [ $x -le 4 ]
@@ -22,7 +12,7 @@ do
 	else
 	echo "Creado app/"$MODEL
 	touch $APP/$MODEL'.php'
-	./cli/generator/make/makeModelGlobal.sh $NOMBRE $TABLA
+	./cli/generator/make/makeModelGlobal.sh $MODEL $TABLA
 	fi
   x=$(( $x + 1 ))
 done

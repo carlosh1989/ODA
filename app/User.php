@@ -9,6 +9,6 @@ class User extends Model {
 
     public function tasks()
     {
-        return $this->hasMany(Task::class);
+        return $this->hasMany(Task::class,'usuario_id');
     }
 }

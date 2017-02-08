@@ -1,7 +1,7 @@
 <?php
 namespace App\login\controllers;
 
-use App\User;
+use App\Usuario;
 use App\login\models\PrincipalModel;
 use Controller,View,Token,Session;
 
@@ -114,7 +114,7 @@ class Principal extends Controller
 
     public function orm()
     {
-    	$user = User::create([
+    	$user = Usuario::create([
     		'username'=>'carlos silva',
     		'email'=>'elmorochez22@gmail.com',
     		'password'=>'asdas556a1d1as65d1as56d1as516d'
@@ -122,27 +122,27 @@ class Principal extends Controller
 
     	echo "guardado";
     	echo '<pre>';
-    	$usuarios = User::all();
+    	$usuarios = Usuario::all();
     	foreach ($usuarios as $usu) 
     	{
     		echo $usu->email;
     		echo '<hr>';
     	}
 
-    	$usuario = User::find(25);
+    	$usuario = Usuario::find(1);
 
     	$usuario->email = 'moro@gmail.com';
     	$usuario->save();
     	echo 'Actualizado';
-    	$usuario = User::find(25);
+    	$usuario = Usuario::find(1);
     	echo '<hr>';
     	echo $usuario->email;
     	echo '<hr>';
     	echo 'Entidad Relación';
     	echo '<hr>';
-    	foreach ($usuario->tasks as $task) 
+    	foreach ($usuario->tareas as $tarea) 
     	{
-    		echo $task->title;
+    		echo $tarea->titulo;
     		echo '<hr>';
     	}
     }

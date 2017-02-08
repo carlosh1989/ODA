@@ -1,6 +1,6 @@
 #!/bin/bash
 printf '
-s/${nombre}/'${1^}'/
-s/${tabla}/'$3'/' > ./cli/generator/replaceModelGlobal.sed
+s/${model}/'${1^}'/
+s/${tabla}/'$2'/' > ./cli/generator/replaceModelGlobal.sed
 
-sed -f ./cli/generator/replaceModelGlobal.sed ./cli/generator/templates/model.php > ./app/$1/models/${2^}Model.php
+sed -f ./cli/generator/replaceModelGlobal.sed ./cli/generator/templates/modelGlobal.php > ./app/$1.php

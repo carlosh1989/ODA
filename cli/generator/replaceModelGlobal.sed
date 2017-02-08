@@ -1,3 +1,3 @@
 
-s/${nombre}/nombre/
-s/${tabla}/tabla/
+s/${model}/Tarea/
+s/${tabla}/tareas/

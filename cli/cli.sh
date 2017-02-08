@@ -4,6 +4,10 @@
 #./vendor/bin/phpdoc -d app -t doc
 if [ $1 ] && [ $1 ]; then
 
+	if [ "generar:model" = $1 ]; then
+		bash ./cli/generator/generatorModelGlobal.sh $2 $3
+	fi
+
 	if [ "generar:clean" = $1 ]; then
 		bash ./cli/generator/generator.sh $2 $3 $4
 	fi
