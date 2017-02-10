@@ -2,7 +2,7 @@
 namespace App\${modulo}\controllers;
 
 use App\${modulo}\models\${controller}Model;
-use Controller,View,Token,Session;
+use Controller,View,Token,Session,Arreglo;
 
 class ${controller} extends Controller
 {

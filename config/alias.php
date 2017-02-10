@@ -6,4 +6,5 @@ return array(
     'Token'			=> \System\tools\security\Token::class,
     'Session'		=> \rcastera\Browser\Session\Session::class,
     'Eloquent'		=> \DB\Database::class,
+    'Arreglo'		=> \System\tools\render\Arreglo::class,
 );

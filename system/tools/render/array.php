@@ -1,0 +1,32 @@
+<?php
+namespace System\tools\render;
+
+use Strana\Paginator;
+
+class Arreglo {
+
+    public function __construct()
+    {
+        	
+    }
+
+    public static function reduce($data)
+    {
+		return	array_reduce((array) $data, 'array_merge', array());
+    }
+
+    public static function ver($data)
+    {
+		return	\Krumo::dump($data);
+    }
+
+    public static function paginator($data)
+    {
+		return (new Paginator)->perPage(1)->make(Arreglo::reduce($data));
+    }
+
+    public function infiniteScroll($data)
+    {
+        return (new Paginator)->infiniteScroll()->perPage(10)->make(Arreglo::reduce($data));
+    }
+}

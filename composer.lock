@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "babfec3e6908002ff15bdba123f7e072",
-    "content-hash": "12b36a40a998835131f68e0bb3d20371",
+    "hash": "d36e89c185aa18e7cbafa7e273340ce1",
+    "content-hash": "18affeae200ea9451df02116233a06db",
     "packages": [
         {
             "name": "cilex/cilex",
@@ -3034,6 +3034,55 @@
             "time": "2015-10-06 10:25:44"
         },
         {
+            "name": "usmanhalalit/strana",
+            "version": "1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/usmanhalalit/strana.git",
+                "reference": "3e5e7aaa79e67d08539ba9c3cbb3d3d6e572c66e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/usmanhalalit/strana/zipball/3e5e7aaa79e67d08539ba9c3cbb3d3d6e572c66e",
+                "reference": "3e5e7aaa79e67d08539ba9c3cbb3d3d6e572c66e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "doctrine/dbal": "2.3.4",
+                "illuminate/database": "4.1.*@dev",
+                "phpunit/phpunit": "3.7.*",
+                "usmanhalalit/pixie": "1.*@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Strana": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Muhammad Usman",
+                    "email": "hi@usman.it",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Pagination library for PHP, framework agnostic, with built-in adapters for Doctrine, Eloquent, Pixie and PHP Array.",
+            "homepage": "https://github.com/usmanhalalit/strana",
+            "keywords": [
+                "page",
+                "pagination",
+                "paginator"
+            ],
+            "time": "2013-11-13 18:38:22"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v2.4.0",
             "source": {
@@ -3783,7 +3832,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "usmanhalalit/strana": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

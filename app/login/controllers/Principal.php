@@ -1,9 +1,10 @@
 <?php
 namespace App\login\controllers;
 
+use App\Tarea;
 use App\Usuario;
 use App\login\models\PrincipalModel;
-use Controller,View,Token,Session;
+use Controller,View,Token,Session,Arreglo;
 
 class Principal extends Controller
 {
@@ -114,11 +115,11 @@ class Principal extends Controller
 
     public function orm()
     {
-    	$user = Usuario::create([
+/*    	$user = Usuario::create([
     		'username'=>'carlos silva',
     		'email'=>'elmorochez22@gmail.com',
     		'password'=>'asdas556a1d1as65d1as56d1as516d'
-    	]);
+    	]);*/
 
     	echo "guardado";
     	echo '<pre>';
@@ -145,10 +146,29 @@ class Principal extends Controller
     		echo $tarea->titulo;
     		echo '<hr>';
     	}
+
+    	$tareas = Tarea::all();
+
+
+		foreach (Arreglo::paginator($tareas,1) as $item) {
+		    echo $item->titulo . '<br>';
+		}
+
+		echo Arreglo::paginator($tareas);
+		echo '<hr>';
+		Arreglo::ver($tareas,1);
     }
 
     public function orm2()
     {
     	PrincipalModel::test();
     }
+
+    public function paginacion()
+    {
+    	$data['tareas'] = Tarea::all();
+    	View::ver('login/principal/paginacion', $data);
+
+    }
+
 }
