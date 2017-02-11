@@ -4,7 +4,7 @@ MODEL=${1^}
 TABLA=$2
 
 x=1
-while [ $x -le 4 ]
+while [ $x -le 1 ]
 do
 	if [ -f $APP/$MODEL ];
 	then

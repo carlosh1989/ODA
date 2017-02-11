@@ -137,7 +137,8 @@ if [ $exitstatus = 0 ]; then
 	if [[ $OPTION = 3 ]]; then
 		GENERATOR=$(whiptail --title "DEBUG" --menu "" 15 60 4 \
 		"1" "Clean" \
-		"2" "Restful CRUD" 3>&1 1>&2 2>&3) 
+		"2" "Restful CRUD" \
+		"3" "Model" 3>&1 1>&2 2>&3) 
 
 		exitstatus=$?
 		if [ $exitstatus = 0 ]; then
@@ -171,6 +172,22 @@ if [ $exitstatus = 0 ]; then
 					exitstatus=$?
 					if [ $exitstatus = 0 ]; then
 						./cli/cli.sh generar:crud $GENERATORMODULO $GENERATORCONTROLADOR
+					else
+					    echo "Cerrado";
+					fi
+				else
+				    echo "Cerrado";
+				fi
+		    fi
+		    
+		    if [[ $GENERATOR = 3 ]]; then
+				GENERATORSINGULAR=$(whiptail --title "GENERATOR" --inputbox "Ingrese Singular (Nombre de modelo)" 10 60 3>&1 1>&2 2>&3)
+				exitstatus=$?
+				if [ $exitstatus = 0 ]; then
+					GENERATORPLURAL=$(whiptail --title "GENERATOR" --inputbox "Ingrese Plural (Nombre de tabla)" 10 60 3>&1 1>&2 2>&3)
+					exitstatus=$?
+					if [ $exitstatus = 0 ]; then
+						./cli/cli.sh generar:model $GENERATORSINGULAR $GENERATORPLURAL
 					else
 					    echo "Cerrado";
 					fi

@@ -2,7 +2,7 @@
 
 use Phinx\Migration\AbstractMigration;
 
-class Septima extends AbstractMigration
+class Usuarios extends AbstractMigration
 {
     /**
      * Change Method.
@@ -27,6 +27,12 @@ class Septima extends AbstractMigration
      */
     public function change()
     {
-
+        $users = $this->table('usuarios');
+        $users->addColumn('nombre', 'string', array('limit' => 50))
+              ->addColumn('password', 'string', array('limit' => 50))
+              ->addColumn('email', 'string', array('limit' => 100))
+              ->addColumn('created_at', 'datetime')
+              ->addColumn('updated_at', 'datetime', array('null' => true))
+              ->save();
     }
 }

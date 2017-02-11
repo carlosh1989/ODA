@@ -2,7 +2,7 @@
 
 use Phinx\Migration\AbstractMigration;
 
-class Cuarta extends AbstractMigration
+class Tareas extends AbstractMigration
 {
     /**
      * Change Method.
@@ -27,6 +27,13 @@ class Cuarta extends AbstractMigration
      */
     public function change()
     {
-
+        $tareas = $this->table('tareas');
+        $tareas->addColumn('usuario_id', 'integer')
+              ->addColumn('titulo', 'string', array('limit' => 40))
+              ->addColumn('body', 'text')
+              ->addColumn('created_at', 'datetime')
+              ->addColumn('updated_at', 'datetime', array('null' => true))
+              ->addForeignKey('usuario_id', 'usuarios', 'id')
+              ->save();
     }
 }

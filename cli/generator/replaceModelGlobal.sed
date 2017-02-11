@@ -1,3 +1,3 @@
 
-s/${model}/Tarea/
-s/${tabla}/tareas/
+s/${model}/Aula/
+s/${tabla}/aulas/
