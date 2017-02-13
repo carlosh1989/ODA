@@ -14,3 +14,5 @@
 ##INSTALACIÓN
 > Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde necessitatibus quidem quis velit et tempore, voluptas adipisci! Porro, odio alias dignissimos architecto numquam praesentium inventore laudantium necessitatibus voluptatem, perspiciatis voluptate.
 
+https://bosnadev.com/2015/03/07/using-repository-pattern-in-laravel-5/
+
