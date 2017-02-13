@@ -4,7 +4,7 @@ namespace App\login\controllers;
 use App\Tarea;
 use App\Usuario;
 use App\login\models\PrincipalModel;
-use Controller,View,Token,Session,Arreglo;
+use Controller,View,Token,Session,Arreglo,Message;
 
 class Principal extends Controller
 {
@@ -167,8 +167,13 @@ class Principal extends Controller
     public function paginacion()
     {
     	$data['tareas'] = Tarea::all();
-    	View::ver('login/principal/paginacion', $data);
+    	View::show('paginacion', $data);
+		View::ver('login/principal/paginacion', $data);
 
     }
-
+    public function flash()
+    {
+		Message::add('success','titulo','Mensaje de la alerta..!');
+		View::ver('login/principal/flash');
+    }
 }

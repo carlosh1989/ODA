@@ -7,4 +7,5 @@ return array(
     'Session'		=> \rcastera\Browser\Session\Session::class,
     'Eloquent'		=> \DB\Database::class,
     'Arreglo'		=> \System\tools\render\Arreglo::class,
+    'Message'		=> \System\tools\session\Message::class,
 );

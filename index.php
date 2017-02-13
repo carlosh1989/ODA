@@ -4,7 +4,6 @@ require_once __DIR__ . '/vendor/autoload.php';
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 require('config/define/execute.php');
-
 //Manejador de errores
 if (isset($_SERVER['ENV_ENVIRONMENT']) AND $_SERVER['ENV_ENVIRONMENT'] == 'local') {
 	$whoops = new \Whoops\Run;
@@ -13,7 +12,7 @@ if (isset($_SERVER['ENV_ENVIRONMENT']) AND $_SERVER['ENV_ENVIRONMENT'] == 'local
 }
 
 session_start();
-	
+
 $stringUrl = $_SERVER['REQUEST_URI'];
 $findme   = '?';
 $pos = strpos($stringUrl, $findme);
@@ -60,9 +59,10 @@ if(baseUrl)
 		} else {
 			$parametro = '';
 		}
+		//DEFINIENDO RUTA DE VISTA
+		define('URI_MODULO', $modulo);	
+		define('URI_CONTROLADOR', $controlador);	
 		
-	
-
 		$nombreControlador = $controlador;
 		//list($nombreControlador,$ext) = explode('.', $controlador);
 

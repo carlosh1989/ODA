@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d36e89c185aa18e7cbafa7e273340ce1",
-    "content-hash": "18affeae200ea9451df02116233a06db",
+    "hash": "ecec02e14b449dfbdd6e56602d55aa7b",
+    "content-hash": "87d6679059d5a1280dc46eca60ebb8c5",
     "packages": [
         {
             "name": "cilex/cilex",
@@ -2001,6 +2001,45 @@
                 "psr-3"
             ],
             "time": "2016-10-10 12:19:37"
+        },
+        {
+            "name": "railto/flash-messages",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/railto/flash-messages.git",
+                "reference": "78dbd2aad98eff6d509e1a7f3be1fc75df6d1f9d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/railto/flash-messages/zipball/78dbd2aad98eff6d509e1a7f3be1fc75df6d1f9d",
+                "reference": "78dbd2aad98eff6d509e1a7f3be1fc75df6d1f9d",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/flash_messages.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Railton",
+                    "email": "marksrailton@gmail.com",
+                    "homepage": "http://railto.io"
+                }
+            ],
+            "description": "Simple flash messages for PHP using bootstrap 3 alerts",
+            "keywords": [
+                "flash",
+                "flash messages",
+                "messages"
+            ],
+            "time": "2014-09-25 21:24:33"
         },
         {
             "name": "rcastera/session",

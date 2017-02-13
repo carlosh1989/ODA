@@ -31,6 +31,10 @@
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="<?php echo baseUrl ?>assets/bower/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
+  <link rel="stylesheet" href="<?php echo baseUrl ?>assets/bower/sweetalert2/dist/sweetalert2.min.css">
+
+  <script src="<?php echo baseUrl ?>assets/bower/sweetalert2/dist/sweetalert2.min.js"></script>
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -383,7 +387,11 @@
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
-<!-- ./wrapper -->
+<!-- MENSAJES FLASH SWEET ALERT 2 -->
+<?php if (Message::hasMessages()): ?>
+  <?php echo Message::show() ?>  
+<?php endif ?>
+
 
 <!-- jQuery 2.2.3 -->
 <script src="<?php echo baseUrl ?>assets/bower/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js"></script>
@@ -422,5 +430,11 @@
 <script src="<?php echo baseUrl ?>assets/bower/AdminLTE/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo baseUrl ?>assets/bower/AdminLTE/dist/js/demo.js"></script>
+
+
+
+<script>
+  
+</script>
 </body>
 </html>
