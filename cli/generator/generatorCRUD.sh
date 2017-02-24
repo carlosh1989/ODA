@@ -10,8 +10,8 @@ THEME_FOLDER="views/theme"
 VISTA=''
 METODO=''
 
-MODELS_FOLDER="models"
-MODELO=${2^}'Model.php'
+MODELS_FOLDER="repositories"
+MODELO=${2^}'Repository.php'
 
 INDEX="index"
 CREATE="create"
@@ -49,13 +49,13 @@ do
 			then
 				echo "Sí, sí existe app/"$MODULO/'controllers/'$MODELO
 			else
-			echo "Creado app/"$MODULO/'models/'$MODELO
+			echo "Creado app/"$MODULO/$MODELS_FOLDER/$MODELO
 			touch $APP/$MODULO/$MODELS_FOLDER/$MODELO
 			./cli/generator/make/makeModel.sh $MODULO $CONTROLLER $VISTA
 			fi
 		else
-		echo "Creado app/"$MODULO/'models/'
-		mkdir -m 777 $APP/$MODULO/'models'
+		echo "Creado app/"$MODULO/$MODELS_FOLDER
+		mkdir -m 777 $APP/$MODULO/$MODELS_FOLDER
 		fi
 
 		#CARPETA VIEWS/

@@ -13,7 +13,7 @@
           Vista <b>paginacion</b> del mudulo <b>login</b>
           <hr>
           <ul>
-          <?php foreach (Arreglo::paginator($tareas) as $tarea): ?>
+          <?php foreach (Arr::paginator($tareas) as $tarea): ?>
               <li>
                 <h1><?php echo $tarea->titulo ?></h1> 
                 <p><?php echo $tarea->body ?></p>
@@ -22,14 +22,14 @@
           </ul>
           <hr>
           <div class="container">
-            <?php foreach (Arreglo::infiniteScroll($tareas) as $tarea): ?>
+            <?php foreach (Arr::infiniteScroll($tareas) as $tarea): ?>
               <div class="item">
                 <h1><?php echo $tarea->titulo ?></h1> 
                 <p><?php echo $tarea->body ?></p>
               </div>
             <?php endforeach ?>
             <br><br>
-            <?php echo Arreglo::infiniteScroll($tareas) ?>
+            <?php echo Arr::infiniteScroll($tareas) ?>
           </div>
         </div>
         <!-- /.box-body -->

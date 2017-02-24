@@ -4,7 +4,7 @@ namespace App\login\controllers;
 use App\Tarea;
 use App\Usuario;
 use App\login\models\PrincipalModel;
-use Controller,View,Token,Session,Arreglo,Message;
+use Controller,View,Token,Session,Arr,Message;
 
 class Principal extends Controller
 {
@@ -150,13 +150,13 @@ class Principal extends Controller
     	$tareas = Tarea::all();
 
 
-		foreach (Arreglo::paginator($tareas,1) as $item) {
+		foreach (Arr::paginator($tareas,1) as $item) {
 		    echo $item->titulo . '<br>';
 		}
 
-		echo Arreglo::paginator($tareas);
+		echo Arr::paginator($tareas);
 		echo '<hr>';
-		Arreglo::ver($tareas,1);
+		Arr::ver($tareas,1);
     }
 
     public function orm2()

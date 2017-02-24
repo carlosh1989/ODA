@@ -1,8 +1,7 @@
 <?php
 namespace App\${modulo}\controllers;
 
-use App\${modulo}\models\${controller}Model;
-use Controller,View,Token,Session,Arreglo;
+use Controller,View,Token,Session,Arr,Message;
 
 class ${controller} extends Controller
 {
@@ -14,13 +13,13 @@ class ${controller} extends Controller
     // localhost/proyecto/modulo/principal
     public function index()
     {
-        View::ver('${modulo}/${controllerView}/index');
+        View::show('index');
     }
 
     // localhost/proyecto/modulo/principal/create
     public function create()
     {
-        View::ver('${modulo}/${controllerView}/create');
+        View::show('create');
     }
 
     // localhost/proyecto/modulo/principal/
@@ -33,14 +32,14 @@ class ${controller} extends Controller
     public function show($id)
     {
         $data['id'] = $id;
-        View::ver('${modulo}/${controllerView}/show', $data);
+        View::show('show', $data);
     }
 
     // localhost/proyecto/modulo/principal/ID/edit
     public function edit($id)
     {
         $data['id'] = $id;
-        View::ver('${modulo}/${controllerView}/edit' , $data);
+        View::show('edit' , $data);
     }
 
     // localhost/proyecto/modulo/principal/ID/put
