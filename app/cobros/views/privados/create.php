@@ -1,6 +1,6 @@
 <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">EDIT</h3>
+          <h3 class="box-title">CREATE</h3>
 
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -10,9 +10,7 @@
           </div>
         </div>
         <div class="box-body">
-          Vista <b>edit</b> del mudulo <b>ingreso</b>
-          <hr>
-          ID: <b><?php echo $id ?></b>
+          Vista <b>create</b> del mudulo <b>cobros</b>
         </div>
         <!-- /.box-body -->
         <div class="box-footer">

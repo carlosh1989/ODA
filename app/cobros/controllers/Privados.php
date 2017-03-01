@@ -1,26 +1,26 @@
 <?php
-namespace App\modular\controllers;
+namespace App\cobros\controllers;
 
-use App\partidas\models\PrincipalModel;
-use Controller,View,Token,Session;
+use App\cobros\repositories\PrivadosRepository;
+use Controller,View,Token,Session,Arr,Message;
 
-class Principal extends Controller
+class Privados extends Controller
 {
     function __construct()
     {
-        // code...
+        parent::__construct();
     }
 
     // localhost/proyecto/modulo/principal
     public function index()
     {
-        View::ver('modular/principal/index');
+        View::show('index');
     }
 
     // localhost/proyecto/modulo/principal/create
     public function create()
     {
-        View::ver('modular/principal/create');
+        View::show('create');
     }
 
     // localhost/proyecto/modulo/principal/
@@ -33,14 +33,14 @@ class Principal extends Controller
     public function show($id)
     {
         $data['id'] = $id;
-        View::ver('modular/principal/show', $data);
+        View::show('show', $data);
     }
 
     // localhost/proyecto/modulo/principal/ID/edit
     public function edit($id)
     {
         $data['id'] = $id;
-        View::ver('modular/principal/edit' , $data);
+        View::show('edit' , $data);
     }
 
     // localhost/proyecto/modulo/principal/ID/put

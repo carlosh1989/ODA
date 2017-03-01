@@ -51,7 +51,7 @@ do
 			else
 			echo "Creado app/"$MODULO/$MODELS_FOLDER/$MODELO
 			touch $APP/$MODULO/$MODELS_FOLDER/$MODELO
-			./cli/generator/make/makeModel.sh $MODULO $CONTROLLER $VISTA
+			./cli/generator/make/crud/makeRepository.sh $MODULO $CONTROLLER $VISTA
 			fi
 		else
 		echo "Creado app/"$MODULO/$MODELS_FOLDER

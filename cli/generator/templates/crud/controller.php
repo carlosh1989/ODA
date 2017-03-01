@@ -1,6 +1,7 @@
 <?php
 namespace App\${modulo}\controllers;
 
+use App\${modulo}\repositories\${controller}Repository;
 use Controller,View,Token,Session,Arr,Message;
 
 class ${controller} extends Controller

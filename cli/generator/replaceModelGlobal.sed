@@ -1,3 +1,3 @@
 
-s/${model}/Aula/
-s/${tabla}/aulas/
+s/${model}/Casa/
+s/${tabla}/casa/

@@ -10,7 +10,7 @@
           </div>
         </div>
         <div class="box-body">
-          Vista <b>index</b> del mudulo <b>cobro</b>
+          Vista <b>index</b> del mudulo <b>cobros</b>
         </div>
         <!-- /.box-body -->
         <div class="box-footer">
