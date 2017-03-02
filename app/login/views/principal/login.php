@@ -30,3 +30,5 @@
   <br>
   <input type="submit" value="Login"/>
 </form>
+
+<i class="fa fa-user"></i>

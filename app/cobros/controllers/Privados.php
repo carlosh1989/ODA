@@ -1,10 +1,10 @@
 <?php
-namespace App\${modulo}\controllers;
+namespace App\cobros\controllers;
 
-use App\${modulo}\repositories\${controller}Repository;
+use App\cobros\repositories\PrivadosRepository;
 use Controller,View,Token,Session,Arr,Message;
 
-class ${controller} extends Controller
+class Privados extends Controller
 {
     function __construct()
     {
@@ -38,7 +38,7 @@ class ${controller} extends Controller
     // localhost/proyecto/modulo/principal/ID/edit
     public function edit($id)
     {
-        View::show('edit' , compact('id'));
+        View::show('edit', compact('id'));
     }
 
     // localhost/proyecto/modulo/principal/ID/put
