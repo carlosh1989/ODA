@@ -28,7 +28,9 @@
         "filp/whoops": "^2.1",
         "illuminate/database": "5.1.8",
         "usmanhalalit/strana": "1.*@dev",
-        "railto/flash-messages": "1.0.*"
+        "railto/flash-messages": "1.0.*",
+        "nesbot/carbon": "^1.22",
+        "beelab/bowerphp": "^0.5.2"
     },
     "autoload": {
         "psr-4": {

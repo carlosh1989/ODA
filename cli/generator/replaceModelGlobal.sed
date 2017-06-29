@@ -1,3 +1,3 @@
 
-s/${model}/Casa/
-s/${tabla}/casa/
+s/${model}/Hematologia/
+s/${tabla}/hematologias/

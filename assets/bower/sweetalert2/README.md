@@ -1,9 +1,14 @@
 SweetAlert2
 -----------
 
-[![Build Status](https://travis-ci.org/limonte/sweetalert2.svg?branch=master)](https://travis-ci.org/limonte/sweetalert2) [![Downloads](https://img.shields.io/npm/dt/sweetalert2.svg)](https://www.npmjs.com/package/sweetalert2) [![Version](https://img.shields.io/npm/v/sweetalert2.svg)](https://www.npmjs.com/package/sweetalert2) [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/sweetalert2/Lobby) [![PayPal Donate](https://img.shields.io/badge/donate-PayPal.me-ff69b4.svg)](https://www.paypal.me/limonte/5)
+[![Build Status](https://travis-ci.org/limonte/sweetalert2.svg?branch=master)](https://travis-ci.org/limonte/sweetalert2)
+[![Version](https://img.shields.io/npm/v/sweetalert2.svg)](https://www.npmjs.com/package/sweetalert2)
+[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/limonte/sweetalert2.svg)](http://isitmaintained.com/project/limonte/sweetalert2 "Average time to resolve an issue")
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/sweetalert2/Lobby)
+[![PayPal Donate](https://img.shields.io/badge/donate-PayPal.me-ff69b4.svg)](https://www.paypal.me/limonte/5eur)
 
-An awesome and accessible (WAI-ARIA) replacement for JavaScript's popup boxes.
+A beautiful, responsive, customizable, accessible (WAI-ARIA) replacement for JavaScript's popup boxes. Zero dependencies.
 
 What's the difference between SweetAlert and SweetAlert2?
 ---------------------------------------------------------
@@ -18,10 +23,8 @@ What's the difference between SweetAlert and SweetAlert2?
 <img src="https://raw.github.com/limonte/sweetalert2/master/assets/sweetalert2.gif" width="686">
 
 
-Usage
------
-
-To install:
+Installation
+------------
 
 ```bash
 npm install --save sweetalert2
@@ -33,18 +36,18 @@ Or:
 bower install --save sweetalert2
 ```
 
-Or download from CDN:
- - [https://www.jsdelivr.com/projects/sweetalert2](https://www.jsdelivr.com/projects/sweetalert2)
- - [https://cdnjs.com/libraries/limonte-sweetalert2](https://cdnjs.com/libraries/limonte-sweetalert2)
+Or download from CDN: [cdnjs.com/limonte-sweetalert2](https://cdnjs.com/libraries/limonte-sweetalert2)
 
-To use:
 
+Usage
+-----
 
 ```html
-<script src="bower_components/es6-promise/es6-promise.auto.min.js"></script> <!-- for IE support -->
-
 <script src="bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
 <link rel="stylesheet" type="text/css" href="bower_components/sweetalert2/dist/sweetalert2.min.css">
+
+<!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 ```
 
 Or:
@@ -143,8 +146,9 @@ Configuration
 | `titleText`             | `null`               | The title of the modal, as text. Useful to avoid HTML injection. |
 | `text`                  | `null`               | A description for the modal. It can either be added to the object under the key "text" or passed as the second parameter of the function. |
 | `html`                  | `null`               | A HTML description for the modal. If `text` and `html` parameters are provided in the same time, "text" will be used. |
-| `type `                 | `null`               | The type of the modal. SweetAlert2 comes with [5 built-in types](#modal-types) which will show a corresponding icon animation: `warning`, `error`, `success`, `info` and `question`. It can either be put in the array under the key `type` or passed as the third parameter of the function. |
-| `input`                 | `null`               | Input field type, can be `'text'`, `'email'`, `'password'`, `'number'`, `'tel'`, `'range'`, `'textarea'`, `'select'`, `'radio'`, `'checkbox'` and `'file'`. |
+| `type`                  | `null`               | The type of the modal. SweetAlert2 comes with [5 built-in types](#modal-types) which will show a corresponding icon animation: `warning`, `error`, `success`, `info` and `question`. It can either be put in the array under the key `type` or passed as the third parameter of the function. |
+| `target`                | `'body'`             | The container element for adding modal into. |
+| `input`                 | `null`               | Input field type, can be `'text'`, `'email'`, `'password'`, `'number'`, `'tel'`, `'range'`, `'textarea'`, `'select'`, `'radio'`, `'checkbox'`, `'file'` and `'url'`. |
 | `width`                 | `'500px'`            | Modal window width, including paddings (`box-sizing: border-box`). Can be in `px` or `%`. |
 | `padding`               | `20`                 | Modal window padding. |
 | `background`            | `'#fff'`             | Modal window background (CSS `background` property). |
@@ -153,6 +157,7 @@ Configuration
 | `animation`             | `true`               | If set to `false`, modal CSS animation will be disabled. |
 | `allowOutsideClick`     | `true`               | If set to `false`, the user can't dismiss the modal by clicking outside it. |
 | `allowEscapeKey`        | `true`               | If set to `false`, the user can't dismiss the modal by pressing the <kbd>Esc</kbd> key. |
+| `allowEnterKey`         | `true`               | If set to `false`, the user can't confirm the modal by pressing the <kbd>Enter</kbd> or <kbd>Space</kbd> keys, unless they manually focus the confirm button. |
 | `showConfirmButton`     | `true`               | If set to `false`, a "Confirm"-button will not be shown. It can be useful when you're using `html` parameter for custom HTML description. |
 | `showCancelButton`      | `false`              | If set to `true`, a "Cancel"-button will be shown, which the user can click on to dismiss the modal. |
 | `confirmButtonText`     | `'OK'`               | Use this to change the text on the "Confirm"-button. |
@@ -175,6 +180,7 @@ Configuration
 | `inputValue`            | `''`                 | Input field initial value. |
 | `inputOptions`          | `{}` or `Promise`    | If `input` parameter is set to `'select'` or `'radio'`, you can provide options. Object keys will represent options values, object values will represent options text values. |
 | `inputAutoTrim`         | `true`               | Automatically remove whitespaces from both ends of a result string. Set this parameter to `false` to disable auto-trimming. |
+| `inputAttributes`       | `{}`                 | HTML input attributes (e.g. `'min'`, `'max'`, `'autocomplete'`, `'accept'`), that are added to the input field. Object keys will represent attributes names, object values will represent attributes values. |
 | `inputValidator`        | `null`               | Validator for input field, should return Promise, see <a href="https://limonte.github.io/sweetalert2/#select-box">usage example</a>. |
 | `inputClass`            | `null`               | A custom CSS class for the input field. |
 | `progressSteps`         | `[]`                 | Progress steps, useful for modal queues, see <a href="https://limonte.github.io/sweetalert2/#chaining-modals">usage example</a>. |
@@ -182,6 +188,7 @@ Configuration
 | `progressStepsDistance` | `'40px'`             | Distance between progress steps. |
 | `onOpen`                | `null`               | Function to run when modal opens, provides modal DOM element as the first argument. |
 | `onClose`               | `null`               | Function to run when modal closes, provides modal DOM element as the first argument. |
+| `useRejections`         | `true`               | Determines whether dismissals (outside click, cancel button, close button, esc key) should reject, or resolve with an object of the format `{ dismiss: reason }`. Set it to `false` to get a cleaner control flow when using `await`, as explained in [#485](https://github.com/limonte/sweetalert2/issues/485). |
 
 You can redefine default params by using `swal.setDefaults(customParams)` where `customParams` is an object.
 
@@ -226,14 +233,11 @@ Methods
 Browser compatibility
 ---------------------
 
-SweetAlert2 works in most major browsers (yes, even IE). Some details:
+| IE11* | Edge | Chrome | Firefox | Safari | Opera | Android Browser* | UC Browser* |
+|-------|------|--------|---------|--------|-------|------------------|-------------|
+|  ✅   |   ✅  |   ✅   |     ✅   |   ✅   |    ✅   |        ✅        |      ✅      |
 
-- **IE: 11**, Promise polyfill should be included (see [usage example](#usage)).
-- **Microsoft Edge: 12+**
-- **Safari: 4+**
-- **Firefox: 4+**
-- **Chrome 14+**
-- **Opera: 15+**
+\* ES6 Promise polyfill should be included, see [usage example](#usage).
 
 Note that SweetAlert2 **does not** and **will not** provide support or functionality of any kind on IE10 and lower.
 
@@ -258,9 +262,17 @@ If you would like to contribute enhancements or fixes, please do the following:
 7. Make sure that `dist/*` files aren't committed and create a pull request.
 
 
+Related projects
+----------------
+
+- [toverux/ngsweetalert2](https://github.com/toverux/ngsweetalert2) - SweetAlert2 directive for Angular 2+
+- [lishengzxc/vue-sweetalert](https://github.com/lishengzxc/vue-sweetalert) - SweetAlert2 plugin for Vue.js
+- [limonte/sweetalert2-webpack-demo](https://github.com/limonte/sweetalert2-webpack-demo) - SweetAlert2 + webpack demo
+
+
 Donations
 ---------
 
 If you liked this plugin, you can donate to support it:
 
-- https://www.paypal.me/limonte/5
+- https://www.paypal.me/limonte/5eur

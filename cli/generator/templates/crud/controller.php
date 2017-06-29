@@ -1,14 +1,15 @@
 <?php
 namespace App\${modulo}\controllers;
 
-use App\${modulo}\repositories\${controller}Repository;
-use Controller,View,Token,Session,Arr,Message;
+use App\${modulo}\repositories\${controller}Repository as Repo;
+use Controller,View,Token,Session,Arr,Message,Redirect,Permission;
 
 class ${controller} extends Controller
 {
     function __construct()
     {
         parent::__construct();
+        Permission::withRole('${modulo}');
     }
 
     // localhost/proyecto/modulo/principal

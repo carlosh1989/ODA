@@ -6,9 +6,7 @@
   "author": "carlos silva <elmorochez22@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "cors": "^2.8.1",
     "gulp": "^3.9.1",
-    "gulp-connect-php": "^0.0.8",
-    "http-server": "^0.9.0"
+    "gulp-jade-for-php": "^1.0.9"
   }
 }

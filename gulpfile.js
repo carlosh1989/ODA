@@ -1,19 +1,7 @@
 var gulp = require('gulp');
-var connect = require('gulp-connect-php');
-
-var cors = function (req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Headers', 'headers_you_want_to_accept');
-  next();
-};
-
-gulp.task('server:test', function () {
-  connect.server({
-    root: 'assets',
-    livereload: true,
-    port: 9000,
-    middleware: function () {
-      return [cors];
-    }
-  });
+var phpJade = require('gulp-jade-for-php');
+gulp.task('jade-php', function() {
+  gulp.src('../**/*.jade')
+    .pipe(phpJade())
+    .pipe(gulp.dest('../'));
 });

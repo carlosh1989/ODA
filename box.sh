@@ -1,9 +1,10 @@
 #!/bin/bash
-OPTION=$(whiptail --title "HERRAMIENTAS" --menu "" 15 60 4 \
+OPTION=$(whiptail --title "HERRAMIENTAS" --menu "" 15 60 5 \
 "1" "DATABASE" \
 "2" "DEBUG" \
 "3" "GENERATOR" \
-"4" "DOCS" 3>&1 1>&2 2>&3)
+"4" "DOCS" \
+"5" "BOWER" 3>&1 1>&2 2>&3)
 
 exitstatus=$?
 if [ $exitstatus = 0 ]; then
@@ -202,6 +203,35 @@ if [ $exitstatus = 0 ]; then
 
 	if [[ $OPTION = 4 ]]; then
 		./cli/cli.sh documentar
+	fi
+
+	if [[ $OPTION = 5 ]]; then
+		BOWER=$(whiptail --title "BOWER" --menu "" 15 60 4 \
+		"1" "INSTALL JSON" \
+		"2" "INSTALL LIBRARY/URL" 3>&1 1>&2 2>&3) 
+
+		exitstatus=$?
+		if [ $exitstatus = 0 ]; then
+		    if [[ $BOWER = 1 ]]; then
+		    	./vendor/bin/bowerphp install
+		    fi
+
+		    if [[ $BOWER = 2 ]]; then
+				BOWERLIBRARY=$(whiptail --title "BOWER" --inputbox "Ingrese paquete o url" 10 60 3>&1 1>&2 2>&3)
+				exitstatus=$?
+				if [ $exitstatus = 0 ]; then
+					if [[ $BOWERLIBRARY ]]; then
+						./vendor/bin/bowerphp install $BOWERLIBRARY --save
+					else
+						echo "Error, debe ingresar nombre de paquete o url";
+					fi
+				else
+				    echo "Cerrado";
+				fi
+		    fi
+		else
+		    echo "Cerrado";
+		fi
 	fi
 else
     echo "Cerrado";

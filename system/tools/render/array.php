@@ -15,7 +15,7 @@ class Arr {
 		return	array_reduce((array) $data, 'array_merge', array());
     }
 
-    public static function ver($data)
+    public static function show($data)
     {
 		return	\Krumo::dump($data);
     }

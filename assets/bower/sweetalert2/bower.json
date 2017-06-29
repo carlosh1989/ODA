@@ -10,9 +10,6 @@
     "Leo Correa <lcorr005@gmail.com> (https://leonardocorrea.com/)",
     "Joseph Schultz (https://github.com/acupajoe)"
   ],
-  "dependencies": {
-    "es6-promise": "*"
-  },
   "ignore": [
     "assets",
     "config",
@@ -26,7 +23,7 @@
     "gulpfile.js",
     "package.json"
   ],
-  "description": "An awesome and accessible (WAI-ARIA) replacement for JavaScript's popup boxes, supported fork of sweetalert",
+  "description": "A beautiful, responsive, customizable and accessible (WAI-ARIA) replacement for JavaScript's popup boxes, supported fork of sweetalert",
   "main": [
     "dist/sweetalert2.js",
     "src/sweetalert2.scss",

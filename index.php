@@ -1,8 +1,9 @@
 <?php
+use System\tools\session\Session;
 // Dividimos la URL.
 require_once __DIR__ . '/vendor/autoload.php';
 $dotenv = new Dotenv\Dotenv(__DIR__);
-$dotenv->load();
+$dotenv->overload();
 require('config/define/execute.php');
 //Manejador de errores
 if (isset($_SERVER['ENV_ENVIRONMENT']) AND $_SERVER['ENV_ENVIRONMENT'] == 'local') {
@@ -53,7 +54,6 @@ if(baseUrl)
 			$metodo = '';
 		}
 		
-
 		if (isset($requestURI[4])) {
 			$parametro = $requestURI[4];
 		} else {
@@ -99,6 +99,7 @@ if(baseUrl)
 			  		//$metodo = 'create';
 			  		}
 			  	}
+
 				$metodo = 'index';
 			    break;
 			  case 'HEAD':
@@ -117,6 +118,7 @@ if(baseUrl)
 		}
 
 		if($metodo){
+			
 			switch ($method) {
 			  case 'GET':
 			  	if($metodo=='create')
@@ -136,9 +138,19 @@ if(baseUrl)
 			  			}
 			  			else
 			  			{
-				  			$id = $metodo;
-				  			$params = array($id);
-				  			$metodo = 'show';
+							if ($parametro and $parametro == 'delete') {
+					  			$id = $metodo;
+					  			$params = array($id);
+					  			$metodo = 'destroy';
+							}	
+							else
+							{
+					  			$id = $metodo;
+					  			$params = array($id);
+					  			$metodo = 'show';
+							}
+
+
 			  			}
 			  		} 
 			  		else 
@@ -158,7 +170,7 @@ if(baseUrl)
 				{
 					if($num == true)
 					{
-						if (!$requestURI[4]) 
+						if (!$parametro) 
 						{
 							$metodo = 'update';
 						}

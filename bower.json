@@ -1,0 +1,17 @@
+{
+    "name": null,
+    "authors": [
+        "Beelab <info@bee-lab.net>",
+        null
+    ],
+    "private": true,
+    "dependencies": {
+        "jquery": "*",
+        "bootstrap-side-navbar": "*",
+        "components-font-awesome": "*",
+        "jasny-bootstrap": "*",
+        "sweetalert2": "*",
+        "bootstrap-theme-paper": "3.3.7",
+        "bootstrap-table": "*"
+    }
+}

@@ -1,7 +1,8 @@
 /* global MouseEvent */
 
 import { default as sweetAlert } from '../sweetalert2.js'
-import { swalPrefix, swalClasses, iconTypes } from './classes.js'
+import { swalClasses, iconTypes } from './classes.js'
+import { uniqueArray } from './utils.js'
 
 // Remember state in cases where opening and handling a modal will fiddle with it.
 export const states = {
@@ -13,7 +14,7 @@ export const states = {
 /*
  * Add modal + overlay to DOM
  */
-export const init = () => {
+export const init = (params) => {
   if (typeof document === 'undefined') {
     console.error('SweetAlert2 requires document to initialize')
     return
@@ -22,7 +23,13 @@ export const init = () => {
   const container = document.createElement('div')
   container.className = swalClasses.container
   container.innerHTML = sweetHTML
-  document.body.appendChild(container)
+
+  let targetElement = document.querySelector(params.target)
+  if (!targetElement) {
+    console.warn(`SweetAlert2: Can't find the target "${params.target}"`)
+    targetElement = document.body
+  }
+  targetElement.appendChild(container)
 
   const modal = getModal()
   const input = getChildByClass(modal, swalClasses.input)
@@ -39,7 +46,7 @@ export const init = () => {
 
   input.onkeydown = (event) => {
     setTimeout(() => {
-      if (event.keyCode === 13) {
+      if (event.keyCode === 13 && params.allowEnterKey) {
         event.stopPropagation()
         sweetAlert.clickConfirm()
       }
@@ -80,21 +87,23 @@ export const init = () => {
  */
 
 const sweetHTML = `
- <div  role="dialog" aria-labelledby="modalTitleId" aria-describedby="modalContentId" class="${swalClasses.modal}" tabIndex="-1" >
+ <div role="dialog" aria-labelledby="${swalClasses.title}" aria-describedby="${swalClasses.content}" class="${swalClasses.modal}" tabindex="-1">
    <ul class="${swalClasses.progresssteps}"></ul>
    <div class="${swalClasses.icon} ${iconTypes.error}">
-     <span class="x-mark"><span class="line left"></span><span class="line right"></span></span>
+     <span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span>
    </div>
    <div class="${swalClasses.icon} ${iconTypes.question}">?</div>
    <div class="${swalClasses.icon} ${iconTypes.warning}">!</div>
    <div class="${swalClasses.icon} ${iconTypes.info}">i</div>
    <div class="${swalClasses.icon} ${iconTypes.success}">
-     <span class="line tip"></span> <span class="line long"></span>
-     <div class="placeholder"></div> <div class="fix"></div>
+     <div class="swal2-success-circular-line-left"></div>
+     <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>
+     <div class="swal2-success-ring"></div> <div class="swal2-success-fix"></div>
+     <div class="swal2-success-circular-line-right"></div>
    </div>
    <img class="${swalClasses.image}">
-   <h2 class="${swalClasses.title}" id="modalTitleId"></h2>
-   <div id="modalContentId" class="${swalClasses.content}"></div>
+   <h2 class="${swalClasses.title}" id="${swalClasses.title}"></h2>
+   <div id="${swalClasses.content}" class="${swalClasses.content}"></div>
    <input class="${swalClasses.input}">
    <input type="file" class="${swalClasses.file}">
    <div class="${swalClasses.range}">
@@ -108,10 +117,11 @@ const sweetHTML = `
    </label>
    <textarea class="${swalClasses.textarea}"></textarea>
    <div class="${swalClasses.validationerror}"></div>
-   <hr class="${swalClasses.spacer}">
-   <button type="button" role="button" tabIndex="0" class="${swalClasses.confirm}">OK</button>
-   <button type="button" role="button" tabIndex="0" class="${swalClasses.cancel}">Cancel</button>
-   <span class="${swalClasses.close}">&times;</span>
+   <div class="${swalClasses.buttonswrapper}">
+     <button type="button" class="${swalClasses.confirm}">OK</button>
+     <button type="button" class="${swalClasses.cancel}">Cancel</button>
+   </div>
+   <button type="button" class="${swalClasses.close}" aria-label="Close this dialog">&times;</button>
  </div>
 `.replace(/(^|\n)\s*/g, '')
 
@@ -132,7 +142,7 @@ export const getContent = () => elementByClass(swalClasses.content)
 
 export const getImage = () => elementByClass(swalClasses.image)
 
-export const getSpacer = () => elementByClass(swalClasses.spacer)
+export const getButtonsWrapper = () => elementByClass(swalClasses.buttonswrapper)
 
 export const getProgressSteps = () => elementByClass(swalClasses.progresssteps)
 
@@ -149,9 +159,10 @@ export const getFocusableElements = (focusCancel) => {
   if (focusCancel) {
     buttons.reverse()
   }
-  return buttons.concat(Array.prototype.slice.call(
-    getModal().querySelectorAll('button:not([class^=' + swalPrefix + ']), input:not([type=hidden]), textarea, select')
+  const focusableElements = buttons.concat(Array.prototype.slice.call(
+    getModal().querySelectorAll('button, input:not([type=hidden]), textarea, select, a, *[tabindex]:not([tabindex="-1"])')
   ))
+  return uniqueArray(focusableElements)
 }
 
 export const hasClass = (elem, className) => {

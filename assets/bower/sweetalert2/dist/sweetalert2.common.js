@@ -1,5 +1,5 @@
 /*!
- * sweetalert2 v6.4.0
+ * sweetalert2 v6.6.5
  * Released under the MIT License.
  */
 'use strict';
@@ -11,9 +11,11 @@ var defaultParams = {
   html: '',
   type: null,
   customClass: '',
+  target: 'body',
   animation: true,
   allowOutsideClick: true,
   allowEscapeKey: true,
+  allowEnterKey: true,
   showConfirmButton: true,
   showCancelButton: false,
   preConfirm: null,
@@ -48,7 +50,8 @@ var defaultParams = {
   currentProgressStep: null,
   progressStepsDistance: '40px',
   onOpen: null,
-  onClose: null
+  onClose: null,
+  useRejections: true
 };
 
 var swalPrefix = 'swal2-';
@@ -61,7 +64,7 @@ var prefix = function prefix(items) {
   return result;
 };
 
-var swalClasses = prefix(['container', 'shown', 'iosfix', 'modal', 'overlay', 'fade', 'show', 'hide', 'noanimation', 'close', 'title', 'content', 'spacer', 'confirm', 'cancel', 'icon', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea', 'inputerror', 'validationerror', 'progresssteps', 'activeprogressstep', 'progresscircle', 'progressline', 'loading', 'styled']);
+var swalClasses = prefix(['container', 'shown', 'iosfix', 'modal', 'overlay', 'fade', 'show', 'hide', 'noanimation', 'close', 'title', 'content', 'buttonswrapper', 'confirm', 'cancel', 'icon', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea', 'inputerror', 'validationerror', 'progresssteps', 'activeprogressstep', 'progresscircle', 'progressline', 'loading', 'styled']);
 
 var iconTypes = prefix(['success', 'warning', 'info', 'question', 'error']);
 
@@ -87,6 +90,16 @@ var colorLuminance = function colorLuminance(hex, lum) {
   return rgb;
 };
 
+var uniqueArray = function uniqueArray(arr) {
+  var result = [];
+  for (var i in arr) {
+    if (result.indexOf(arr[i]) === -1) {
+      result.push(arr[i]);
+    }
+  }
+  return result;
+};
+
 /* global MouseEvent */
 
 // Remember state in cases where opening and handling a modal will fiddle with it.
@@ -94,12 +107,11 @@ var states = {
   previousWindowKeyDown: null,
   previousActiveElement: null,
   previousBodyPadding: null
-};
 
-/*
- * Add modal + overlay to DOM
- */
-var init = function init() {
+  /*
+   * Add modal + overlay to DOM
+   */
+};var init = function init(params) {
   if (typeof document === 'undefined') {
     console.error('SweetAlert2 requires document to initialize');
     return;
@@ -108,7 +120,13 @@ var init = function init() {
   var container = document.createElement('div');
   container.className = swalClasses.container;
   container.innerHTML = sweetHTML;
-  document.body.appendChild(container);
+
+  var targetElement = document.querySelector(params.target);
+  if (!targetElement) {
+    console.warn('SweetAlert2: Can\'t find the target "' + params.target + '"');
+    targetElement = document.body;
+  }
+  targetElement.appendChild(container);
 
   var modal = getModal();
   var input = getChildByClass(modal, swalClasses.input);
@@ -125,7 +143,7 @@ var init = function init() {
 
   input.onkeydown = function (event) {
     setTimeout(function () {
-      if (event.keyCode === 13) {
+      if (event.keyCode === 13 && params.allowEnterKey) {
         event.stopPropagation();
         sweetAlert.clickConfirm();
       }
@@ -165,7 +183,7 @@ var init = function init() {
  * Manipulate DOM
  */
 
-var sweetHTML = ('\n <div  role="dialog" aria-labelledby="modalTitleId" aria-describedby="modalContentId" class="' + swalClasses.modal + '" tabIndex="-1" >\n   <ul class="' + swalClasses.progresssteps + '"></ul>\n   <div class="' + swalClasses.icon + ' ' + iconTypes.error + '">\n     <span class="x-mark"><span class="line left"></span><span class="line right"></span></span>\n   </div>\n   <div class="' + swalClasses.icon + ' ' + iconTypes.question + '">?</div>\n   <div class="' + swalClasses.icon + ' ' + iconTypes.warning + '">!</div>\n   <div class="' + swalClasses.icon + ' ' + iconTypes.info + '">i</div>\n   <div class="' + swalClasses.icon + ' ' + iconTypes.success + '">\n     <span class="line tip"></span> <span class="line long"></span>\n     <div class="placeholder"></div> <div class="fix"></div>\n   </div>\n   <img class="' + swalClasses.image + '">\n   <h2 class="' + swalClasses.title + '" id="modalTitleId"></h2>\n   <div id="modalContentId" class="' + swalClasses.content + '"></div>\n   <input class="' + swalClasses.input + '">\n   <input type="file" class="' + swalClasses.file + '">\n   <div class="' + swalClasses.range + '">\n     <output></output>\n     <input type="range">\n   </div>\n   <select class="' + swalClasses.select + '"></select>\n   <div class="' + swalClasses.radio + '"></div>\n   <label for="' + swalClasses.checkbox + '" class="' + swalClasses.checkbox + '">\n     <input type="checkbox">\n   </label>\n   <textarea class="' + swalClasses.textarea + '"></textarea>\n   <div class="' + swalClasses.validationerror + '"></div>\n   <hr class="' + swalClasses.spacer + '">\n   <button type="button" role="button" tabIndex="0" class="' + swalClasses.confirm + '">OK</button>\n   <button type="button" role="button" tabIndex="0" class="' + swalClasses.cancel + '">Cancel</button>\n   <span class="' + swalClasses.close + '">&times;</span>\n </div>\n').replace(/(^|\n)\s*/g, '');
+var sweetHTML = ('\n <div role="dialog" aria-labelledby="' + swalClasses.title + '" aria-describedby="' + swalClasses.content + '" class="' + swalClasses.modal + '" tabindex="-1">\n   <ul class="' + swalClasses.progresssteps + '"></ul>\n   <div class="' + swalClasses.icon + ' ' + iconTypes.error + '">\n     <span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span>\n   </div>\n   <div class="' + swalClasses.icon + ' ' + iconTypes.question + '">?</div>\n   <div class="' + swalClasses.icon + ' ' + iconTypes.warning + '">!</div>\n   <div class="' + swalClasses.icon + ' ' + iconTypes.info + '">i</div>\n   <div class="' + swalClasses.icon + ' ' + iconTypes.success + '">\n     <div class="swal2-success-circular-line-left"></div>\n     <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>\n     <div class="swal2-success-ring"></div> <div class="swal2-success-fix"></div>\n     <div class="swal2-success-circular-line-right"></div>\n   </div>\n   <img class="' + swalClasses.image + '">\n   <h2 class="' + swalClasses.title + '" id="' + swalClasses.title + '"></h2>\n   <div id="' + swalClasses.content + '" class="' + swalClasses.content + '"></div>\n   <input class="' + swalClasses.input + '">\n   <input type="file" class="' + swalClasses.file + '">\n   <div class="' + swalClasses.range + '">\n     <output></output>\n     <input type="range">\n   </div>\n   <select class="' + swalClasses.select + '"></select>\n   <div class="' + swalClasses.radio + '"></div>\n   <label for="' + swalClasses.checkbox + '" class="' + swalClasses.checkbox + '">\n     <input type="checkbox">\n   </label>\n   <textarea class="' + swalClasses.textarea + '"></textarea>\n   <div class="' + swalClasses.validationerror + '"></div>\n   <div class="' + swalClasses.buttonswrapper + '">\n     <button type="button" class="' + swalClasses.confirm + '">OK</button>\n     <button type="button" class="' + swalClasses.cancel + '">Cancel</button>\n   </div>\n   <button type="button" class="' + swalClasses.close + '" aria-label="Close this dialog">&times;</button>\n </div>\n').replace(/(^|\n)\s*/g, '');
 
 var getContainer = function getContainer() {
   return document.body.querySelector('.' + swalClasses.container);
@@ -196,8 +214,8 @@ var getImage = function getImage() {
   return elementByClass(swalClasses.image);
 };
 
-var getSpacer = function getSpacer() {
-  return elementByClass(swalClasses.spacer);
+var getButtonsWrapper = function getButtonsWrapper() {
+  return elementByClass(swalClasses.buttonswrapper);
 };
 
 var getProgressSteps = function getProgressSteps() {
@@ -225,7 +243,8 @@ var getFocusableElements = function getFocusableElements(focusCancel) {
   if (focusCancel) {
     buttons.reverse();
   }
-  return buttons.concat(Array.prototype.slice.call(getModal().querySelectorAll('button:not([class^=' + swalPrefix + ']), input:not([type=hidden]), textarea, select')));
+  var focusableElements = buttons.concat(Array.prototype.slice.call(getModal().querySelectorAll('button, input:not([type=hidden]), textarea, select, a, *[tabindex]:not([tabindex="-1"])')));
+  return uniqueArray(focusableElements);
 };
 
 var hasClass = function hasClass(elem, className) {
@@ -236,10 +255,10 @@ var hasClass = function hasClass(elem, className) {
 };
 
 var focusInput = function focusInput(input) {
-  input.focus();
+  input.focus
 
   // place cursor at end of text in text input
-  if (input.type !== 'file') {
+  ();if (input.type !== 'file') {
     // http://stackoverflow.com/a/2345915/1331425
     var val = input.value;
     input.value = '';
@@ -349,10 +368,10 @@ var animationEndEvent = function () {
   }
 
   return false;
-}();
+}
 
 // Reset previous window keydown handler and focued element
-var resetPrevState = function resetPrevState() {
+();var resetPrevState = function resetPrevState() {
   window.onkeydown = states.previousWindowKeyDown;
   if (states.previousActiveElement && states.previousActiveElement.focus) {
     var x = window.scrollX;
@@ -444,7 +463,7 @@ var swal2Observer = void 0;
  * Set type, text and actions on modal
  */
 var setParameters = function setParameters(params) {
-  var modal = getModal() || init();
+  var modal = getModal() || init(params);
 
   for (var param in params) {
     if (!defaultParams.hasOwnProperty(param) && param !== 'extraParams') {
@@ -452,20 +471,25 @@ var setParameters = function setParameters(params) {
     }
   }
 
-  // set modal width and margin-left
+  // Set modal width
   modal.style.width = typeof params.width === 'number' ? params.width + 'px' : params.width;
 
   modal.style.padding = params.padding + 'px';
   modal.style.background = params.background;
+  var successIconParts = modal.querySelectorAll('[class^=swal2-success-circular-line], .swal2-success-fix');
+  for (var i = 0; i < successIconParts.length; i++) {
+    successIconParts[i].style.background = params.background;
+  }
 
   var title = getTitle();
   var content = getContent();
+  var buttonsWrapper = getButtonsWrapper();
   var confirmButton = getConfirmButton();
   var cancelButton = getCancelButton();
-  var closeButton = getCloseButton();
+  var closeButton = getCloseButton
 
   // Title
-  if (params.titleText) {
+  ();if (params.titleText) {
     title.innerText = params.titleText;
   } else {
     title.innerHTML = params.title.split('\n').join('<br>');
@@ -476,8 +500,8 @@ var setParameters = function setParameters(params) {
     if (_typeof(params.html) === 'object') {
       content.innerHTML = '';
       if (0 in params.html) {
-        for (var i = 0; i in params.html; i++) {
-          content.appendChild(params.html[i].cloneNode(true));
+        for (var _i = 0; _i in params.html; _i++) {
+          content.appendChild(params.html[_i].cloneNode(true));
         }
       } else {
         content.appendChild(params.html.cloneNode(true));
@@ -535,8 +559,8 @@ var setParameters = function setParameters(params) {
 
   // Icon
   var icons = getIcons();
-  for (var _i = 0; _i < icons.length; _i++) {
-    hide(icons[_i]);
+  for (var _i2 = 0; _i2 < icons.length; _i2++) {
+    hide(icons[_i2]);
   }
   if (params.type) {
     var validType = false;
@@ -551,24 +575,23 @@ var setParameters = function setParameters(params) {
       return false;
     }
     var icon = modal.querySelector('.' + swalClasses.icon + '.' + iconTypes[params.type]);
-    show(icon);
+    show(icon
 
     // Animate icon
-    switch (params.type) {
-      case 'success':
-        addClass(icon, 'animate');
-        addClass(icon.querySelector('.tip'), 'animate-success-tip');
-        addClass(icon.querySelector('.long'), 'animate-success-long');
-        break;
-      case 'error':
-        addClass(icon, 'animate-error-icon');
-        addClass(icon.querySelector('.x-mark'), 'animate-x-mark');
-        break;
-      case 'warning':
-        addClass(icon, 'pulse-warning');
-        break;
-      default:
-        break;
+    );if (params.animation) {
+      switch (params.type) {
+        case 'success':
+          addClass(icon, 'swal2-animate-success-icon');
+          addClass(icon.querySelector('.swal2-success-line-tip'), 'swal2-animate-success-line-tip');
+          addClass(icon.querySelector('.swal2-success-line-long'), 'swal2-animate-success-line-long');
+          break;
+        case 'error':
+          addClass(icon, 'swal2-animate-error-icon');
+          addClass(icon.querySelector('.swal2-x-mark'), 'swal2-animate-x-mark');
+          break;
+        default:
+          break;
+      }
     }
   }
 
@@ -612,12 +635,11 @@ var setParameters = function setParameters(params) {
     hide(confirmButton);
   }
 
-  // Buttons spacer
-  var spacer = getSpacer();
+  // Buttons wrapper
   if (!params.showConfirmButton && !params.showCancelButton) {
-    hide(spacer);
+    hide(buttonsWrapper);
   } else {
-    show(spacer);
+    show(buttonsWrapper);
   }
 
   // Edit text on cancel and confirm buttons
@@ -634,10 +656,10 @@ var setParameters = function setParameters(params) {
   confirmButton.className = swalClasses.confirm;
   addClass(confirmButton, params.confirmButtonClass);
   cancelButton.className = swalClasses.cancel;
-  addClass(cancelButton, params.cancelButtonClass);
+  addClass(cancelButton, params.cancelButtonClass
 
   // Buttons styling
-  if (params.buttonsStyling) {
+  );if (params.buttonsStyling) {
     addClass(confirmButton, swalClasses.styled);
     addClass(cancelButton, swalClasses.styled);
   } else {
@@ -670,10 +692,10 @@ var openModal = function openModal(animation, onComplete) {
   } else {
     removeClass(modal, swalClasses.fade);
   }
-  show(modal);
+  show(modal
 
   // scrolling is 'hidden' until animation is done, after that 'auto'
-  container.style.overflowY = 'hidden';
+  );container.style.overflowY = 'hidden';
   if (animationEndEvent && !hasClass(modal, swalClasses.noanimation)) {
     modal.addEventListener(animationEndEvent, function swalCloseEventFinished() {
       modal.removeEventListener(animationEndEvent, swalCloseEventFinished);
@@ -772,6 +794,20 @@ var sweetAlert = function sweetAlert() {
           });
         };
       }
+
+      if (params.input === 'url' && params.inputValidator === null) {
+        params.inputValidator = function (url) {
+          return new Promise(function (resolve, reject) {
+            // taken from https://stackoverflow.com/a/3809435/1331425
+            var urlRegex = /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)$/;
+            if (urlRegex.test(url)) {
+              resolve();
+            } else {
+              reject('Invalid URL');
+            }
+          });
+        };
+      }
       break;
 
     default:
@@ -789,7 +825,11 @@ var sweetAlert = function sweetAlert() {
     if (params.timer) {
       modal.timeout = setTimeout(function () {
         sweetAlert.closeModal(params.onClose);
-        reject('timer');
+        if (params.useRejections) {
+          reject('timer');
+        } else {
+          resolve({ dismiss: 'timer' });
+        }
       }, params.timer);
     }
 
@@ -860,7 +900,11 @@ var sweetAlert = function sweetAlert() {
         });
       } else {
         sweetAlert.closeModal(params.onClose);
-        resolve(value);
+        if (params.useRejections) {
+          resolve(value);
+        } else {
+          resolve({ value: value });
+        }
       }
     };
 
@@ -870,8 +914,8 @@ var sweetAlert = function sweetAlert() {
       var target = e.target || e.srcElement;
       var confirmButton = getConfirmButton();
       var cancelButton = getCancelButton();
-      var targetedConfirm = confirmButton === target || confirmButton.contains(target);
-      var targetedCancel = cancelButton === target || cancelButton.contains(target);
+      var targetedConfirm = confirmButton && (confirmButton === target || confirmButton.contains(target));
+      var targetedCancel = cancelButton && (cancelButton === target || cancelButton.contains(target));
 
       switch (e.type) {
         case 'mouseover':
@@ -905,33 +949,39 @@ var sweetAlert = function sweetAlert() {
         case 'click':
           // Clicked 'confirm'
           if (targetedConfirm && sweetAlert.isVisible()) {
+            sweetAlert.disableButtons();
             if (params.input) {
-              (function () {
-                var inputValue = getInputValue();
+              var inputValue = getInputValue();
 
-                if (params.inputValidator) {
-                  sweetAlert.disableInput();
-                  params.inputValidator(inputValue, params.extraParams).then(function () {
-                    sweetAlert.enableInput();
-                    confirm(inputValue);
-                  }, function (error) {
-                    sweetAlert.enableInput();
-                    if (error) {
-                      sweetAlert.showValidationError(error);
-                    }
-                  });
-                } else {
+              if (params.inputValidator) {
+                sweetAlert.disableInput();
+                params.inputValidator(inputValue, params.extraParams).then(function () {
+                  sweetAlert.enableButtons();
+                  sweetAlert.enableInput();
                   confirm(inputValue);
-                }
-              })();
+                }, function (error) {
+                  sweetAlert.enableButtons();
+                  sweetAlert.enableInput();
+                  if (error) {
+                    sweetAlert.showValidationError(error);
+                  }
+                });
+              } else {
+                confirm(inputValue);
+              }
             } else {
               confirm(true);
             }
 
             // Clicked 'cancel'
           } else if (targetedCancel && sweetAlert.isVisible()) {
+            sweetAlert.disableButtons();
             sweetAlert.closeModal(params.onClose);
-            reject('cancel');
+            if (params.useRejections) {
+              reject('cancel');
+            } else {
+              resolve({ dismiss: 'cancel' });
+            }
           }
           break;
         default:
@@ -949,7 +999,11 @@ var sweetAlert = function sweetAlert() {
     // Closing modal by close button
     getCloseButton().onclick = function () {
       sweetAlert.closeModal(params.onClose);
-      reject('close');
+      if (params.useRejections) {
+        reject('close');
+      } else {
+        resolve({ dismiss: 'close' });
+      }
     };
 
     // Closing modal by overlay click
@@ -959,15 +1013,20 @@ var sweetAlert = function sweetAlert() {
       }
       if (params.allowOutsideClick) {
         sweetAlert.closeModal(params.onClose);
-        reject('overlay');
+        if (params.useRejections) {
+          reject('overlay');
+        } else {
+          resolve({ dismiss: 'overlay' });
+        }
       }
     };
 
+    var buttonsWrapper = getButtonsWrapper();
     var confirmButton = getConfirmButton();
-    var cancelButton = getCancelButton();
+    var cancelButton = getCancelButton
 
     // Reverse buttons (Confirm on the right side)
-    if (params.reverseButtons) {
+    ();if (params.reverseButtons) {
       confirmButton.parentNode.insertBefore(cancelButton, confirmButton);
     } else {
       confirmButton.parentNode.insertBefore(confirmButton, cancelButton);
@@ -975,9 +1034,9 @@ var sweetAlert = function sweetAlert() {
 
     // Focus handling
     var setFocus = function setFocus(index, increment) {
-      var focusableElements = getFocusableElements(params.focusCancel);
+      var focusableElements = getFocusableElements(params.focusCancel
       // search for visible elements and select the next possible match
-      for (var _i2 = 0; _i2 < focusableElements.length; _i2++) {
+      );for (var _i3 = 0; _i3 < focusableElements.length; _i3++) {
         index = index + increment;
 
         // rollover to first item
@@ -1001,7 +1060,7 @@ var sweetAlert = function sweetAlert() {
       var e = event || window.event;
       var keyCode = e.keyCode || e.which;
 
-      if ([9, 13, 32, 27].indexOf(keyCode) === -1) {
+      if ([9, 13, 32, 27, 37, 38, 39, 40].indexOf(keyCode) === -1) {
         // Don't do work on keys we don't care about.
         return;
       }
@@ -1010,9 +1069,9 @@ var sweetAlert = function sweetAlert() {
 
       var focusableElements = getFocusableElements(params.focusCancel);
       var btnIndex = -1; // Find the button - note, this is a nodelist, not an array.
-      for (var _i3 = 0; _i3 < focusableElements.length; _i3++) {
-        if (targetElement === focusableElements[_i3]) {
-          btnIndex = _i3;
+      for (var _i4 = 0; _i4 < focusableElements.length; _i4++) {
+        if (targetElement === focusableElements[_i4]) {
+          btnIndex = _i4;
           break;
         }
       }
@@ -1027,28 +1086,48 @@ var sweetAlert = function sweetAlert() {
           setFocus(btnIndex, -1);
         }
         e.stopPropagation();
-        e.preventDefault();
+        e.preventDefault
+
+        // ARROWS - switch focus between buttons
+        ();
+      } else if (keyCode === 37 || keyCode === 38 || keyCode === 39 || keyCode === 40) {
+        // focus Cancel button if Confirm button is currently focused
+        if (document.activeElement === confirmButton && isVisible(cancelButton)) {
+          cancelButton.focus
+          // and vice versa
+          ();
+        } else if (document.activeElement === cancelButton && isVisible(confirmButton)) {
+          confirmButton.focus();
+        }
 
         // ENTER/SPACE
-      } else {
-        if (keyCode === 13 || keyCode === 32) {
-          if (btnIndex === -1) {
-            // ENTER/SPACE clicked outside of a button.
-            if (params.focusCancel) {
-              fireClick(cancelButton, e);
-            } else {
-              fireClick(confirmButton, e);
-            }
+      } else if (keyCode === 13 || keyCode === 32) {
+        if (btnIndex === -1 && params.allowEnterKey) {
+          // ENTER/SPACE clicked outside of a button.
+          if (params.focusCancel) {
+            fireClick(cancelButton, e);
+          } else {
+            fireClick(confirmButton, e);
           }
-        } else if (keyCode === 27 && params.allowEscapeKey === true) {
-          sweetAlert.closeModal(params.onClose);
+          e.stopPropagation();
+          e.preventDefault();
+        }
+
+        // ESC
+      } else if (keyCode === 27 && params.allowEscapeKey === true) {
+        sweetAlert.closeModal(params.onClose);
+        if (params.useRejections) {
           reject('esc');
+        } else {
+          resolve({ dismiss: 'esc' });
         }
       }
     };
 
-    states.previousWindowKeyDown = window.onkeydown;
-    window.onkeydown = handleKeyDown;
+    if (!window.onkeydown || window.onkeydown.toString() !== handleKeyDown.toString()) {
+      states.previousWindowKeyDown = window.onkeydown;
+      window.onkeydown = handleKeyDown;
+    }
 
     // Loading state
     if (params.buttonsStyling) {
@@ -1059,26 +1138,14 @@ var sweetAlert = function sweetAlert() {
     /**
      * Show spinner instead of Confirm button and disable Cancel button
      */
-    sweetAlert.showLoading = sweetAlert.enableLoading = function () {
-      show(getSpacer());
-      show(confirmButton, 'inline-block');
-      addClass(confirmButton, swalClasses.loading);
-      addClass(modal, swalClasses.loading);
-      confirmButton.disabled = true;
-      cancelButton.disabled = true;
-    };
-
-    /**
-     * Show spinner instead of Confirm button and disable Cancel button
-     */
     sweetAlert.hideLoading = sweetAlert.disableLoading = function () {
       if (!params.showConfirmButton) {
         hide(confirmButton);
         if (!params.showCancelButton) {
-          hide(getSpacer());
+          hide(getButtonsWrapper());
         }
       }
-      removeClass(confirmButton, swalClasses.loading);
+      removeClass(buttonsWrapper, swalClasses.loading);
       removeClass(modal, swalClasses.loading);
       confirmButton.disabled = false;
       cancelButton.disabled = false;
@@ -1095,6 +1162,9 @@ var sweetAlert = function sweetAlert() {
     };
     sweetAlert.getImage = function () {
       return getImage();
+    };
+    sweetAlert.getButtonsWrapper = function () {
+      return getButtonsWrapper();
     };
     sweetAlert.getConfirmButton = function () {
       return getConfirmButton();
@@ -1129,8 +1199,8 @@ var sweetAlert = function sweetAlert() {
       if (input.type === 'radio') {
         var radiosContainer = input.parentNode.parentNode;
         var radios = radiosContainer.querySelectorAll('input');
-        for (var _i4 = 0; _i4 < radios.length; _i4++) {
-          radios[_i4].disabled = false;
+        for (var _i5 = 0; _i5 < radios.length; _i5++) {
+          radios[_i5].disabled = false;
         }
       } else {
         input.disabled = false;
@@ -1145,8 +1215,8 @@ var sweetAlert = function sweetAlert() {
       if (input && input.type === 'radio') {
         var radiosContainer = input.parentNode.parentNode;
         var radios = radiosContainer.querySelectorAll('input');
-        for (var _i5 = 0; _i5 < radios.length; _i5++) {
-          radios[_i5].disabled = true;
+        for (var _i6 = 0; _i6 < radios.length; _i6++) {
+          radios[_i6].disabled = true;
         }
       } else {
         input.disabled = true;
@@ -1155,16 +1225,19 @@ var sweetAlert = function sweetAlert() {
 
     // Set modal min-height to disable scrolling inside the modal
     sweetAlert.recalculateHeight = debounce(function () {
-      var modal = getModal() || init();
+      var modal = getModal();
+      if (!modal) {
+        return;
+      }
       var prevState = modal.style.display;
       modal.style.minHeight = '';
       show(modal);
       modal.style.minHeight = modal.scrollHeight + 1 + 'px';
       modal.style.display = prevState;
-    }, 50);
+    }, 50
 
     // Show block with validation error
-    sweetAlert.showValidationError = function (error) {
+    );sweetAlert.showValidationError = function (error) {
       var validationError = getValidationError();
       validationError.innerHTML = error;
       show(validationError);
@@ -1207,18 +1280,18 @@ var sweetAlert = function sweetAlert() {
 
     sweetAlert.enableButtons();
     sweetAlert.hideLoading();
-    sweetAlert.resetValidationError();
+    sweetAlert.resetValidationError
 
     // inputs
-    var inputTypes = ['input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea'];
+    ();var inputTypes = ['input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea'];
     var input = void 0;
-    for (var _i6 = 0; _i6 < inputTypes.length; _i6++) {
-      var inputClass = swalClasses[inputTypes[_i6]];
+    for (var _i7 = 0; _i7 < inputTypes.length; _i7++) {
+      var inputClass = swalClasses[inputTypes[_i7]];
       var inputContainer = getChildByClass(modal, inputClass);
-      input = getInput(inputTypes[_i6]);
+      input = getInput(inputTypes[_i7]
 
       // set attributes
-      if (input) {
+      );if (input) {
         for (var j in input.attributes) {
           if (input.attributes.hasOwnProperty(j)) {
             var attrName = input.attributes[j].name;
@@ -1242,116 +1315,114 @@ var sweetAlert = function sweetAlert() {
     }
 
     var populateInputOptions = void 0;
-
-    (function () {
-      switch (params.input) {
-        case 'text':
-        case 'email':
-        case 'password':
-        case 'number':
-        case 'tel':
-          input = getChildByClass(modal, swalClasses.input);
-          input.value = params.inputValue;
-          input.placeholder = params.inputPlaceholder;
-          input.type = params.input;
-          show(input);
-          break;
-        case 'file':
-          input = getChildByClass(modal, swalClasses.file);
-          input.placeholder = params.inputPlaceholder;
-          input.type = params.input;
-          show(input);
-          break;
-        case 'range':
-          var range = getChildByClass(modal, swalClasses.range);
-          var rangeInput = range.querySelector('input');
-          var rangeOutput = range.querySelector('output');
-          rangeInput.value = params.inputValue;
-          rangeInput.type = params.input;
-          rangeOutput.value = params.inputValue;
-          show(range);
-          break;
-        case 'select':
-          var select = getChildByClass(modal, swalClasses.select);
-          select.innerHTML = '';
-          if (params.inputPlaceholder) {
-            var placeholder = document.createElement('option');
-            placeholder.innerHTML = params.inputPlaceholder;
-            placeholder.value = '';
-            placeholder.disabled = true;
-            placeholder.selected = true;
-            select.appendChild(placeholder);
+    switch (params.input) {
+      case 'text':
+      case 'email':
+      case 'password':
+      case 'number':
+      case 'tel':
+      case 'url':
+        input = getChildByClass(modal, swalClasses.input);
+        input.value = params.inputValue;
+        input.placeholder = params.inputPlaceholder;
+        input.type = params.input;
+        show(input);
+        break;
+      case 'file':
+        input = getChildByClass(modal, swalClasses.file);
+        input.placeholder = params.inputPlaceholder;
+        input.type = params.input;
+        show(input);
+        break;
+      case 'range':
+        var range = getChildByClass(modal, swalClasses.range);
+        var rangeInput = range.querySelector('input');
+        var rangeOutput = range.querySelector('output');
+        rangeInput.value = params.inputValue;
+        rangeInput.type = params.input;
+        rangeOutput.value = params.inputValue;
+        show(range);
+        break;
+      case 'select':
+        var select = getChildByClass(modal, swalClasses.select);
+        select.innerHTML = '';
+        if (params.inputPlaceholder) {
+          var placeholder = document.createElement('option');
+          placeholder.innerHTML = params.inputPlaceholder;
+          placeholder.value = '';
+          placeholder.disabled = true;
+          placeholder.selected = true;
+          select.appendChild(placeholder);
+        }
+        populateInputOptions = function populateInputOptions(inputOptions) {
+          for (var optionValue in inputOptions) {
+            var option = document.createElement('option');
+            option.value = optionValue;
+            option.innerHTML = inputOptions[optionValue];
+            if (params.inputValue === optionValue) {
+              option.selected = true;
+            }
+            select.appendChild(option);
           }
-          populateInputOptions = function populateInputOptions(inputOptions) {
-            for (var optionValue in inputOptions) {
-              var option = document.createElement('option');
-              option.value = optionValue;
-              option.innerHTML = inputOptions[optionValue];
-              if (params.inputValue === optionValue) {
-                option.selected = true;
-              }
-              select.appendChild(option);
+          show(select);
+          select.focus();
+        };
+        break;
+      case 'radio':
+        var radio = getChildByClass(modal, swalClasses.radio);
+        radio.innerHTML = '';
+        populateInputOptions = function populateInputOptions(inputOptions) {
+          for (var radioValue in inputOptions) {
+            var radioInput = document.createElement('input');
+            var radioLabel = document.createElement('label');
+            var radioLabelSpan = document.createElement('span');
+            radioInput.type = 'radio';
+            radioInput.name = swalClasses.radio;
+            radioInput.value = radioValue;
+            if (params.inputValue === radioValue) {
+              radioInput.checked = true;
             }
-            show(select);
-            select.focus();
-          };
-          break;
-        case 'radio':
-          var radio = getChildByClass(modal, swalClasses.radio);
-          radio.innerHTML = '';
-          populateInputOptions = function populateInputOptions(inputOptions) {
-            for (var radioValue in inputOptions) {
-              var radioInput = document.createElement('input');
-              var radioLabel = document.createElement('label');
-              var radioLabelSpan = document.createElement('span');
-              radioInput.type = 'radio';
-              radioInput.name = swalClasses.radio;
-              radioInput.value = radioValue;
-              if (params.inputValue === radioValue) {
-                radioInput.checked = true;
-              }
-              radioLabelSpan.innerHTML = inputOptions[radioValue];
-              radioLabel.appendChild(radioInput);
-              radioLabel.appendChild(radioLabelSpan);
-              radioLabel.for = radioInput.id;
-              radio.appendChild(radioLabel);
-            }
-            show(radio);
-            var radios = radio.querySelectorAll('input');
-            if (radios.length) {
-              radios[0].focus();
-            }
-          };
-          break;
-        case 'checkbox':
-          var checkbox = getChildByClass(modal, swalClasses.checkbox);
-          var checkboxInput = getInput('checkbox');
-          checkboxInput.type = 'checkbox';
-          checkboxInput.value = 1;
-          checkboxInput.id = swalClasses.checkbox;
-          checkboxInput.checked = Boolean(params.inputValue);
-          var label = checkbox.getElementsByTagName('span');
-          if (label.length) {
-            checkbox.removeChild(label[0]);
+            radioLabelSpan.innerHTML = inputOptions[radioValue];
+            radioLabel.appendChild(radioInput);
+            radioLabel.appendChild(radioLabelSpan);
+            radioLabel.for = radioInput.id;
+            radio.appendChild(radioLabel);
           }
-          label = document.createElement('span');
-          label.innerHTML = params.inputPlaceholder;
-          checkbox.appendChild(label);
-          show(checkbox);
-          break;
-        case 'textarea':
-          var textarea = getChildByClass(modal, swalClasses.textarea);
-          textarea.value = params.inputValue;
-          textarea.placeholder = params.inputPlaceholder;
-          show(textarea);
-          break;
-        case null:
-          break;
-        default:
-          console.error('SweetAlert2: Unexpected type of input! Expected "text", "email", "password", "select", "checkbox", "textarea" or "file", got "' + params.input + '"');
-          break;
-      }
-    })();
+          show(radio);
+          var radios = radio.querySelectorAll('input');
+          if (radios.length) {
+            radios[0].focus();
+          }
+        };
+        break;
+      case 'checkbox':
+        var checkbox = getChildByClass(modal, swalClasses.checkbox);
+        var checkboxInput = getInput('checkbox');
+        checkboxInput.type = 'checkbox';
+        checkboxInput.value = 1;
+        checkboxInput.id = swalClasses.checkbox;
+        checkboxInput.checked = Boolean(params.inputValue);
+        var label = checkbox.getElementsByTagName('span');
+        if (label.length) {
+          checkbox.removeChild(label[0]);
+        }
+        label = document.createElement('span');
+        label.innerHTML = params.inputPlaceholder;
+        checkbox.appendChild(label);
+        show(checkbox);
+        break;
+      case 'textarea':
+        var textarea = getChildByClass(modal, swalClasses.textarea);
+        textarea.value = params.inputValue;
+        textarea.placeholder = params.inputPlaceholder;
+        show(textarea);
+        break;
+      case null:
+        break;
+      default:
+        console.error('SweetAlert2: Unexpected type of input! Expected "text", "email", "password", "number", "tel", "select", "radio", "checkbox", "textarea", "file" or "url", got "' + params.input + '"');
+        break;
+    }
 
     if (params.input === 'select' || params.input === 'radio') {
       if (params.inputOptions instanceof Promise) {
@@ -1367,10 +1438,16 @@ var sweetAlert = function sweetAlert() {
       }
     }
 
-    openModal(params.animation, params.onOpen);
+    openModal(params.animation, params.onOpen
 
     // Focus the first element (input or button)
-    setFocus(-1, 1);
+    );if (params.allowEnterKey) {
+      setFocus(-1, 1);
+    } else {
+      if (document.activeElement) {
+        document.activeElement.blur();
+      }
+    }
 
     // fix scroll
     getContainer().scrollTop = 0;
@@ -1424,13 +1501,13 @@ sweetAlert.queue = function (steps) {
  * Global function for getting the index of current modal in queue
  */
 sweetAlert.getQueueStep = function () {
-  return document.body.getAttribute('data-swal2-queue-step');
-};
+  return document.body.getAttribute('data-swal2-queue-step'
 
-/*
- * Global function for inserting a modal to the queue
- */
-sweetAlert.insertQueueStep = function (step, index) {
+  /*
+   * Global function for inserting a modal to the queue
+   */
+  );
+};sweetAlert.insertQueueStep = function (step, index) {
   if (index && index < queue.length) {
     return queue.splice(index, 0, step);
   }
@@ -1462,7 +1539,9 @@ sweetAlert.close = sweetAlert.closeModal = function (onComplete) {
   resetPrevState();
 
   var removeModalAndResetState = function removeModalAndResetState() {
-    document.body.removeChild(container);
+    if (container.parentNode) {
+      container.parentNode.removeChild(container);
+    }
     removeClass(document.documentElement, swalClasses.shown);
     removeClass(document.body, swalClasses.shown);
     undoScrollbar();
@@ -1492,14 +1571,34 @@ sweetAlert.close = sweetAlert.closeModal = function (onComplete) {
  * Global function to click 'Confirm' button
  */
 sweetAlert.clickConfirm = function () {
-  return getConfirmButton().click();
-};
+  return getConfirmButton().click
 
-/*
- * Global function to click 'Cancel' button
- */
-sweetAlert.clickCancel = function () {
-  return getCancelButton().click();
+  /*
+   * Global function to click 'Cancel' button
+   */
+  ();
+};sweetAlert.clickCancel = function () {
+  return getCancelButton().click
+
+  /**
+   * Show spinner instead of Confirm button and disable Cancel button
+   */
+  ();
+};sweetAlert.showLoading = sweetAlert.enableLoading = function () {
+  var modal = getModal();
+  if (!modal) {
+    sweetAlert('');
+  }
+  var buttonsWrapper = getButtonsWrapper();
+  var confirmButton = getConfirmButton();
+  var cancelButton = getCancelButton();
+
+  show(buttonsWrapper);
+  show(confirmButton, 'inline-block');
+  addClass(buttonsWrapper, swalClasses.loading);
+  addClass(modal, swalClasses.loading);
+  confirmButton.disabled = true;
+  cancelButton.disabled = true;
 };
 
 /**
@@ -1530,7 +1629,7 @@ sweetAlert.resetDefaults = function () {
 
 sweetAlert.noop = function () {};
 
-sweetAlert.version = '6.4.0';
+sweetAlert.version = '6.6.5';
 
 sweetAlert.default = sweetAlert;
 

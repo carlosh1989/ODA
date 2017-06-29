@@ -2,39 +2,46 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
-  <title>SweetAlert2 - an awesome and accessible (WAI-ARIA) replacement for JavaScript's popup boxes</title>
+  <title>SweetAlert2 - a beautiful, responsive, customizable and accessible (WAI-ARIA) replacement for JavaScript's popup boxes</title>
 
   <link rel="icon" href="./assets/favicon.png">
   <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
 
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courgette">
   <link rel="stylesheet" href="./assets/example.css">
   <link rel="stylesheet" href="./assets/buttons.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/animatecss/3.5.2/animate.css">
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <!-- This is what you need -->
-  <script src="https://cdn.jsdelivr.net/es6-promise/latest/es6-promise.auto.min.js"></script> <!-- IE11 support -->
-  <script src="./dist/sweetalert2.js"></script>
+  <script src="./dist/sweetalert2.min.js"></script>
   <link rel="stylesheet" href="./dist/sweetalert2.min.css">
+
+  <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
   <!--.......................-->
 </head>
 
 <body>
   <header>
     <h1>Sweet<span>Alert</span>2</h1>
-    <h2>A beautiful, customizable, accessible (WAI-ARIA) replacement for JavaScript's popup boxes</h2>
     <h2>Supported fork of t4t5/sweetalert</h2>
+    <br>
+    <h2>A beautiful, responsive, customizable, accessible (WAI-ARIA) replacement for JavaScript's popup boxes</h2>
+    <h2>Zero dependencies</h2>
     <div class="carbonads-wrapper">
       <script src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=limontegithubiosweetalert2" id="_carbonads_js" async></script>
     </div>
     <a class="top-right-button download">Download</a>
-    <a href="https://www.jsdelivr.com/projects/sweetalert2" class="top-right-button cdn">CDN</a>
-    <a href="https://www.paypal.me/limonte/5" class="top-right-button donate">
-      <img src="https://www.paypalobjects.com/webstatic/icon/pp32.png" alt="PayPal logo">
+    <a href="https://cdnjs.com/libraries/limonte-sweetalert2" class="top-right-button cdn" target="_blank" rel="noopener">CDN</a>
+    <a href="https://www.paypal.me/limonte/5eur" class="top-right-button donate">
+      <img src="https://www.paypalobjects.com/webstatic/icon/pp32.png" width="32" height="32" alt="PayPal logo">
       <span>Donate</span>
     </a>
   </header>
@@ -149,7 +156,7 @@ swal({
 
     <li class="html-jquery">
       <div class="ui">
-        <p>jQuery HTML with custom animation (<a href="https://daneden.github.io/animate.css/" target="_blank">Animate.css <i class="fa fa-external-link"></i></a>)</p>
+        <p>jQuery HTML with custom animation (<a href="https://daneden.github.io/animate.css/" target="_blank" rel="noopener">Animate.css <i class="fa fa-external-link"></i></a>)</p>
         <button>Try me!</button>
       </div>
       <pre>
@@ -353,16 +360,14 @@ swal.queue([{
 
 
   <!-- Download & Install -->
-  <div class="center-container" class="download-section">
+  <div class="center-container download-section">
     <h3>Download & install</h3>
-    <pre class="center">$ bower install sweetalert2</pre>
-    <p>Or</p>
     <pre class="center">$ npm install sweetalert2</pre>
+    <p>Or</p>
+    <pre class="center">$ bower install sweetalert2</pre>
     <p>
       Or download from CDN:
-      <a href="https://www.jsdelivr.com/projects/sweetalert2" target="_blank">jsdelivr.com/sweetalert2 <i class="fa fa-external-link"></i></a>
-      <span class="mobile-hidden"> | </span>
-      <a href="https://cdnjs.com/libraries/limonte-sweetalert2" target="_blank">cdnjs.com/limonte-sweetalert2 <i class="fa fa-external-link"></i></a>
+      <a href="https://cdnjs.com/libraries/limonte-sweetalert2" target="_blank" rel="noopener">cdnjs.com/limonte-sweetalert2 <i class="fa fa-external-link"></i></a>
     </p>
   </div>
 
@@ -370,11 +375,11 @@ swal.queue([{
   <div class="center-container">
     <h3>Usage</h3>
     <p>1. Initialize the plugin by referencing the necessary files:</p>
-<pre><span class="comment">&lt;!-- for IE support --&gt;</span>
-&lt;<span class="tag">script</span> <span class="attr">src</span>=<span class="str">"bower_components/es6-promise/es6-promise.auto.min.js"</span>&gt;&lt;/<span class="tag">script</span>&gt;
+<pre>&lt;<span class="tag">script</span> <span class="attr">src</span>=<span class="str">"bower_components/sweetalert2/dist/sweetalert2.min.js"</span>&gt;&lt;/<span class="tag">script</span>&gt;
+&lt;<span class="tag">link</span> <span class="attr">rel</span>=<span class="str">"stylesheet"</span> <span class="tag">href</span>=<span class="str">"bower_components/sweetalert2/dist/sweetalert2.min.css"</span>&gt;
 
-&lt;<span class="tag">script</span> <span class="attr">src</span>=<span class="str">"bower_components/sweetalert2/dist/sweetalert2.min.js"</span>&gt;&lt;/<span class="tag">script</span>&gt;
-&lt;<span class="tag">link</span> <span class="attr">rel</span>=<span class="str">"stylesheet"</span> <span class="tag">href</span>=<span class="str">"bower_components/sweetalert2/dist/sweetalert2.min.css"</span>&gt;</pre>
+<span class="comment">&lt;!-- Include a polyfill for ES6 Promises (optional) for IE11 and Android browser --&gt;</span>
+&lt;<span class="tag">script</span> <span class="attr">src</span>=<span class="str">"https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"</span>&gt;&lt;/<span class="tag">script</span>&gt;</pre>
       <p>Or</p>
 <pre><span class="comment">// ES6 Modules</span>
 <span class="val">import</span> { default as swal } <span class="val">from</span> <span class="str">'sweetalert2'</span>
@@ -433,6 +438,11 @@ swal.queue([{
         <td><i>null</i></td>
         <td>The type of the modal. SweetAlert2 comes with 5 built-in types which will show a corresponding icon animation: <strong>warning</strong>, <strong>error</strong>, <strong>success</strong>, <strong>info</strong> and <strong>question</strong>. It can either be put in the array under the key "type" or passed as the third parameter of the function.</td>
       </tr>
+      <tr>
+        <td><b>target</b></td>
+        <td><i>'body'</i></td>
+        <td>The container element for adding modal into.</td>
+      </tr>
       <tr id="input-parameter">
         <td><b>input</b></td>
         <td><i>null</i></td>
@@ -441,7 +451,7 @@ swal.queue([{
           <strong>text</strong>, <strong>email</strong>, <strong>password</strong>,
           <strong>number</strong>, <strong>tel</strong>, <strong>range</strong>,
           <strong>textarea</strong>, <strong>select</strong>, <strong>radio</strong>,
-          <strong>checkbox</strong> and <strong>file</strong>.
+          <strong>checkbox</strong>, <strong>file</strong> and <strong>url</strong>.
         </td>
       </tr>
       <tr>
@@ -483,6 +493,11 @@ swal.queue([{
         <td><b>allowEscapeKey</b></td>
         <td><i>true</i></td>
         <td>If set to <strong>false</strong>, the user can't dismiss the modal by pressing the Escape key.</td>
+      </tr>
+      <tr id="allow-enter-key">
+        <td><b>allowEnterKey</b></td>
+        <td><i>true</i></td>
+        <td>If set to <strong>false</strong>, the user can't confirm the modal by pressing the Enter or Space keys, unless they manually focus the confirm button.</td>
       </tr>
       <tr>
         <td><b>showConfirmButton</b></td>
@@ -594,6 +609,11 @@ swal.queue([{
         <td><i>true</i></td>
         <td>Automatically remove whitespaces from both ends of a result string. Set this parameter to <strong>false</strong> to disable auto-trimming.</td>
       </tr>
+      <tr id="input-attributes">
+        <td><b>inputAttributes</b></td>
+        <td><i>{}</i></td>
+        <td>HTML input attributes (e.g. <strong>min</strong>, <strong>max</strong>, <strong>autocomplete</strong>, <strong>accept</strong>), that are added to the input field. Object keys will represent attributes names, object values will represent attributes values.</td>
+      </tr>
       <tr id="input-validator">
         <td><b>inputValidator</b></td>
         <td><i>null</i></td>
@@ -628,6 +648,11 @@ swal.queue([{
         <td><b>onClose</b></td>
         <td><i>null</i></td>
         <td>Function to run when modal closes, provides modal DOM element as the first argument.</td>
+      </tr>
+      <tr>
+        <td><b>useRejections</b></td>
+        <td><i>true</i></td>
+        <td>Determines whether dismissals (outside click, cancel button, close button, esc key) should reject, or resolve with an object of the format <i>{ dismiss: reason }</i>. Set it to <i>false</i> to get a cleaner control flow when using <i>await</i>, as explained in <a href="https://github.com/limonte/sweetalert2/issues/485">#485</a>.</td>
       </tr>
     </table>
 
@@ -692,12 +717,23 @@ swal(...)
   <table class="modal-types">
     <tr>
       <td><strong>success</strong></td>
-      <td><div class="swal2-icon swal2-success"> <span class="line tip animate-success-tip"></span> <span class="line long animate-success-long"></span> <div class="placeholder"></div></div></td>
+      <td>
+        <div class="swal2-icon swal2-success">
+          <div class="swal2-success-circular-line-left"></div>
+          <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>
+          <div class="swal2-success-ring"></div> <div class="swal2-success-fix"></div>
+          <div class="swal2-success-circular-line-right"></div>
+        </div>
+      </td>
       <td><button class="type-success">Try me!</button></td>
     </tr>
     <tr>
       <td><strong>error</strong></td>
-      <td><div class="swal2-icon swal2-error"><span class="x-mark"><span class="line left"></span><span class="line right"></span></span></div></td>
+      <td>
+        <div class="swal2-icon swal2-error">
+         <span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span>
+        </div>
+      </td>
       <td><button class="type-error">Try me!</button></td>
     </tr>
     <tr>
@@ -721,7 +757,7 @@ swal(...)
   <!-- Input Types -->
   <h3>Input Types</h3>
   <table class="modal-input-types">
-    <tr id="input-field">
+    <tr id="input-text">
       <td><strong>text</strong></td>
       <td>
         <pre>
@@ -765,6 +801,23 @@ swal({
       <td><button class="input-type-email">Try me!</button></td>
     </tr>
 
+    <tr id="input-url">
+      <td><strong>url</strong></td>
+      <td>
+        <pre>
+swal({
+  title: <span class="str">'Input URL'</span>,
+  input: <span class="str">'url'</span>
+}).then(<span class="func"><i>function</i></span> (url) {
+  swal({
+    type: <span class="str">'success'</span>,
+    html: <span class="str">'Entered URL: '</span> + url
+  })
+})</pre>
+      </td>
+      <td><button class="input-type-url">Try me!</button></td>
+    </tr>
+
     <tr id="input-password">
       <td><strong>password</strong></td>
       <td>
@@ -805,7 +858,7 @@ swal({
       <td><button class="input-type-textarea">Try me!</button></td>
     </tr>
 
-    <tr id="select-box">
+    <tr id="input-select">
       <td><strong>select</strong></td>
       <td>
         <pre>
@@ -839,7 +892,7 @@ swal({
       <td><button class="input-type-select">Try me!</button></td>
     </tr>
 
-    <tr id="radio-inputs">
+    <tr id="input-radio">
       <td><strong>radio</strong></td>
       <td>
         <pre>
@@ -877,7 +930,7 @@ swal({
       <td><button class="input-type-radio">Try me!</button></td>
     </tr>
 
-    <tr id="checkbox">
+    <tr id="input-checkbox">
       <td><strong>checkbox</strong></td>
       <td>
         <pre>
@@ -1289,6 +1342,18 @@ swal({
     }).catch(swal.noop)
   })
 
+  $('.input-type-url').on('click', function () {
+    swal({
+      title: 'Input URL',
+      input: 'url'
+    }).then(function (url) {
+      swal({
+        type: 'success',
+        html: 'Entered URL: <strong>' + url + '</strong>'
+      })
+    }).catch(swal.noop)
+  })
+
   $('.input-type-password').on('click', function () {
     swal({
       title: 'Enter your password',
@@ -1399,7 +1464,7 @@ swal({
     }).then(function () {
       swal({
         type: 'success',
-        text: 'You agreed with T&amp;C :)'
+        text: 'You agreed with T&C :)'
       })
     }).catch(swal.noop)
   })

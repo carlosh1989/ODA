@@ -1,4 +1,4 @@
 
-s/${modulo}/cobros/
-s/${controller}/Privados/
+s/${modulo}/admin/
+s/${controller}/Prueba/
 s/${vista}/show/
