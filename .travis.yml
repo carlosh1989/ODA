@@ -3,5 +3,7 @@ php:
   - 5.6
   - 7.1
 script: 
-  - sudo ./cli/config/install.sh
+  - sudo ./cli/config/Run.sh
   - sudo ./cli/cli.sh
+  - ./cli/composer/composer.phar install
+  - ./vendor/bin/bowerphp install
