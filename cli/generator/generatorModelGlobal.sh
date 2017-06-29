@@ -18,6 +18,7 @@ do
 done
 
 #volvemos a crear el road map para autocargar los nuevos controladores
-composer dump-autoload -o
+#composer dump-autoload -o
+./cli/composer/composer.phar dump-autoload -o
 
 

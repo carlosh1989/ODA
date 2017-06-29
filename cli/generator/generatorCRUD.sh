@@ -99,7 +99,8 @@ do
 done
 
 #volvemos a crear el road map para autocargar los nuevos controladores
-composer dump-autoload -o
+#composer dump-autoload -o
+./cli/composer/composer.phar dump-autoload -o
 
 #comando para abrir la vista recien creada en el explorador
 bash -c "xdg-open http://localhost/"${PWD##*/}"/"$1"/"$2"" 2> /dev/null
