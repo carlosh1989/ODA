@@ -4,4 +4,4 @@
 echo "alias box='./box.sh'" >> ~/.bashrc
 echo "alias cli='./cli/cli.sh'" >> ~/.bashrc
 source ~/.bashrc
-apt-get install dialog
+sudo apt-get install dialog
