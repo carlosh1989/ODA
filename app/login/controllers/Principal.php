@@ -20,7 +20,7 @@ class Principal extends Controller
 	        // Check to see if the session has expired.
 	        // If it has, end the session and redirect to login.
             $usuario = (object) Session::get('current_user');
-            $url = $usuario->rol.'/principal';
+            $url = $usuario->role.'/principal';
             Redirect::to($url);
             
 	        if($session->isExpired()) 
@@ -33,7 +33,7 @@ class Principal extends Controller
 	            // Keep renewing the session as long as they keep taking action.
 	            $session->renew();
 	            $usuario = (object) Session::get('current_user');
-	            $url = $usuario->rol.'/principal';
+	            $url = $usuario->role.'/principal';
 	            Redirect::to($url);
 	        }
 	    } 
@@ -46,7 +46,7 @@ class Principal extends Controller
     public function verificar()
     {
 		extract($_POST);
-		$usuario = Usuario::where('usuario',$username)->first();
+		$usuario = Usuario::where('email',$username)->first();
 		if($usuario)
 		{
 			$iguales = password_verify($password, $usuario->password);
@@ -57,11 +57,9 @@ class Principal extends Controller
 	            // You can define what you like to be stored.
 	            $user = array(
 	                'id'	=> $usuario->id,
-	                'usuario'	=> $usuario->usuario,
-	                'nombre'  => $usuario->nombre,
-	                'apellido' => $usuario->apellido,
-	                'cargo'	=> $usuario->cargo,
-	                'rol'		=> $usuario->rol	
+	                'name'  => $usuario->name,
+	                'email' => $usuario->email,
+	                'role'		=> $usuario->role	
 	            );
 
 	           	$session->register(120); // Register for 2 hours.

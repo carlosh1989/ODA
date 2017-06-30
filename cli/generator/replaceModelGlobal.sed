@@ -1,3 +1,3 @@
 
-s/${model}/Hematologia/
-s/${tabla}/hematologias/
+s/${model}/Usuarios/
+s/${tabla}/usuarios/

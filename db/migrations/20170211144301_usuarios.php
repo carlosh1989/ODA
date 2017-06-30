@@ -28,11 +28,12 @@ class Usuarios extends AbstractMigration
     public function change()
     {
         $users = $this->table('usuarios');
-        $users->addColumn('nombre', 'string', array('limit' => 50))
-              ->addColumn('password', 'string', array('limit' => 50))
+        $users->addColumn('name', 'string', array('limit' => 50))
+              ->addColumn('password', 'string', array('limit' => 100))
               ->addColumn('email', 'string', array('limit' => 100))
+              ->addColumn('role', 'string', array('limit' => 100))
               ->addColumn('created_at', 'datetime')
               ->addColumn('updated_at', 'datetime', array('null' => true))
-              ->save();
+              ->create();
     }
 }

@@ -11,7 +11,6 @@ if (isset($_SERVER['ENV_ENVIRONMENT']) AND $_SERVER['ENV_ENVIRONMENT'] == 'local
 	$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 	$whoops->register();
 }
-
 session_start();
 
 $stringUrl = $_SERVER['REQUEST_URI'];
