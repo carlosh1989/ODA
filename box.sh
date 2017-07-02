@@ -255,7 +255,7 @@ if [[ -d $VENDOR ]]; then
 					COMPOSERLIBRARY=$(whiptail --title "COMPOSER" --inputbox "Ingrese paquete" 10 60 3>&1 1>&2 2>&3)
 					exitstatus=$?
 					if [ $exitstatus = 0 ]; then
-						if [[ $BOWERLIBRARY ]]; then
+						if [[ $COMPOSERLIBRARY ]]; then
 							./cli/composer/composer.phar require $COMPOSERLIBRARY
 						else
 							echo "Error, debe ingresar nombre de paquete";
@@ -280,4 +280,3 @@ else
 	./cli/composer/composer.phar install
 	./vendor/bin/bowerphp install
 fi
-

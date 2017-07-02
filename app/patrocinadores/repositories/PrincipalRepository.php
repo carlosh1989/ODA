@@ -1,9 +1,9 @@
 <?php
-namespace App\admin\repositories;
+namespace App\patrocinadores\repositories;
 
 use Eloquent;
 
-class PacientesRepository 
+class PrincipalRepository 
 {
     function __construct()
     {

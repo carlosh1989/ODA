@@ -1,4 +1,4 @@
 
-s/${modulo}/admin/
+s/${modulo}/patrocinadores/
 s/${controller}/Principal/
-s/${vista}/index/
+s/${vista}/show/

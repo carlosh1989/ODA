@@ -1,10 +1,12 @@
 <?php
 namespace App\admin\controllers;
 
-use App\admin\repositories\PacientesRepository as Repo;
+use App\admin\repositories\PatrocinadoresRepository as Repo;
 use Controller,View,Token,Session,Arr,Message,Redirect,Permission;
+use Stripe\Customer;
+use Stripe\Stripe;
 
-class Pacientes extends Controller
+class Patrocinadores extends Controller
 {
     function __construct()
     {
@@ -27,6 +29,22 @@ class Pacientes extends Controller
     // localhost/proyecto/modulo/principal/
     public function store()
     {
+        //Arr::show($_POST);
+        try {
+            Stripe::setApiKey('sk_test_UhDOTTpPmYMaTx0dJae5sHKF');
+
+            extract($_POST);
+             $charge = Customer::create(array(
+                'card'     => $stripeToken,
+                'email'   => $stripeEmail,
+                'plan' => $plans,
+                'description' => $id_pago
+            )); 
+            Redirect::send('admin/patrocinadores/','success', 'Afiliación hecha con exito..!.');
+        } catch (\Stripe\Error\Card $e) {
+            $error = $e->getMessage();
+            echo $error;
+        }
         //Guardar datos enviados de -create-
     }
 

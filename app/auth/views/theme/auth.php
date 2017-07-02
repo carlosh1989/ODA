@@ -167,7 +167,7 @@ color: #000;
             <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
             <img id="profile-img" class="profile-img-card" src="https://is3-ssl.mzstatic.com/image/thumb/Purple49/v4/20/ea/39/20ea392b-cbb8-3685-f17d-9c87403d3ba9/source/256x256bb.jpg" />
             <p id="profile-name" class="profile-name-card"></p>
-		    <form action="<?php echo baseUrl ?>login/principal/verificar" method="POST">
+		    <form action="<?php echo baseUrl ?>auth/login/verificar" method="POST">
 		      <?php echo Token::field() ?>
                 <span id="reauth-email" class="reauth-email"></span>
                 <input name="username" type="text" id="inputEmail" class="form-control" placeholder="Usuario" required autofocus>

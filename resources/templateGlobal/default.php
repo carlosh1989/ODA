@@ -77,7 +77,7 @@ input[type="button"]:hover:not(.active) {
                     
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li><a class="fa fa-sign-out" href="<?php echo baseUrl ?>login/principal/logout">Salir</a></li>
+                      <li><a class="fa fa-sign-out" href="<?php echo baseUrl ?>auth/login/logout">Salir</a></li>
                     </ul>
                   </li>
                 </ul>

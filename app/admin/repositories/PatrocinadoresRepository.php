@@ -3,7 +3,7 @@ namespace App\admin\repositories;
 
 use Eloquent;
 
-class PacientesRepository 
+class PatrocinadoresRepository 
 {
     function __construct()
     {

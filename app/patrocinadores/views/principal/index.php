@@ -10,7 +10,7 @@
           </div>
         </div>
         <div class="box-body">
-          Vista <b>index</b> del mudulo <b>admin</b>
+          Vista <b>index</b> del mudulo <b>patrocinadores</b>
         </div>
         <!-- /.box-body -->
         <div class="box-footer">

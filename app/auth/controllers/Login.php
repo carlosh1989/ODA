@@ -1,10 +1,10 @@
 <?php
-namespace App\login\controllers;
+namespace App\auth\controllers;
 
 use App\Usuario;
 use Controller,View,Token,Session,Arr,Message,Redirect;
 
-class Principal extends Controller
+class Login extends Controller
 {
     function __construct()
     {
@@ -26,7 +26,7 @@ class Principal extends Controller
 	        if($session->isExpired()) 
 	        {
 	            $session->end();
-	        	View::ver('login/principal/login');
+	        	View::ver('auth/login/index');
 	        } 
 	        else 
 	        {
@@ -39,7 +39,7 @@ class Principal extends Controller
 	    } 
 	    else 
 	    {
-	        View::ver('login/principal/login');
+	        View::ver('auth/login/index');
 	    }
     }
     
@@ -65,16 +65,16 @@ class Principal extends Controller
 	           	$session->register(120); // Register for 2 hours.
 	            $session->set('current_user', $user);
 	            //header('location: '.baseUrl.'admin/pensionados');
-	            Redirect::to('login/principal/index');
+	            Redirect::to('auth/login/index');
 			}
 			else
 			{
-	            Redirect::send('login/principal','error','Contraseña incorrecta.');
+	            Redirect::send('auth/login','error','Contraseña incorrecta.');
 			}
 		}
 		else
 		{
-            Redirect::send('login/principal','error','Usuario incorrecto.');
+            Redirect::send('auth/login','error','Usuario incorrecto.');
 		}
 		//Arr::show($usuario);
     }

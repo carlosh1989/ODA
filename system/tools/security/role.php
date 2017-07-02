@@ -1,10 +1,38 @@
 <?php
 namespace System\tools\security;
 
+use System\tools\render\Arr;
 use System\tools\rounting\Redirect;
 use System\tools\session\Session;
 
 class Permission {
+  public $param;
+
+  public function __construct($param) {
+    $this->param = $param;
+	if($this->param)
+	{
+        $session = new Session();
+        if ($session->isRegistered()) {
+            if($session->isExpired()) 
+            {
+                Redirect::to('');
+            } 
+            else 
+            {
+                $usuario = (object) Session::get('current_user');
+                if($usuario->role != $this->param)
+                {
+                    Redirect::to('');
+                }
+            }
+        } 
+        else
+        {
+            Redirect::to('');
+        }
+	}
+  }
 
 	public static function withRole($role)
 	{
@@ -19,7 +47,7 @@ class Permission {
 	            else 
 	            {
 	                $usuario = (object) Session::get('current_user');
-	                if($usuario->rol != $role)
+	                if($usuario->role != $role)
 	                {
 	                    Redirect::to('');
 	                }
@@ -30,6 +58,33 @@ class Permission {
 	            Redirect::to('');
 	        }
     	}
+	}
+
+	public static function WithManyRoles($roles)
+	{
+    	if($roles)
+    	{
+	        $session = new Session();
+	        if ($session->isRegistered()) {
+	            if($session->isExpired()) 
+	            {
+	                Redirect::to('');
+	            } 
+	            else 
+	            {
+	                $usuario = (object) Session::get('current_user');
+	                if(!in_array($usuario->role, $roles))
+	                {
+	                    Redirect::to('');
+	                }
+	            }
+	        } 
+	        else
+	        {
+	            Redirect::to('');
+	        }
+    	}
+		//Arr::show($roles);
 	}
 
 	public static function withoutRole()

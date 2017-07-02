@@ -1,20 +1,20 @@
 <?php
-namespace App\admin\controllers;
+namespace App\patrocinadores\controllers;
 
-use App\admin\repositories\PacientesRepository as Repo;
+use App\patrocinadores\repositories\PrincipalRepository as Repo;
 use Controller,View,Token,Session,Arr,Message,Redirect,Permission;
 
-class Pacientes extends Controller
+class Principal extends Controller
 {
     function __construct()
     {
         parent::__construct();
-        Permission::withRole('admin');
     }
 
     // localhost/proyecto/modulo/principal
     public function index()
     {
+        Permission::WithManyRoles(array('admin','patrocinadores'));
         View::show('index');
     }
 
