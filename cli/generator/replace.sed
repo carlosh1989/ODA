@@ -1,4 +1,4 @@
 
-s/${modulo}/patrocinadores/
-s/${controller}/Principal/
+s/${modulo}/ventas/
+s/${controller}/Inventarios/
 s/${vista}/show/
