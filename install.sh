@@ -27,8 +27,7 @@ if [ $exitstatus = 0 ]; then
 				exitstatus=$?
 				if [ $exitstatus = 0 ]; then
 					if [[ $NOMBREDATABASE ]]; then
-						#echo "create database $ROOT" | mysql -u $NOMBREDATABASE -p
-						./mysql-create-db-user.sh --host=localhost --database=$NOMBREDATABASE --user=$ROOT
+						./mysql-create-db-user.sh --host=localhost --database=$NOMBREDATABASE --user=$ROOT 
 						./cli/cli.sh db:migration migrate
 						./cli/cli.sh db:seed run
 						./cli/cli.sh generar:auth
