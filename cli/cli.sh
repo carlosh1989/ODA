@@ -16,6 +16,14 @@ if [ $1 ] && [ $1 ]; then
 		bash ./cli/generator/generatorCRUD.sh $2 $3
 	fi
 
+	if [ "generar:auth" = $1 ]; then
+		bash ./cli/generator/generatorAuth.sh auth login index
+	fi
+
+	if [ "generar:home" = $1 ]; then
+		bash ./cli/generator/generatorHome.sh home principal index
+	fi
+
 	if [ "documentar" = $1 ]; then
 		./vendor/bin/phpdoc -d app -t doc
 	fi
