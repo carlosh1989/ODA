@@ -29,7 +29,7 @@ do
 			else
 			echo "Creado app/"$MODULO/'controllers/'$CONTROLADOR
 			touch $APP/$MODULO/$CONTROLADOR_FOLDER/$CONTROLADOR
-			./cli/generator/make/auth/makeAuthController.sh $MODULO $CONTROLLER $VISTA
+			./cli/generator/make/auth/makeHomeController.sh $MODULO $CONTROLLER $VISTA
 			fi
 		else
 		echo "Creado existe app/"$MODULO/'controllers/'
@@ -44,14 +44,14 @@ do
 			then
 				mkdir -m 777 $APP/$MODULO/'views/theme'
 				touch $APP/$MODULO/'views/theme/'$MODULO'.php'
-				./cli/generator/make/auth/makeAuthTheme.sh $MODULO $CONTROLLER $VISTA
+				./cli/generator/make/auth/makeHomeTheme.sh $MODULO $CONTROLLER $VISTA
 				if [ -f $APP/$MODULO/$VIEWS_FOLDER/$CONTROLLER/$VISTA ];
 				then
 					echo "Sí, sí existe app/"$MODULO/$VIEWS_FOLDER/$CONTROLLER/$VISTA
 				else
 				echo "Creado app/"$MODULO/$VIEWS_FOLDER/$CONTROLLER/$VISTA
 				touch $APP/$MODULO/$VIEWS_FOLDER/$CONTROLLER/$VISTA'.php'
-				./cli/generator/make/auth/makeAuthVista.sh $MODULO $CONTROLLER $VISTA
+				./cli/generator/make/auth/makeHomeVista.sh $MODULO $CONTROLLER $VISTA
 				#./generator.sh $MODULO $CONTROLADOR $VISTA
 				fi
 			else
