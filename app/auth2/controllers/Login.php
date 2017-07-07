@@ -4,7 +4,7 @@ namespace App\auth\controllers;
 use App\Usuario;
 use Controller,View,Token,Session,Arr,Message,Redirect;
 
-class Login extends Controller
+class Login2 extends Controller
 {
     function __construct()
     {

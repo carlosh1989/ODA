@@ -11,7 +11,7 @@
 
 #generamos el modulo auth
 #./cli/cli.sh generar:auth
-
+NOMBREPROYECTO=${PWD##*/}
 INSTALL=$(whiptail --title "INSTALAR AUTH/LOGIN?" --menu "" 15 60 4 \
 "1" "SI" \
 "2" "NO" 3>&1 1>&2 2>&3) 
@@ -23,14 +23,27 @@ if [ $exitstatus = 0 ]; then
 		exitstatus=$?
 		if [ $exitstatus = 0 ]; then
 			if [[ $ROOT ]]; then
-				NOMBREDATABASE=$(whiptail --title "INSTALL" --inputbox "Ingrese nombre de base de datos a crear" 10 60 3>&1 1>&2 2>&3)
+				CLAVEDATABASE=$(whiptail --title "INSTALL" --inputbox "Ingrese clave de base de datos" 10 60 3>&1 1>&2 2>&3)
 				exitstatus=$?
 				if [ $exitstatus = 0 ]; then
-					if [[ $NOMBREDATABASE ]]; then
-						./mysql-create-db-user.sh --host=localhost --database=$NOMBREDATABASE --user=$ROOT 
-						./cli/cli.sh db:migration migrate
-						./cli/cli.sh db:seed run
-						./cli/cli.sh generar:auth
+					if [[ $CLAVEDATABASE ]]; then
+						NOMBREDATABASE=$(whiptail --title "INSTALL" --inputbox "Ingrese nombre de base de datos a crear" 10 60 3>&1 1>&2 2>&3)
+						exitstatus=$?
+						if [ $exitstatus = 0 ]; then
+							if [[ $NOMBREDATABASE ]]; then
+								./mysql-create-db-user.sh --host=localhost --database=$NOMBREDATABASE --user=$ROOT 
+								./cli/cli.sh db:migration migrate
+								./cli/cli.sh db:seed run
+								./cli/generator/makeAuthEnv.sh $ROOT $CLAVEDATABASE $NOMBREDATABASE
+								./cli/generator/make/auth/makeAuthEnv.sh $ROOT $CLAVEDATABASE $NOMBREDATABASE $NOMBREPROYECTO > .env
+								./cli/cli.sh generar:auth
+
+							else
+								echo "Error, debe ingresar nombre de paquete";
+							fi
+						else
+						    echo "Cerrado";
+						fi
 					else
 						echo "Error, debe ingresar nombre de paquete";
 					fi
