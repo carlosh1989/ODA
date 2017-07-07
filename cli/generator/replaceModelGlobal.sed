@@ -1,3 +1,3 @@
 
-s/${model}/Usuarios/
+s/${model}/Usuario/
 s/${tabla}/usuarios/
