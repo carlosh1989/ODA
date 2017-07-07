@@ -1,6 +1,7 @@
 <?php
 namespace App\${modulo}\controllers;
 
+use App\Usuario;
 use App\${modulo}\models\${controller}Model;
 use Controller,View,Token,Session,Arr,Message,Redirect;
 

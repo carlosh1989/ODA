@@ -36,8 +36,8 @@ if [ $exitstatus = 0 ]; then
 								./cli/cli.sh db:migration migrate
 								./cli/cli.sh db:seed run
 								./cli/generator/generatorModelGlobal.sh usuario usuarios
+								./cli/composer/composer.phar dump-autoload -o
 								./cli/cli.sh generar:auth
-
 							else
 								echo "Error, debe ingresar nombre de paquete";
 							fi

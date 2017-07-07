@@ -1,6 +1,7 @@
 <?php
 namespace App\auth\controllers;
 
+use App\Usuario;
 use App\auth\models\LoginModel;
 use Controller,View,Token,Session,Arr,Message,Redirect;
 

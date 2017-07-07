@@ -280,5 +280,5 @@ else
 	./cli/composer/composer.phar install
 	./vendor/bin/bowerphp install
 	#COMANDO PARA INSTALAR EL MODULO AUTH O EL MODULO HOME
-	./install.sh
+	./install.sh	
 fi
