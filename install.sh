@@ -32,10 +32,9 @@ if [ $exitstatus = 0 ]; then
 						if [ $exitstatus = 0 ]; then
 							if [[ $NOMBREDATABASE ]]; then
 								./mysql-create-db-user.sh --host=localhost --database=$NOMBREDATABASE --user=$ROOT 
+								./cli/generator/make/auth/makeAuthEnv.sh $ROOT $CLAVEDATABASE $NOMBREDATABASE $NOMBREPROYECTO > .env
 								./cli/cli.sh db:migration migrate
 								./cli/cli.sh db:seed run
-								./cli/generator/makeAuthEnv.sh $ROOT $CLAVEDATABASE $NOMBREDATABASE
-								./cli/generator/make/auth/makeAuthEnv.sh $ROOT $CLAVEDATABASE $NOMBREDATABASE $NOMBREPROYECTO > .env
 								./cli/cli.sh generar:auth
 
 							else
@@ -59,6 +58,7 @@ if [ $exitstatus = 0 ]; then
     fi
 
     if [[ $INSTALL = 2 ]]; then
+		./cli/generator/make/home/makeHomeEnv.sh $NOMBREPROYECTO > .env
 		./cli/cli.sh generar:home
     fi
 else

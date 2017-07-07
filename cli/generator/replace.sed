@@ -1,4 +1,4 @@
 
-s/${modulo}/auth/
-s/${controller}/Login/
+s/${modulo}/home/
+s/${controller}/Principal/
 s/${vista}/index/
