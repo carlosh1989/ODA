@@ -35,7 +35,6 @@ if [ $exitstatus = 0 ]; then
 								./cli/generator/make/auth/makeAuthEnv.sh $ROOT $CLAVEDATABASE $NOMBREDATABASE $NOMBREPROYECTO > .env
 								./cli/cli.sh db:migration migrate
 								./cli/cli.sh db:seed run
-								./cli/generator/generatorModelGlobal.sh usuario usuarios
 								./cli/composer/composer.phar dump-autoload -o
 								./cli/cli.sh generar:auth
 							else

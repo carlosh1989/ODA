@@ -78,6 +78,7 @@ done
 #composer dump-autoload -o
 ./cli/composer/composer.phar dump-autoload -o
 
+./cli/generator/generatorModelGlobal.sh usuario usuarios
 #comando para abrir la vista recien creada en el explorador pero solo si es la vista index para no 
 #sobre poblaar el explorador con pestañas y porque no se ha logrado insertar public function() en el
 #controlador de forma dinamica hasta entonces esto quedara asi para la creacion de vistas individuales.
