@@ -1,4 +1,3 @@
-
 #!/bin/bash
 VENDOR="./vendor"
 if [[ -d $VENDOR ]]; then

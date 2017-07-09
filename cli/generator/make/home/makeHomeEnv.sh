@@ -7,7 +7,7 @@ PROYECTO=$1
 cat  << EOF
 ENV_ENVIRONMENT=local
 ENV_BASE_URL=http://localhost/$PROYECTO/
-ENV_CLASE_DEFAULT=App\auth\controllers\Login
+ENV_CLASE_DEFAULT=App\home\controllers\Principal
 ENV_METODO_DEFAULT=index
 ENV_DB_ADAPTER=mysql
 ENV_DB_ADAPTER_PHINX=mysql

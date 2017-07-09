@@ -31,7 +31,7 @@ if [ $exitstatus = 0 ]; then
 						exitstatus=$?
 						if [ $exitstatus = 0 ]; then
 							if [[ $NOMBREDATABASE ]]; then
-								./mysql-create-db-user.sh --host=localhost --database=$NOMBREDATABASE --user=$ROOT 
+								./cli/generator/mysql-create-db-user.sh --host=localhost --database=$NOMBREDATABASE --user=$ROOT 
 								./cli/generator/make/auth/makeAuthEnv.sh $ROOT $CLAVEDATABASE $NOMBREDATABASE $NOMBREPROYECTO > .env
 								./cli/cli.sh db:migration migrate
 								./cli/cli.sh db:seed run
