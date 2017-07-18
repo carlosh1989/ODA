@@ -1,6 +1,5 @@
 {
     "name": "carlosh1989/oda",
-    "minimum-stability": "dev",
     "description": "framework de la ODA",
     "version": "v1.0.1",
     "license": "MIT",
