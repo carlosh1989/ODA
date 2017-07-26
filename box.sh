@@ -1,4 +1,4 @@
-#!/bin/bash
+	#!/bin/bash
 VENDOR="./vendor"
 if [[ -d $VENDOR ]]; then
 	#statements
@@ -143,7 +143,8 @@ if [[ -d $VENDOR ]]; then
 			GENERATOR=$(whiptail --title "DEBUG" --menu "" 15 60 4 \
 			"1" "Clean" \
 			"2" "Restful CRUD" \
-			"3" "Model" 3>&1 1>&2 2>&3) 
+			"3" "Model Modular" \
+			"4" "Model Global" 3>&1 1>&2 2>&3) 
 
 			exitstatus=$?
 			if [ $exitstatus = 0 ]; then
@@ -184,8 +185,30 @@ if [[ -d $VENDOR ]]; then
 					    echo "Cerrado";
 					fi
 			    fi
-			    
+
 			    if [[ $GENERATOR = 3 ]]; then
+					GENERATORMODULO=$(whiptail --title "GENERATOR" --inputbox "Ingrese modulo que albergara al modelo" 10 60 3>&1 1>&2 2>&3)
+					exitstatus=$?
+					if [ $exitstatus = 0 ]; then
+						GENERATORSINGULAR=$(whiptail --title "GENERATOR" --inputbox "Ingrese Singular (Nombre de modelo)" 10 60 3>&1 1>&2 2>&3)
+						exitstatus=$?
+						if [ $exitstatus = 0 ]; then
+							GENERATORPLURAL=$(whiptail --title "GENERATOR" --inputbox "Ingrese Plural (Nombre de tabla)" 10 60 3>&1 1>&2 2>&3)
+							exitstatus=$?
+							if [ $exitstatus = 0 ]; then
+								./cli/cli.sh generar:modelMoludar $GENERATORMODULO $GENERATORSINGULAR $GENERATORPLURAL
+							else
+							    echo "Cerrado";
+							fi
+						else
+						    echo "Cerrado";
+						fi
+					else
+					    echo "Cerrado";
+					fi
+			    fi
+			    
+			    if [[ $GENERATOR = 4 ]]; then
 					GENERATORSINGULAR=$(whiptail --title "GENERATOR" --inputbox "Ingrese Singular (Nombre de modelo)" 10 60 3>&1 1>&2 2>&3)
 					exitstatus=$?
 					if [ $exitstatus = 0 ]; then
@@ -279,5 +302,5 @@ else
 	./cli/composer/composer.phar install
 	./vendor/bin/bowerphp install
 	#COMANDO PARA INSTALAR EL MODULO AUTH O EL MODULO HOME
-	./install.sh	
+	./cli/install/run.sh	
 fi

@@ -1,7 +1,7 @@
 #!/bin/bash
 printf '
 s/${modulo}/'$1'/
-s/${controller}/'${2^}'/
-s/${vista}/'$3'/' > ./cli/generator/replace.sed
+s/${model}/'${2^}'/
+s/${tabla}/'$3'/' > ./cli/generator/replaceModel.sed
 
-sed -f ./cli/generator/replace.sed ./cli/generator/templates/model.php > ./app/$1/models/${2^}Model.php
+sed -f ./cli/generator/replaceModel.sed ./cli/generator/templates/model.php > ./app/$1/${2^}.php

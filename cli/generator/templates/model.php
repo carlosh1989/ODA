@@ -1,10 +1,11 @@
-<?php
-namespace App\${modulo}\models;
+<?php 
+namespace App\${modulo};
+use \Illuminate\Database\Eloquent\Model;
+ 
+class ${model} extends Model {
+    protected $table = '${tabla}';
 
-class ${controller}Model 
-{
-    function __construct()
-    {
-        # code...
-    }
+    //Ejemplo de definir campos
+    //protected $fillable = ['username','email','password'];
+
 }

@@ -13,6 +13,7 @@
         "sweetalert2": "*",
         "bootstrap-theme-paper": "3.3.7",
         "bootstrap-table": "*",
-        "bootstrap": "*"
+        "bootstrap": "*",
+        "inputmask": "*"
     }
 }
