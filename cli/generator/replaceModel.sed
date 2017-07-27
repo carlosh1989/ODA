@@ -1,4 +1,4 @@
 
-s/${modulo}/laboratorio/
-s/${model}/Personal/
-s/${tabla}/laboratorio_personal/
+s/${modulo}/admin/
+s/${model}/Principal/
+s/${tabla}/index/

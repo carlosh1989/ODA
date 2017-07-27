@@ -39,7 +39,7 @@ class View
         $controlador = URI_CONTROLADOR;  
 
         $view->baseUrl = baseUrl;
-        $view->content = $view->render('app/'.$modulo.'/views/'.$controlador.'/'.$vista.'.php');
-        echo $view->render('app/'.$modulo.'/views/theme/'.$modulo.'.php'); 
+        $view->content = $view->renderOfuscado('app/'.$modulo.'/views/'.$controlador.'/'.$vista.'.php');
+        echo $view->renderOfuscado('app/'.$modulo.'/views/theme/'.$modulo.'.php'); 
     } 
 }

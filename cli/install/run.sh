@@ -37,6 +37,7 @@ if [ $exitstatus = 0 ]; then
 								./cli/cli.sh db:seed run
 								./cli/composer/composer.phar dump-autoload -o
 								./cli/cli.sh generar:auth
+								./cli/cli.sh generar:clean admin principal index
 							else
 								echo "Error, debe ingresar nombre de paquete";
 							fi
