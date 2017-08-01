@@ -1,12 +1,11 @@
 <?php 
-namespace App;
+namespace App\admin;
 use \Illuminate\Database\Eloquent\Model;
  
-class Donante extends Model {
-    protected $table = 'donantes';
+class Principal extends Model {
+    protected $table = 'index';
 
     //Ejemplo de definir campos
     //protected $fillable = ['username','email','password'];
 
 }
-

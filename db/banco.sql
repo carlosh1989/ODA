@@ -184,29 +184,6 @@ INSERT INTO `laboratorios_personal` (`id`, `usuario_id`, `laboratorio_id`, `cedu
 -- Estructura de tabla para la tabla `phinxlog`
 --
 
-CREATE TABLE `phinxlog` (
-  `version` bigint(20) NOT NULL,
-  `migration_name` varchar(100) DEFAULT NULL,
-  `start_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `end_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `breakpoint` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `phinxlog`
---
-
-INSERT INTO `phinxlog` (`version`, `migration_name`, `start_time`, `end_time`, `breakpoint`) VALUES
-(20170211144301, 'Usuarios', '2017-07-29 17:46:08', '2017-07-29 17:46:09', 0),
-(20170729193956, 'Donante', '2017-07-29 19:40:59', '2017-07-29 19:41:00', 0),
-(20170729194253, 'DonanteHistoriaClinica', '2017-07-29 19:53:00', '2017-07-29 19:53:01', 0),
-(20170729195352, 'Historias', '2017-07-29 20:09:38', '2017-07-29 20:09:38', 0),
-(20170729201020, 'DonanteTipeaje', '2017-07-29 20:21:33', '2017-07-29 20:21:33', 0),
-(20170729202205, 'DonantesSerologia', '2017-07-29 20:23:30', '2017-07-29 20:23:30', 0),
-(20170729202348, 'DonantesEstatus', '2017-07-29 21:15:57', '2017-07-29 21:15:58', 0),
-(20170729210211, 'Laboratorio', '2017-07-29 21:15:58', '2017-07-29 21:15:58', 0),
-(20170729210634, 'LaboratorioPersonal', '2017-07-29 21:15:58', '2017-07-29 21:15:59', 0),
-(20170729211318, 'BancoSangrePersonal', '2017-07-29 21:15:59', '2017-07-29 21:15:59', 0);
 
 -- --------------------------------------------------------
 

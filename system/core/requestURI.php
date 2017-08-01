@@ -1,19 +1,4 @@
 <?php
-use System\tools\security\Token;
-use System\tools\session\Session;
-require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/system/core/GlobalsFuntions.php';
-(new Dotenv\Dotenv(__DIR__))->overload();
-require('config/define/execute.php');
-session_start();
-new Eloquent();
-//Manejador de errores
-if (isset($_SERVER['ENV_ENVIRONMENT']) AND $_SERVER['ENV_ENVIRONMENT'] == 'local') {
-	$whoops = new \Whoops\Run;
-	$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
-	$whoops->register();
-}
-
 $stringUrl = $_SERVER['REQUEST_URI'];
 $findme   = '?';
 $pos = strpos($stringUrl, $findme);
@@ -248,5 +233,3 @@ else
     include('resources/systemMessages/baseUrl.php');
     echo ob_get_clean();
 }
-
-

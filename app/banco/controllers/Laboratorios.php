@@ -1,31 +1,12 @@
 <?php
-/*class MyClass {
-
-  function declareGlobalsFn () {
-    // functions declared inside a function have global scope
-
-    function globalfn1() {echo "fn1";}
-
-    function globalfn2() {echo "fn2";}
-  }
-}
-
-$ob = new MyClass();
-$ob->declareGlobalsFn();
-
-globalfn1(); // fn1
-globalfn2(); // fn2*/
 namespace App\banco\controllers;
-
 use App\Laboratorio;
-use App\banco\repositories\LaboratoriosRepository as Repo;
-use Controller,View,Token,Session,Arr,Message,Redirect,Permission;
 
-class Laboratorios extends Controller
+class Laboratorios
 {
     function __construct()
     {
-        Permission::withRole('banco');
+        Role('banco');
     }
 
     // localhost/proyecto/modulo/principal
@@ -33,8 +14,6 @@ class Laboratorios extends Controller
     {
         $laboratorios = Laboratorio::all();
         View(compact('laboratorios'));
-        //$laboratorios = Laboratorio::all();
-        //View::go(compact('laboratorios'));
     }
 
     // localhost/proyecto/modulo/principal/create
@@ -48,16 +27,16 @@ class Laboratorios extends Controller
     {
         //Arr::show($_POST);
         //se manda los datos del formulario al repositorio para ser guardados
-        $ingresarLaboratorio = Repo::store($_POST);
+        $ingresarLaboratorio = Store($_POST);
 
         //la variable $ingreso debe devolver true o en su caso un mensaje diciendo el error resultante
         if (is_numeric($ingresarLaboratorio)) 
         {
-            Send('laboratorios/'.$ingresarLaboratorio,'success', 'El laboratorio se ingreso exitosamente..!');
+            Success('laboratorios/'.$ingresarLaboratorio, 'El laboratorio se ingreso exitosamente..!');
         } 
         else 
         {
-            Send('laboratorios/create','error', $ingresarLaboratorio);
+            Error('laboratorios/create', $ingresarLaboratorio);
         }
     }
 
