@@ -10,4 +10,5 @@ return array(
     'Arr'		    => \System\tools\render\Arr::class,
     'Redirect'      => \System\tools\rounting\Redirect::class,
     'Permission'	=> \System\tools\security\Permission::class,
+    'Url'           => \System\tools\url\Url::class,
 );

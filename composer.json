@@ -26,12 +26,11 @@
         "typo3/class-alias-loader": "^1.0",
         "rcastera/session": "v1.0.0",
         "filp/whoops": "^2.1",
-        "illuminate/database": "5.3.23",
+        "illuminate/database": "5.1.8",
         "usmanhalalit/strana": "1.*@dev",
         "railto/flash-messages": "1.0.*",
         "nesbot/carbon": "^1.22",
-        "beelab/bowerphp": "^0.5.2",
-        "stripe/stripe-php": "^5.1"
+        "beelab/bowerphp": "^0.5.2"
     },
     "autoload": {
         "psr-4": {

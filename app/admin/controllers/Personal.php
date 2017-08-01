@@ -1,15 +1,15 @@
 <?php
-namespace App\${modulo}\controllers;
+namespace App\admin\controllers;
 
-use App\${modulo}\repositories\${controller}Repository as Repo;
+use App\admin\repositories\PersonalRepository as Repo;
 use Controller,View,Token,Session,Arr,Message,Redirect,Permission,Url;
 
-class ${controller} extends Controller
+class Personal extends Controller
 {
     function __construct()
     {
         parent::__construct();
-        Permission::withRole('${modulo}');
+        Permission::withRole('admin');
     }
 
     // localhost/proyecto/modulo/principal
@@ -21,13 +21,25 @@ class ${controller} extends Controller
     // localhost/proyecto/modulo/principal/create
     public function create()
     {
-        View::show('create');
+        $usuario_id = Url::uri(5);
+        View::show('create', compact('usuario_id'));
     }
 
     // localhost/proyecto/modulo/principal/
     public function store()
     {
-        //Guardar datos enviados de -create-
+        //se manda los datos del formulario al repositorio para ser guardados
+        $ingresarPersonal = Repo::store($_POST);
+
+        //la variable $ingreso debe devolver true o en su caso un mensaje diciendo el error resultante
+        if (is_numeric($ingresarPersonal)) 
+        {
+            Redirect::send('admin/cuentas/'.$ingresarPersonal,'success', 'Los datos personales han sido agregados con exito..!');
+        } 
+        else 
+        {
+            Redirect::send('admin/cuentas/create','error', $ingresarPersonal);
+        }
     }
 
     // localhost/proyecto/modulo/principal/ID
