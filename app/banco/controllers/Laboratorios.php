@@ -1,4 +1,20 @@
 <?php
+/*class MyClass {
+
+  function declareGlobalsFn () {
+    // functions declared inside a function have global scope
+
+    function globalfn1() {echo "fn1";}
+
+    function globalfn2() {echo "fn2";}
+  }
+}
+
+$ob = new MyClass();
+$ob->declareGlobalsFn();
+
+globalfn1(); // fn1
+globalfn2(); // fn2*/
 namespace App\banco\controllers;
 
 use App\Laboratorio;
@@ -9,7 +25,6 @@ class Laboratorios extends Controller
 {
     function __construct()
     {
-        parent::__construct();
         Permission::withRole('banco');
     }
 
@@ -17,13 +32,15 @@ class Laboratorios extends Controller
     public function index()
     {
         $laboratorios = Laboratorio::all();
-        View::go(compact('laboratorios'));
+        View(compact('laboratorios'));
+        //$laboratorios = Laboratorio::all();
+        //View::go(compact('laboratorios'));
     }
 
     // localhost/proyecto/modulo/principal/create
     public function create()
     {
-        View::go();
+        View();
     }
 
     // localhost/proyecto/modulo/principal/
@@ -36,11 +53,11 @@ class Laboratorios extends Controller
         //la variable $ingreso debe devolver true o en su caso un mensaje diciendo el error resultante
         if (is_numeric($ingresarLaboratorio)) 
         {
-            Redirect::send('banco/laboratorios/'.$ingresarLaboratorio,'success', 'El laboratorio se ingreso exitosamente..!');
+            Send('laboratorios/'.$ingresarLaboratorio,'success', 'El laboratorio se ingreso exitosamente..!');
         } 
         else 
         {
-            Redirect::send('banco/laboratorios/create','error', $ingresarLaboratorio);
+            Send('laboratorios/create','error', $ingresarLaboratorio);
         }
     }
 
@@ -48,13 +65,13 @@ class Laboratorios extends Controller
     public function show($id)
     {
         $laboratorio = Laboratorio::find($id);
-        View::go(compact('laboratorio'));
+        View(compact('laboratorio'));
     }
 
     // localhost/proyecto/modulo/principal/ID/edit
     public function edit($id)
     {
-        View::go(compact('id'));
+        View(compact('id'));
     }
 
     // localhost/proyecto/modulo/principal/ID/put

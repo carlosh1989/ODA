@@ -13,6 +13,18 @@ if (isset($_SERVER['ENV_ENVIRONMENT']) AND $_SERVER['ENV_ENVIRONMENT'] == 'local
 }
 session_start();
 
+function View($data=Null)
+{
+	\System\template\View::view($data);
+}
+
+function Send($url,$type, $message)
+{
+	\System\tools\rounting\Redirect::sendController($url,$type,$message);
+}
+
+new Eloquent();
+
 $stringUrl = $_SERVER['REQUEST_URI'];
 $findme   = '?';
 $pos = strpos($stringUrl, $findme);

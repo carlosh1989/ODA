@@ -62,4 +62,24 @@ class View
         $view->content = $view->render('app/'.$modulo.'/views/'.$controlador.'/'.$vista.'.php');
         echo $view->render('app/'.$modulo.'/views/theme/'.$modulo.'.php'); 
     }
+
+    public static function view($array=Null)
+    {
+        $view = new Template();
+        if ($array) {
+            foreach ($array as $name => $value) {
+                //$this->vars[$name] = $value;
+                $view->$name = $value;
+                //echo $view->title;
+            }
+        }
+
+        $modulo = URI_MODULO;  
+        $controlador = URI_CONTROLADOR;  
+        $vista = debug_backtrace()[2]['function'];
+
+        $view->baseUrl = baseUrl;
+        $view->content = $view->render('app/'.$modulo.'/views/'.$controlador.'/'.$vista.'.php');
+        echo $view->render('app/'.$modulo.'/views/theme/'.$modulo.'.php'); 
+    }
 }
