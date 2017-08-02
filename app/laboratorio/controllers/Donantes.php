@@ -1,11 +1,11 @@
 <?php
-namespace App\${modulo}\controllers;
+namespace App\laboratorio\controllers;
 
-class ${controller}
+class Donantes
 {
     function __construct()
     {
-        Role('${modulo}');
+        Role('laboratorio');
     }
 
     public function index()

@@ -49,4 +49,20 @@ function Store($data)
 	return $repository->store($data);
 }
 
+function variable_name( &$var, $scope=false, $prefix='UNIQUE', $suffix='VARIABLE' ){
+    if($scope) {
+        $vals = $scope;
+    } else {
+        $vals = $GLOBALS;
+    }
+    $old = $var;
+    $var = $new = $prefix.rand().$suffix;
+    $vname = FALSE;
+    foreach($vals as $key => $val) {
+        if($val === $new) $vname = $key;
+    }
+    $var = $old;
+    return $vname;
+}
+
 new Eloquent();

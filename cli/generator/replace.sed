@@ -1,4 +1,4 @@
 
-s/${modulo}/banco/
-s/${controller}/LaboratoriosPersonal/
+s/${modulo}/laboratorio/
+s/${controller}/Donantes/
 s/${vista}/show/
