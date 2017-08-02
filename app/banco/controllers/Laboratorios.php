@@ -2,7 +2,7 @@
 namespace App\banco\controllers;
 use App\Laboratorio;
 
-class Laboratorios
+class Laboratorios 
 {
     function __construct()
     {

@@ -1,21 +1,52 @@
-<div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">INDEX</h3>
-
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fa fa-times"></i></button>
-          </div>
-        </div>
-        <div class="box-body">
-          Vista <b>index</b> del mudulo <b>admin</b>
-        </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-          Footer
-        </div>
-        <!-- /.box-footer-->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+    <a href="<?php echo baseUrl ?>banco/laboratorios/<?php echo $personal->laboratorio_id ?>" style="color: #fff;" class="btn btn-primary fa fa-arrow-left"></a>
+    DATOS DE PERSONAL
+    </h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-lg-4 dl-horizontal">
+        <dt>Nombre:</dt>
+        <dd><?php echo $personal->nombre_apellido ?></dd>
+      </div>
+      <div class="col-lg-4 dl-horizontal">
+        <dt>Cédula:</dt>
+        <dd><?php echo $personal->cedula ?></dd>
+      </div>
+      <div class="col-lg-4 dl-horizontal">
+        <dt>Email:</dt>
+        <dd><?php echo $personal->email ?> </dd>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-4 dl-horizontal">
+        <dt>Telefono fijo:</dt>
+        <dd><?php echo $personal->telefono_fijo ?> </dd>
+      </div>
+      <div class="col-lg-4 dl-horizontal">
+        <dt>Telefono celular:</dt>
+        <dd><?php echo $personal->telefono_celular ?> </dd>
+      </div>
+      <div class="col-lg-4 dl-horizontal">
+        <dt>Cargo:</dt>
+        <dd><?php echo $personal->cargo ?> </dd>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-4 dl-horizontal">
+        <dt>Role:</dt>
+        <dd><?php echo $personal->usuario->role ?> </dd>
+      </div>
+      <div class="col-lg-4 dl-horizontal">
+        <dt>Dirección:</dt>
+        <dd><?php echo $personal->direccion ?> </dd>
+      </div>
+    </div>
+    <br>
+    <hr>
+  </div>
 </div>
-

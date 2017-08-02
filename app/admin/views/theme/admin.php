@@ -64,12 +64,12 @@ input[type="button"]:hover:not(.active) {
                 <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                <img style="width: 47px;" id="profile-img" class="profile-img-card" src="https://is3-ssl.mzstatic.com/image/thumb/Purple49/v4/20/ea/39/20ea392b-cbb8-3685-f17d-9c87403d3ba9/source/256x256bb.jpg" />Laboratorio</a>
+                <img style="width: 47px;" id="profile-img" class="profile-img-card" src="https://is3-ssl.mzstatic.com/image/thumb/Purple49/v4/20/ea/39/20ea392b-cbb8-3685-f17d-9c87403d3ba9/source/256x256bb.jpg" />Banco Sangre</a>
               </div>
               <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                   <li class="active"><a href="<?php echo baseUrl ?>">HOME</a></li>
-                  <li><a href="<?php echo baseUrl ?>admin/cuentas">CUENTAS</a></li>
+                  <li><a href="<?php echo baseUrl ?>admin/bancoPersonal">PERSONAL</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                   <li class="dropdown">

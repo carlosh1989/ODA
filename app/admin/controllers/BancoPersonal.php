@@ -1,10 +1,11 @@
 <?php
 namespace App\admin\controllers;
 
+use App\Usuario;
 use App\banco\Personal;
-use Controller,View,Token,Session,Arr,Message,Redirect,Permission,Url;
+use System\tools\url\Url;
 
-class Personal 
+class BancoPersonal
 {
     function __construct()
     {
@@ -14,44 +15,44 @@ class Personal
     // localhost/proyecto/modulo/principal
     public function index()
     {
-        $personal = Personal::all();
-        View(compact('personal'));
+        $usuarios = Usuario::where('role','banco')->get();
+        View(compact('usuarios'));
     }
 
     // localhost/proyecto/modulo/principal/create
     public function create()
     {
-        $usuario_id = Url::uri(5);
-        View::show('create', compact('usuario_id'));
+        View(compact('usuario_id'));
     }
 
     // localhost/proyecto/modulo/principal/
     public function store()
     {
         //se manda los datos del formulario al repositorio para ser guardados
-        $ingresarPersonal = Repo::store($_POST);
+        $ingresarPersonal = Store($_POST);
 
         //la variable $ingreso debe devolver true o en su caso un mensaje diciendo el error resultante
         if (is_numeric($ingresarPersonal)) 
         {
-            Redirect::send('admin/cuentas/'.$ingresarPersonal,'success', 'Los datos personales han sido agregados con exito..!');
+            Success('bancoPersonal/'.$ingresarPersonal, 'Los datos personales han sido agregados con exito..!');
         } 
         else 
         {
-            Redirect::send('admin/cuentas/create','error', $ingresarPersonal);
+            Error('bancoPersonal/create', $ingresarPersonal);
         }
     }
 
     // localhost/proyecto/modulo/principal/ID
     public function show($id)
     {
-        View::show('show', compact('id'));
+        $personal = Personal::find($id);
+        View(compact('personal'));
     }
 
     // localhost/proyecto/modulo/principal/ID/edit
     public function edit($id)
     {
-        View::show('edit' , compact('id'));
+        View(compact('id'));
     }
 
     // localhost/proyecto/modulo/principal/ID/put

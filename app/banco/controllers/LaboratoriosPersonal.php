@@ -2,28 +2,28 @@
 namespace App\banco\controllers;
 
 use App\Usuario;
-use App\banco\repositories\LaboratoriosPersonalRepository as Repo;
-use Controller,View,Token,Session,Arr,Message,Redirect,Permission,Url;;
+use App\laboratorio\Personal;
+use System\template\View;
+use System\tools\url\Url;
 
-class LaboratoriosPersonal extends Controller
+class LaboratoriosPersonal
 {
     function __construct()
     {
-        parent::__construct();
-        Permission::withRole('banco');
+        Role('banco');
     }
 
     // localhost/proyecto/modulo/principal
     public function index()
     {
-        View::show('index');
+        View();
     }
 
     // localhost/proyecto/modulo/principal/create
     public function create()
     {
         $laboratorio_id = Url::uri(5);
-        View::show('create',compact('laboratorio_id'));
+        View(compact('laboratorio_id'));
     }
 
     // localhost/proyecto/modulo/principal/
@@ -31,16 +31,16 @@ class LaboratoriosPersonal extends Controller
     {
         //Arr::show($_POST);
         //se manda los datos del formulario al repositorio para ser guardados
-        $ingresarPersonal = Repo::store($_POST);
+        $ingresarPersonal = Store($_POST);
 
         //la variable $ingreso debe devolver true o en su caso un mensaje diciendo el error resultante
         if (is_numeric($ingresarPersonal)) 
         {
-            Redirect::send('banco/laboratoriosPersonal/'.$ingresarPersonal,'success', 'El laboratorio se ingreso exitosamente..!');
+            Success('laboratoriosPersonal/'.$ingresarPersonal, 'El laboratorio se ingreso exitosamente..!');
         } 
         else 
         {
-            Redirect::send('banco/laboratoriosPersonal/create','error', $ingresarPersonal);
+            Error('laboratoriosPersonal/create', $ingresarPersonal);
         }
         //Guardar datos enviados de -create-
     }
@@ -48,14 +48,14 @@ class LaboratoriosPersonal extends Controller
     // localhost/proyecto/modulo/principal/ID
     public function show($id)
     {
-        $usuario = Usuario::find($id);
-        View::show('show', compact('usuario'));
+        $personal = Personal::find($id);
+        View(compact('personal'));
     }
 
     // localhost/proyecto/modulo/principal/ID/edit
     public function edit($id)
     {
-        View::show('edit' , compact('id'));
+        View(compact('id'));
     }
 
     // localhost/proyecto/modulo/principal/ID/put

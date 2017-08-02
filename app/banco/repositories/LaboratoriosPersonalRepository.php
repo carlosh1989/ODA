@@ -29,8 +29,10 @@ class LaboratoriosPersonalRepository
         {
             //INGRESANDO DATOS DE PERSONAL DE LABORATORIO
             $personal = new LaboratorioPersonal;
+            $personal->nombre_apellido = $nombre_apellido;
             $personal->usuario_id = $cuenta->id;
             $personal->laboratorio_id = $laboratorio_id;
+            $personal->nacionalidad = $nacionalidad;
             $personal->cedula = $cedula;
             $personal->fecha_nacimiento = $fecha_nacimiento;
             $personal->telefono_fijo = $telefono_fijo;
@@ -40,13 +42,12 @@ class LaboratoriosPersonalRepository
 
             if($personal->save())
             {
-                return $cuenta->id;
+                return $personal->id;
             }
             else
             {
                 return 'Error al ingresar datos de personal de laboratorio.';
             }
-
         }
         else
         {

@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+  <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">DATOS DE LABORATORIO</h3>
   </div>
@@ -24,30 +24,30 @@
         <dd><?php echo $laboratorio->telefono ?> </dd>
       </div>
     </div>
-    <br>
 <hr>
     <?php if ($laboratorio->laboratorio_personal): ?>
     <h5 class="text-muted" style="text-align: center;">
         <a class="btn btn-success pull-right" href="<?php echo baseUrl ?>banco/laboratoriosPersonal/create/<?php echo $laboratorio->id ?>">  <i class="fa fa-plus"></i> Personal</a>
 
     Personal laboratorio</h5>
+    <br>
     <table class="table table-striped table-condensed table-responsive" data-striped="true">
       <thead>
         <tr>
           <th>id</th>
           <th>Nombre</th>
-          <th>Cédula</th>
           <th>Email</th>
           <th>Telefono</th>
+          <th>Opciones</th>
         </tr>
       </thead>
       <tbody>
         <?php foreach ($laboratorio->laboratorio_personal as $c): ?>
         <tr>
           <td><?php echo $c->id ?></td>
-          <td><?php echo $c->nombre ?></td>
+          <td><?php echo $c->nombre_apellido ?></td>
           <td><?php echo $c->email ?></td>
-          <td><?php echo $c->telefono ?></td>
+          <td><?php echo $c->telefono_celular ?></td>
           <td width="15%">
             <!-- Single button -->
             <div class="btn-group">
@@ -55,9 +55,9 @@
               <span class="caret"></span>
               </button>
               <ul class="dropdown-menu">
-                <li><a href="<?php echo $baseUrl ?>banco/laboratorios/<?php echo $c->id ?>"> <pre class="text-primary">VER DATOS <i class="fa fa-search"></i></pre></a></li>
-                <li> <a href="<?php echo $baseUrl ?>banco/laboratorios/<?php echo $c->id ?>/edit"> <pre class="text-success">EDITAR <i class="fa fa-pencil"></i></pre></a></li></a></li>
-                <li><a href="<?php echo $baseUrl ?>banco/laboratorios/<?php echo $c->id ?>/delete"><pre class="text-danger">ELIMINAR <i class="fa fa-times"></i></pre></a></li>
+                <li><a href="<?php echo $baseUrl ?>banco/laboratoriosPersonal/<?php echo $c->id ?>"> <pre class="text-primary">VER DATOS <i class="fa fa-search"></i></pre></a></li>
+                <li> <a href="<?php echo $baseUrl ?>banco/laboratoriosPersonal/<?php echo $c->id ?>/edit"> <pre class="text-success">EDITAR <i class="fa fa-pencil"></i></pre></a></li></a></li>
+                <li><a href="<?php echo $baseUrl ?>banco/laboratoriosPersonal/<?php echo $c->id ?>/delete"><pre class="text-danger">ELIMINAR <i class="fa fa-times"></i></pre></a></li>
               </ul>
             </div>
           </td>

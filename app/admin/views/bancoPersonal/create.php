@@ -3,9 +3,8 @@
     <h3 class="panel-title text-muted">INGRESAR PERSONAL</h3>
   </div>
   <div class="panel-body">
-    <form action="<?php echo baseUrl ?>banco/laboratoriosPersonal" method="POST">
-      <?php echo Token::field() ?>
-      <input type="hidden" name="laboratorio_id" value="<?php echo $laboratorio_id ?>">
+    <form action="<?php echo baseUrl ?>admin/bancoPersonal" method="POST">
+      <?php echo Token::field() ?>  
       <div class="row">
         <div class="col-lg-4">
           <div class="form-group">

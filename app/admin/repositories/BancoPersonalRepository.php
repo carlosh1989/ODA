@@ -2,10 +2,10 @@
 namespace App\admin\repositories;
 
 use App\Usuario;
-use App\banco\Personal as BancoPersonal;
+use App\banco\Personal;
 use Eloquent;
 
-class PersonalRepository 
+class BancoPersonalRepository 
 {
     function __construct()
     {
@@ -20,7 +20,7 @@ class PersonalRepository
         $cuenta = new Usuario;
         $cuenta->name = $name;
         $cuenta->email = $email;
-        $cuenta->role = 'laboratorio';
+        $cuenta->role = 'banco';
         $cuenta->password = password_hash($password, PASSWORD_DEFAULT);
         $cuenta->created_at = date('Y-m-d H:i:s');
         $cuenta->updated_at = date('Y-m-d H:i:s');
@@ -28,7 +28,7 @@ class PersonalRepository
         if($cuenta->save())
         {
             //INGRESANDO DATOS DE PERSONAL DE LABORATORIO
-            $personal = new BancoPersonal;
+            $personal = new Personal;
             $personal->nombre_apellido = $nombre_apellido;
             $personal->usuario_id = $cuenta->id;    
             $personal->nacionalidad = $nacionalidad;
@@ -41,7 +41,7 @@ class PersonalRepository
 
             if($personal->save())
             {
-                return $cuenta->id;
+                return $personal->id;
             }
             else
             {
@@ -53,7 +53,6 @@ class PersonalRepository
             return 'Error al ingresar datos de cuenta.';
         }
     }
-
     public function show($id)
     {
 
