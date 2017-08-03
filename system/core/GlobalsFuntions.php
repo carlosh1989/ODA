@@ -60,6 +60,28 @@ function Repo($data=Null)
 	return $repository->$funcion($data);
 }
 
+function RepoConfirm($data,$urlSuccess,$urlError)
+{
+	$modulo = URI_MODULO;  
+	$controlador = ucfirst(URI_CONTROLADOR);  
+	$cargarClase =  '\App\\'.$modulo.'\\repositories\\'.$controlador.'Repository';
+	//llamamos a la clase
+	$repository = new $cargarClase();
+	$funcion = debug_backtrace()[1]['function'];
+
+     $ingreso = $repository->$funcion($data);
+
+    //la variable $ingreso debe devolver true o en su caso un mensaje diciendo el error resultante
+    if (is_numeric($ingreso)) 
+    {
+        Success($urlSuccess.'/'.$ingreso, 'Exito..!');
+    } 
+    else 
+    {
+        Error($urlError, $ingresarPersonal);
+    }
+}
+
 function Uri($num)
 {
 	return \System\tools\url\Url::uri($num);

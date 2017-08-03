@@ -24,17 +24,7 @@ class BancoPersonal
     public function store()
     {
         //se manda los datos del formulario al repositorio para ser guardados
-        $ingresarPersonal = Repo($_POST);
-
-        //la variable $ingreso debe devolver true o en su caso un mensaje diciendo el error resultante
-        if (is_numeric($ingresarPersonal)) 
-        {
-            Success('bancoPersonal/'.$ingresarPersonal, 'Los datos personales han sido agregados con exito..!');
-        } 
-        else 
-        {
-            Error('bancoPersonal/create', $ingresarPersonal);
-        }
+        RepoConfirm($_POST,'bancoPersonal','bancoPersonal/create');
     }
 
     // localhost/proyecto/modulo/principal/ID
