@@ -12,6 +12,12 @@ class BancoPersonalRepository
 		new Eloquent();
     }
 
+    public function index()
+    {
+        $data['usuarios'] = Usuario::where('role','banco')->get();
+        return $data;
+    }
+
     public function store($data)
     {
         extract($data);
@@ -55,7 +61,8 @@ class BancoPersonalRepository
     }
     public function show($id)
     {
-
+        $data['personal'] = Personal::find($id);
+        return $data;
     }
 
     public function update($id,$data)

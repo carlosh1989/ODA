@@ -1,10 +1,6 @@
 <?php
 namespace App\admin\controllers;
 
-use App\Usuario;
-use App\banco\Personal;
-use System\tools\url\Url;
-
 class BancoPersonal
 {
     function __construct()
@@ -15,21 +11,20 @@ class BancoPersonal
     // localhost/proyecto/modulo/principal
     public function index()
     {
-        $usuarios = Usuario::where('role','banco')->get();
-        View(compact('usuarios'));
+        View(Repo());
     }
 
     // localhost/proyecto/modulo/principal/create
     public function create()
     {
-        View(compact('usuario_id'));
+        View();
     }
 
     // localhost/proyecto/modulo/principal/
     public function store()
     {
         //se manda los datos del formulario al repositorio para ser guardados
-        $ingresarPersonal = Store($_POST);
+        $ingresarPersonal = Repo($_POST);
 
         //la variable $ingreso debe devolver true o en su caso un mensaje diciendo el error resultante
         if (is_numeric($ingresarPersonal)) 
@@ -45,14 +40,13 @@ class BancoPersonal
     // localhost/proyecto/modulo/principal/ID
     public function show($id)
     {
-        $personal = Personal::find($id);
-        View(compact('personal'));
+        View(Repo($id));
     }
 
     // localhost/proyecto/modulo/principal/ID/edit
     public function edit($id)
     {
-        View(compact('id'));
+        View(Repo($id));
     }
 
     // localhost/proyecto/modulo/principal/ID/put

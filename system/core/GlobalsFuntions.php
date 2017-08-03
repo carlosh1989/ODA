@@ -46,7 +46,23 @@ function Store($data)
 	$cargarClase =  '\App\\'.$modulo.'\\repositories\\'.$controlador.'Repository';
 	//llamamos a la clase
 	$repository = new $cargarClase();
-	return $repository->store($data);
+	//return $repository->store($data);
+}
+
+function Repo($data=Null)
+{
+	$modulo = URI_MODULO;  
+	$controlador = ucfirst(URI_CONTROLADOR);  
+	$cargarClase =  '\App\\'.$modulo.'\\repositories\\'.$controlador.'Repository';
+	//llamamos a la clase
+	$repository = new $cargarClase();
+	$funcion = debug_backtrace()[1]['function'];
+	return $repository->$funcion($data);
+}
+
+function Uri($num)
+{
+	return \System\tools\url\Url::uri($num);
 }
 
 function variable_name( &$var, $scope=false, $prefix='UNIQUE', $suffix='VARIABLE' ){
