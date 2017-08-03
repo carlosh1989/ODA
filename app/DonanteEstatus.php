@@ -1,8 +1,8 @@
 <?php 
-namespace App\donante;
+namespace App;
 use \Illuminate\Database\Eloquent\Model;
  
-class Estatus extends Model {
+class DonanteEstatus extends Model {
     protected $table = 'donante_estatus';
 
     //Ejemplo de definir campos

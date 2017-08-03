@@ -10,7 +10,7 @@ class Donantes
 
     public function index()
     {
-        View();
+        View(Repo());
     }
 
     public function create()

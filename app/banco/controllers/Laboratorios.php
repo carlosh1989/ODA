@@ -11,8 +11,7 @@ class Laboratorios
 
     public function index()
     {
-        $laboratorios =  Laboratorio::all();
-        View(compact('laboratorios'));
+        View(Repo());
     }
 
     public function create()
@@ -22,21 +21,12 @@ class Laboratorios
 
     public function store()
     {
-        $ingresarLaboratorio = Store($_POST);
-        if (is_numeric($ingresarLaboratorio)) 
-        {
-            Success('laboratorios/'.$ingresarLaboratorio, 'El laboratorio se ingreso exitosamente..!');
-        } 
-        else 
-        {
-            Error('laboratorios/create', $ingresarLaboratorio);
-        }
+        RepoConfirm($_POST,'laboratorios','laboratorios/create');
     }
 
     public function show($id)
     {
-        $laboratorio = Laboratorio::find($id);
-        View(compact('laboratorio'));
+        View(Repo($id));
     }
 
     public function edit($id)

@@ -1,17 +1,18 @@
 <?php 
-namespace App\laboratorio;
+namespace App;
 use App\Usuario;
 use \Illuminate\Database\Eloquent\Model;
  
-class Personal extends Model {
-    protected $table = 'laboratorios_personal';
+class BancoPersonal extends Model {
+    protected $table = 'banco_sangre_personal';
 	public $timestamps = false;
     //Ejemplo de definir campos
     //protected $fillable = ['username','email','password'];
+	protected $primaryKey = 'id';
+    //Ejemplo de definir campos
 
 	public function usuario()
 	{
 		return $this->belongsTo(Usuario::class, 'usuario_id','id');
 	}
-	
 }

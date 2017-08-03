@@ -11,6 +11,12 @@ class LaboratoriosRepository
 		new Eloquent();
     }
 
+    public function index()
+    {
+        $data['laboratorios'] =  Laboratorio::all();
+        return $data;
+    }
+
     public function store($data)
     {
         extract($data);
@@ -32,7 +38,8 @@ class LaboratoriosRepository
 
     public function show($id)
     {
-
+        $data['laboratorio'] = Laboratorio::find($id);
+        return $data;
     }
 
     public function update($id,$data)

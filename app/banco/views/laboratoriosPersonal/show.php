@@ -45,7 +45,5 @@
         <dd><?php echo $personal->direccion ?> </dd>
       </div>
     </div>
-    <br>
-    <hr>
   </div>
 </div>

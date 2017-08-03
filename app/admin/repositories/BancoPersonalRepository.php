@@ -1,8 +1,8 @@
 <?php
 namespace App\admin\repositories;
 
+use App\BancoPersonal;
 use App\Usuario;
-use App\banco\Personal;
 use Eloquent;
 
 class BancoPersonalRepository 
@@ -34,7 +34,7 @@ class BancoPersonalRepository
         if($cuenta->save())
         {
             //INGRESANDO DATOS DE PERSONAL DE LABORATORIO
-            $personal = new Personal;
+            $personal = new BancoPersonal;
             $personal->nombre_apellido = $nombre_apellido;
             $personal->usuario_id = $cuenta->id;    
             $personal->nacionalidad = $nacionalidad;
@@ -61,7 +61,7 @@ class BancoPersonalRepository
     }
     public function show($id)
     {
-        $data['personal'] = Personal::find($id);
+        $data['personal'] = BancoPersonal::find($id);
         return $data;
     }
 

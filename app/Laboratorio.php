@@ -1,6 +1,6 @@
 <?php 
 namespace App;
-use App\laboratorio\Personal as LaboratorioPersonal;
+use App\LaboratorioPersonal;
 use \Illuminate\Database\Eloquent\Model;
  
 class Laboratorio extends Model {

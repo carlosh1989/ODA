@@ -1,7 +1,8 @@
 <?php 
 namespace App;
-use App\banco\Personal as BancoPersonal;
-use App\laboratorio\Personal as LaboratorioPersonal;
+
+use App\BancoPersonal;
+use App\LaboratorioPersonal;
 use \Illuminate\Database\Eloquent\Model;
  
 class Usuario extends Model {

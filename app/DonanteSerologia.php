@@ -1,11 +1,10 @@
 <?php 
-namespace App\banco;
+namespace App;
 use \Illuminate\Database\Eloquent\Model;
  
-class Historia extends Model {
-    protected $table = 'historia';
+class DonanteSerologia extends Model {
+    protected $table = 'donante_serologia';
 
     //Ejemplo de definir campos
     //protected $fillable = ['username','email','password'];
-
 }

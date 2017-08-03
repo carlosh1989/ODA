@@ -1,8 +1,8 @@
 <?php
 namespace App\banco\controllers;
 
+use App\LaboratorioPersonal;
 use App\Usuario;
-use App\laboratorio\Personal;
 use System\template\View;
 use System\tools\url\Url;
 
@@ -22,7 +22,7 @@ class LaboratoriosPersonal
     // localhost/proyecto/modulo/principal/create
     public function create()
     {
-        $laboratorio_id = Url::uri(5);
+        $laboratorio_id = Uri(5);
         View(compact('laboratorio_id'));
     }
 
@@ -31,25 +31,14 @@ class LaboratoriosPersonal
     {
         //Arr::show($_POST);
         //se manda los datos del formulario al repositorio para ser guardados
-        $ingresarPersonal = Store($_POST);
-
-        //la variable $ingreso debe devolver true o en su caso un mensaje diciendo el error resultante
-        if (is_numeric($ingresarPersonal)) 
-        {
-            Success('laboratoriosPersonal/'.$ingresarPersonal, 'El laboratorio se ingreso exitosamente..!');
-        } 
-        else 
-        {
-            Error('laboratoriosPersonal/create', $ingresarPersonal);
-        }
-        //Guardar datos enviados de -create-
+        RepoConfirm($_POST,'laboratoriosPersonal','laboratoriosPersonal');
+        //$ingresarPersonal = Store($_POST);
     }
 
     // localhost/proyecto/modulo/principal/ID
     public function show($id)
     {
-        $personal = Personal::find($id);
-        View(compact('personal'));
+        View(Repo($id));
     }
 
     // localhost/proyecto/modulo/principal/ID/edit

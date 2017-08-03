@@ -46,7 +46,7 @@
         <tr>
           <td><?php echo $c->id ?></td>
           <td><?php echo $c->nombre_apellido ?></td>
-          <td><?php echo $c->email ?></td>
+          <td><?php echo $c->usuario->email ?></td>
           <td><?php echo $c->telefono_celular ?></td>
           <td width="15%">
             <!-- Single button -->

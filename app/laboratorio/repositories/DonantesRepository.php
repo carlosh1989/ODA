@@ -1,6 +1,7 @@
 <?php
 namespace App\laboratorio\repositories;
 
+use App\Donante;
 use Eloquent;
 
 class DonantesRepository 
@@ -8,6 +9,12 @@ class DonantesRepository
     function __construct()
     {
 		new Eloquent();
+    }
+
+    public function index()
+    {
+        $data['donantes'] = Donante::all();
+        return $data;
     }
 
     public function store($data)

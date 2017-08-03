@@ -1,9 +1,9 @@
 <?php 
-namespace App\donante;
+namespace App;
 use \Illuminate\Database\Eloquent\Model;
  
-class Historia extends Model {
-    protected $table = 'donantes_historia';
+class DonanteTipeaje extends Model {
+    protected $table = 'donante_tipeaje';
 
     //Ejemplo de definir campos
     //protected $fillable = ['username','email','password'];

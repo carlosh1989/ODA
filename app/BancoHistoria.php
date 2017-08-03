@@ -1,11 +1,10 @@
 <?php 
-namespace App\donante;
+namespace App;
 use \Illuminate\Database\Eloquent\Model;
  
-class Tipeaje extends Model {
-    protected $table = 'donante_tipeaje';
+class Historia extends Model {
+    protected $table = 'historia';
 
     //Ejemplo de definir campos
     //protected $fillable = ['username','email','password'];
-
 }

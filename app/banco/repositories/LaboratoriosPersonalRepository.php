@@ -1,8 +1,8 @@
 <?php
 namespace App\banco\repositories;
 
+use App\LaboratorioPersonal;
 use App\Usuario;
-use App\laboratorio\Personal as LaboratorioPersonal;
 use Eloquent;
 
 class LaboratoriosPersonalRepository 
@@ -57,7 +57,8 @@ class LaboratoriosPersonalRepository
 
     public function show($id)
     {
-
+        $data['personal'] = LaboratorioPersonal::find($id);
+        return $data;
     }
 
     public function update($id,$data)
