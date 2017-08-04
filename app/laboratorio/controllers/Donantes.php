@@ -20,13 +20,14 @@ class Donantes
 
     public function store()
     {
-
+        //Arr($_POST);
+        RepoConfirm($_POST,'donantes','donantes/create');
     }
 
     public function show($id)
     {
-
-    }
+        View(Repo($id));
+    }   
 
     public function edit($id)
     {

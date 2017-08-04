@@ -69,7 +69,7 @@ input[type="button"]:hover:not(.active) {
               <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                   <li class="active"><a href="<?php echo baseUrl ?>">HOME</a></li>
-                  <li><a href="<?php echo baseUrl ?>admin/pacientes">DONANTES</a></li>
+                  <li><a href="<?php echo baseUrl ?>laboratorio/donantes">DONANTES</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                   <li class="dropdown">

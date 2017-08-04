@@ -19,12 +19,33 @@ class DonantesRepository
 
     public function store($data)
     {
-    	
+        extract($data);
+    	$donante = new Donante;
+        $donante->nombre_apellido = $nombre_apellido;
+        $donante->nacionalidad = $nacionalidad;
+        $donante->cedula = $cedula;
+        $donante->fecha_nacimiento = $fecha_nacimiento;
+        $donante->telefono_fijo = $telefono_fijo;
+        $donante->telefono_celular = $telefono_celular;
+        $donante->direccion = $direccion;
+        $donante->email = $email;
+        $donante->created_at = date('Y-m-d H:i:s');
+        $donante->updated_at = date('Y-m-d H:i:s');
+
+        if($donante->save())
+        {
+            return $donante->id;
+        }
+        else
+        {
+            return 'Error al ingresar donante.';
+        }
     }
 
     public function show($id)
     {
-
+        $data['donante'] = Donante::find($id);
+        return $data;
     }
 
     public function update($id,$data)
