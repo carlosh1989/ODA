@@ -1,4 +1,4 @@
 
-s/${modulo}/admin/
-s/${controller}/BancoPersonal/
+s/${modulo}/banco/
+s/${controller}/Historias/
 s/${vista}/show/

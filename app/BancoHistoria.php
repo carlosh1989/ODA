@@ -2,9 +2,9 @@
 namespace App;
 use \Illuminate\Database\Eloquent\Model;
  
-class Historia extends Model {
-    protected $table = 'historia';
-
+class BancoHistoria extends Model {
+    protected $table = 'banco_historias';
+	public $timestamps = false;
     //Ejemplo de definir campos
     //protected $fillable = ['username','email','password'];
 }

@@ -39,11 +39,6 @@ input[type="button"]:not(.active) {
   background-color:transparent;
 }
 
-.active {
-  background-color: #299BFF;
-  color :#fff;
-}
-
 input[type="button"]:hover:not(.active) {
   background-color: #ddd;
 }
@@ -64,12 +59,13 @@ input[type="button"]:hover:not(.active) {
                 <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                <img style="width: 47px;" id="profile-img" class="profile-img-card" src="https://is3-ssl.mzstatic.com/image/thumb/Purple49/v4/20/ea/39/20ea392b-cbb8-3685-f17d-9c87403d3ba9/source/256x256bb.jpg" />BANCO DE SANGRE</a>
+                <img style="width: 47px;" id="profile-img" class="profile-img-card" src="" />BANCO DE SANGRE</a>
               </div>
               <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                   <li class="active"><a href="<?php echo baseUrl ?>">HOME</a></li>
-                  <li><a href="<?php echo baseUrl ?>banco/laboratorios">BANCO DE</a></li>
+                  <li><a href="<?php echo baseUrl ?>banco/donantes">DONANTES</a></li>
+                  <li><a href="<?php echo baseUrl ?>banco/laboratorios">LABORATORIOS</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                   <li class="dropdown">
@@ -103,8 +99,9 @@ input[type="button"]:hover:not(.active) {
       <script src="<?php echo baseUrl ?>assets/bower/jquery/dist/jquery.slim.min.js"></script>
       <script src="<?php echo baseUrl ?>assets/bower/bootstrap/dist/js/bootstrap.min.js"></script>
       <script src="<?php echo baseUrl ?>assets/bower/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
+      <script src="<?php echo baseUrl ?>assets/bower/bootstrap-checkbox/dist/js/bootstrap-checkbox.min.js"></script>
       <script type="text/javascript">
-
+$(':checkbox').checkboxpicker();
 // get the table element
 var $table = document.getElementById("tablePagination"),
 // number of rows per page

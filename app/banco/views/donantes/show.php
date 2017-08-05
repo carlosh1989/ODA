@@ -40,13 +40,20 @@
       </div>
     </div>
     <div class="tab-pane fade" id="historia">
-      <p>Historia</p>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-lg-12 dl-horizontal">
+            <?php if ($donante->historia): ?>
+
+            <?php else: ?>
+              <h5><?php echo ucwords($donante->nombre_apellido) ?> no tiene historia medica, desea creala? <a class="btn btn-primary" href="<?php echo baseUrl ?>banco/historias/create/<?php echo $donante->id ?>"><i class="fa fa-pencil"></i> Si</a></h5>              
+            <?php endif ?>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="tab-pane fade" id="dropdown1">
+    <div class="tab-pane fade" id="serologia">
       <p>Serologia</p>
-    </div>
-    <div class="tab-pane fade" id="dropdown2">
-      <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater.</p>
     </div>
   </div>
 </div>

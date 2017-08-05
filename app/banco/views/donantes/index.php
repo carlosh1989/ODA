@@ -4,7 +4,7 @@
   </div>
   <div class="panel-body">
     <div class="row">
-      <form id="formulario" method="POST" action="<?php echo baseUrl ?>laboratorio/donantes/busqueda">
+      <form id="formulario" method="POST" action="<?php echo baseUrl ?>banco/donantes/busqueda">
       <?php echo Token::field() ?>
         <div class="col-lg-4">
           <div class="form-group">
@@ -46,9 +46,9 @@
               <span class="caret"></span>
               </button>
               <ul class="dropdown-menu">
-                <li><a href="<?php echo $baseUrl ?>laboratorio/donantes/<?php echo $c->id ?>"> <pre class="text-primary">VER DATOS <i class="fa fa-search"></i></pre></a></li>
-                <li> <a href="<?php echo $baseUrl ?>laboratorio/donantes/<?php echo $c->id ?>/edit"> <pre class="text-success">EDITAR <i class="fa fa-pencil"></i></pre></a></li></a></li>
-                <li><a href="<?php echo $baseUrl ?>laboratorio/donantes/<?php echo $c->id ?>/delete"><pre class="text-danger">ELIMINAR <i class="fa fa-times"></i></pre></a></li>
+                <li><a href="<?php echo $baseUrl ?>banco/donantes/<?php echo $c->id ?>"> <pre class="text-primary">VER DATOS <i class="fa fa-search"></i></pre></a></li>
+                <li> <a href="<?php echo $baseUrl ?>banco/donantes/<?php echo $c->id ?>/edit"> <pre class="text-success">EDITAR <i class="fa fa-pencil"></i></pre></a></li></a></li>
+                <li><a href="<?php echo $baseUrl ?>banco/donantes/<?php echo $c->id ?>/delete"><pre class="text-danger">ELIMINAR <i class="fa fa-times"></i></pre></a></li>
               </ul>
             </div>
           </td>

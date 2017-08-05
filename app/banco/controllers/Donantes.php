@@ -1,5 +1,5 @@
 <?php
-namespace App\laboratorio\controllers;
+namespace App\banco\controllers;
 
 use App\Donante;
 
@@ -7,7 +7,7 @@ class Donantes
 {
     function __construct()
     {
-        Role('laboratorio');
+        Role('banco');
     }
 
     public function index()

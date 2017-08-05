@@ -39,11 +39,6 @@ input[type="button"]:not(.active) {
   background-color:transparent;
 }
 
-.active {
-  background-color: #299BFF;
-  color :#fff;
-}
-
 input[type="button"]:hover:not(.active) {
   background-color: #ddd;
 }
@@ -64,7 +59,7 @@ input[type="button"]:hover:not(.active) {
                 <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                <img style="width: 47px;" id="profile-img" class="profile-img-card" src="https://is3-ssl.mzstatic.com/image/thumb/Purple49/v4/20/ea/39/20ea392b-cbb8-3685-f17d-9c87403d3ba9/source/256x256bb.jpg" />Laboratorio</a>
+                <img style="width: 47px;" id="profile-img" class="profile-img-card" src="" />Laboratorio</a>
               </div>
               <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
