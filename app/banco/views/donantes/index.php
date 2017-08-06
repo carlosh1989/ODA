@@ -1,11 +1,12 @@
-<div class="panel panel-primary">
+
+<div id="panel" class="panel panel-primary">
   <div class="panel-heading">
     <h3 class="panel-title text-muted">DONANTES DE SANGRE</h3>
   </div>
   <div class="panel-body">
       <form id="formulario" method="POST" action="<?php echo baseUrl ?>banco/donantes/busqueda">
         <?php echo Token::field() ?>
-      <div class="col-md-12">
+      <div class="col-md-12 animated fadeIn">
         <div class="col-lg-5">
           <div class="form-group">
             <input class="form-control" type="text" name="cedula" placeholder="Cédula" required>
@@ -13,14 +14,14 @@
         </div>
         <div class="col-lg-1">
           <div class="form-group">
-            <a class="btn btn-block btn-default" href="javascript:{}" onclick="$('#formulario').submit();"><i class="fa fa-search fa-2x text-primary"></i></a>
+            <a class="btn btn-block btn-default animated" href="javascript:{}" onclick="$('#formulario').submit();"><i class="fa fa-search fa-2x text-primary"></i></a>
           </div>
         </div>
       </form>
     </div>
     <div class="row">
       <div class="col-md-12">
-        <table class="table table-striped table-condensed table-responsive" data-striped="true">
+        <table class="table table-striped table-condensed table-responsive animated fadeIn" data-striped="true">
           <thead>
             <tr>
               <th>id</th>

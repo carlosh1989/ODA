@@ -3,9 +3,9 @@
     <h3 class="panel-title">Cuentas de banco de sangre</h3>
   </div>
   <div class="panel-body">
-    <a class="btn btn-default" href="<?php echo baseUrl ?>banco/laboratorios/create">  <i class="fa fa-plus text-primary"></i> Agregar Laboratorio</a>
+    <a class="btn btn-default animated fadeIn" href="<?php echo baseUrl ?>banco/laboratorios/create">  <i class="fa fa-plus text-primary"></i> Agregar Laboratorio</a>
     <br><br>
-    <table class="table table-striped table-condensed table-responsive" data-striped="true">
+    <table class="table table-striped table-condensed table-responsive animated fadeIn" data-striped="true">
       <thead>
         <tr>
           <th>id</th>

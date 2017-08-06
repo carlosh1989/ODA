@@ -15,6 +15,7 @@
         "bootstrap-table": "*",
         "bootstrap": "*",
         "inputmask": "*",
-        "bootstrap-checkbox": "*"
+        "bootstrap-checkbox": "*",
+        "animate.css": "*"
     }
 }

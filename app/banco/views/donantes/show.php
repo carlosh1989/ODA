@@ -5,7 +5,7 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-lg-5">
-        <table class="table table-user-information panel panel-default">
+        <table class="table table-user-information panel panel-default animated fadeIn">
           <tbody>
             <tr>
               <td><b>Nombre y Apellido:</b></td>
@@ -36,34 +36,34 @@
       </div>
       <div class="col-lg-7">
         <div class="row">
-          <div class="panel panel-default">
+          <div class="panel panel-default animated fadeIn">
             <div class="panel-body">
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 animated flash">
                   <?php if ($donante->estatus): ?>
-                  <i class="fa fa-warning fa-2x text-warning"></i> <b>El paciente no tiene estatus asigando porque no ha hecho aun la serologia.</b>
+                  <i class="fa fa-warning fa-2x text-warning animated tada"></i> <b>El paciente no tiene estatus asigando porque no ha hecho aun la serologia.</b>
                   <?php else: ?>
-                  <i class="fa fa-warning fa-2x text-warning"></i> <b>El paciente no tiene estatus asigando porque no ha hecho aun la serologia.</b>
+                  <i class="fa fa-warning fa-2x text-warning animated tada"></i> <b>El paciente no tiene estatus asigando porque no ha hecho aun la serologia.</b>
                   <?php endif ?>
                 </div>
                 <div class="col-lg-12">
                   <?php if ($donante->historia): ?>
-                  <a class="btn btn-default" href="<?php echo baseUrl ?>banco/historias/create/<?php echo $donante->id ?>">
+                  <a class="btn btn-default animated fadeInRight" href="<?php echo baseUrl ?>banco/historias/create/<?php echo $donante->id ?>">
                     <i class="fa fa-address-card-o fa-2x text-primary" aria-hidden="true"></i> Ver Historia
                   </a>
                   <?php else: ?>
-                  <a class="btn btn-default" href="<?php echo baseUrl ?>banco/historias/create/<?php echo $donante->id ?>">
+                  <a class="btn btn-default animated fadeInRight" href="<?php echo baseUrl ?>banco/historias/create/<?php echo $donante->id ?>">
                     <i class="fa fa-address-card-o fa-2x text-warning" aria-hidden="true"></i> Ingresar Historia
                   </a>
                   <?php endif ?>
                 </div>
                 <div class="col-lg-12">
                   <?php if ($donante->serologia): ?>
-                  <a class="btn btn-primary" href="<?php echo baseUrl ?>banco/historias/create/<?php echo $donante->id ?>">
+                  <a class="btn btn-primary animated fadeInUp" href="<?php echo baseUrl ?>banco/historias/create/<?php echo $donante->id ?>">
                     <i class="fa fa-address-card-o fa-2x text-primary" aria-hidden="true"></i> Ver Serologia
                   </a>
                   <?php else: ?>
-                  <a class="btn btn-default" href="<?php echo baseUrl ?>banco/historias/create/<?php echo $donante->id ?>">
+                  <a class="btn btn-default animated fadeInUp" href="<?php echo baseUrl ?>banco/historias/create/<?php echo $donante->id ?>">
                     <i class="fa fa-user-md fa-2x" aria-hidden="true"></i> Ingresar Serologia
                   </a>
                   <?php endif ?>

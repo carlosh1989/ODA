@@ -9,7 +9,7 @@
       <div class="row">
       <?php foreach ($banco_historias as $h): ?>
         <div class="col-lg-4">
-          <div class="panel panel-default">
+          <div class="panel panel-default animated fadeInUp">
             <div class="panel-body">
               <div class="col-lg-2">
                 <input type="checkbox" data-off-label="false" data-on-label="false" data-off-icon-cls="fa fa-thumbs-o-down" data-on-icon-cls="fa fa-thumbs-o-up" name="respuestas[]" value="<?php echo $h->id ?>">
@@ -25,7 +25,7 @@
       <?php endforeach ?>
       </div>
       <br>
-      <button type="submit" class="btn btn-lg btn-success pull-right"><i class="fa fa-save fa-2x"></i></button>
+      <button type="submit" class="btn btn-lg btn-primary pull-right"><i class="fa fa-save fa-2x"></i></button>
     </form>
   </div>
 </div>
