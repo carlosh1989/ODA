@@ -33,7 +33,7 @@ class Historias
 
         if($donante->historia)
         {
-            if($respuestas)
+            if(isset($respuestas))
             {
                 foreach ($respuestas as $r) 
                 {
@@ -41,6 +41,11 @@ class Historias
                     $donante_historia->respuesta = 'yes';
                     $donante_historia->save();
                 }
+            }
+            else
+            {
+                $updateArray = ['respuesta' => 'no'];
+                $donante_historia = DonanteHistoria::where('donante_id',$donante_id)->update($updateArray);
             }
         }
         else
@@ -70,7 +75,41 @@ class Historias
 
     public function update($id)
     {
+        extract($_POST);
+        //Arr($respuestas);
+        $donante_id = $id;
+        $donante = Donante::find($donante_id);
 
+        if($donante->historia)
+        {
+            if(isset($respuestas))
+            {
+                foreach ($respuestas as $r) 
+                {
+                    $donante_historia = DonanteHistoria::where('donante_id',$donante_id)->where('historia_id',$r)->first();
+                    $donante_historia->respuesta = 'yes';
+                    $donante_historia->save();
+                }
+            }
+            else
+            {
+                $updateArray = ['respuesta' => 'no'];
+                $donante_historia = DonanteHistoria::where('donante_id',$donante_id)->update($updateArray);
+            }
+        }
+        else
+        {
+            $banco_historias = BancoHistoria::all();
+
+            foreach ($banco_historias as $h) 
+            {
+                $donante_historia = new DonanteHistoria;
+                $donante_historia->donante_id = $donante_id;
+                $donante_historia->historia_id = $h->id;
+                $donante_historia->respuesta = 'no';
+                $donante_historia->save();
+            }
+        }
     }
 
     public function destroy($id)

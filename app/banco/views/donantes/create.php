@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div class="panel panel-primary">
   <div class="panel-heading">
     <h3 class="panel-title text-muted">INGRESAR PERSONAL</h3>
   </div>
@@ -51,7 +51,7 @@
         </div>
       </div>
       <br>
-      <button type="submit" class="btn btn-lg btn-success pull-right"><i class="fa fa-save fa-2x"></i></button>
+      <button type="submit" class="btn btn-lg btn-primary pull-right"><i class="fa fa-save fa-2x"></i></button>
     </form>
   </div>
 </div>

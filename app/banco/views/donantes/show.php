@@ -1,59 +1,78 @@
-<div class="panel panel-default">
-  
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#datos" data-toggle="tab" aria-expanded="true">DATOS</a></li>
-    <li class=""><a href="#historia" data-toggle="tab" aria-expanded="false">HISTORIA</a></li>
-    <li class=""><a href="#serologia" data-toggle="tab" aria-expanded="false">SEROLOGIA</a></li>
-  </ul>
-  <div id="myTabContent" class="tab-content">
-    <div class="tab-pane fade active in" id="datos">
-      <div class="panel-body">
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title text-muted">DONANTE</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-lg-5">
+        <table class="table table-user-information panel panel-default">
+          <tbody>
+            <tr>
+              <td><b>Nombre y Apellido:</b></td>
+              <td><?php echo ucwords($donante->nombre_apellido) ?></td>
+            </tr>
+            <tr>
+              <td><b>Cédula:</b></td>
+              <td><?php echo $donante->cedula ?></td>
+            </tr>
+            <tr>
+              <td><b>Email:</b></td>
+              <td><?php echo $donante->email ?></td>
+            </tr>
+            <tr>
+              <td><b>Telefono fijo:</b></td>
+              <td><?php echo $donante->telefono_fijo ?></td>
+            </tr>
+            <tr>
+              <td><b>Telefono celular:</b></td>
+              <td><?php echo $donante->telefono_celular ?></td>
+            </tr>
+            <tr>
+              <td><b>Direcíón:</b></td>
+              <td>lorem</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-lg-7">
         <div class="row">
-          <div class="col-lg-4 dl-horizontal">
-            <dt>Nombre:</dt>
-            <dd><?php echo $donante->nombre_apellido ?></dd>
-          </div>
-          <div class="col-lg-4 dl-horizontal">
-            <dt>Cédula:</dt>
-            <dd><?php echo $donante->cedula ?></dd>
-          </div>
-          <div class="col-lg-4 dl-horizontal">
-            <dt>Email:</dt>
-            <dd><?php echo $donante->email ?> </dd>
-          </div>
-        </div>
-        <br>
-        <div class="row">
-          <div class="col-lg-4 dl-horizontal">
-            <dt>Telefono fijo:</dt>
-            <dd><?php echo $donante->telefono_fijo ?> </dd>
-          </div>
-          <div class="col-lg-4 dl-horizontal">
-            <dt>Telefono celular:</dt>
-            <dd><?php echo $donante->telefono_celular ?> </dd>
-          </div>
-          <div class="col-lg-4 dl-horizontal">
-            <dt>Dirección:</dt>
-            <dd><?php echo $donante->direccion ?> </dd>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <?php if ($donante->estatus): ?>
+                  <i class="fa fa-warning fa-2x text-warning"></i> <b>El paciente no tiene estatus asigando porque no ha hecho aun la serologia.</b>
+                  <?php else: ?>
+                  <i class="fa fa-warning fa-2x text-warning"></i> <b>El paciente no tiene estatus asigando porque no ha hecho aun la serologia.</b>
+                  <?php endif ?>
+                </div>
+                <div class="col-lg-12">
+                  <?php if ($donante->historia): ?>
+                  <a class="btn btn-default" href="<?php echo baseUrl ?>banco/historias/create/<?php echo $donante->id ?>">
+                    <i class="fa fa-address-card-o fa-2x text-primary" aria-hidden="true"></i> Ver Historia
+                  </a>
+                  <?php else: ?>
+                  <a class="btn btn-default" href="<?php echo baseUrl ?>banco/historias/create/<?php echo $donante->id ?>">
+                    <i class="fa fa-address-card-o fa-2x text-warning" aria-hidden="true"></i> Ingresar Historia
+                  </a>
+                  <?php endif ?>
+                </div>
+                <div class="col-lg-12">
+                  <?php if ($donante->serologia): ?>
+                  <a class="btn btn-primary" href="<?php echo baseUrl ?>banco/historias/create/<?php echo $donante->id ?>">
+                    <i class="fa fa-address-card-o fa-2x text-primary" aria-hidden="true"></i> Ver Serologia
+                  </a>
+                  <?php else: ?>
+                  <a class="btn btn-default" href="<?php echo baseUrl ?>banco/historias/create/<?php echo $donante->id ?>">
+                    <i class="fa fa-user-md fa-2x" aria-hidden="true"></i> Ingresar Serologia
+                  </a>
+                  <?php endif ?>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="tab-pane fade" id="historia">
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-lg-12 dl-horizontal">
-            <?php if ($donante->historia): ?>
-
-            <?php else: ?>
-              <h5><?php echo ucwords($donante->nombre_apellido) ?> no tiene historia medica, desea creala? <a class="btn btn-primary" href="<?php echo baseUrl ?>banco/historias/create/<?php echo $donante->id ?>"><i class="fa fa-pencil"></i> Si</a></h5>              
-            <?php endif ?>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="tab-pane fade" id="serologia">
-      <p>Serologia</p>
     </div>
   </div>
 </div>
