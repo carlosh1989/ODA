@@ -1,5 +1,6 @@
 <?php 
 namespace App;
+use App\LaboratorioImagen;
 use App\LaboratorioPersonal;
 use \Illuminate\Database\Eloquent\Model;
  
@@ -13,6 +14,11 @@ class Laboratorio extends Model {
 	public function laboratorio_personal()
 	{
 		return $this->hasMany(LaboratorioPersonal::class, 'laboratorio_id','id');
+	}
+
+	public function laboratorio_imagenes()
+	{
+		return $this->hasMany(LaboratorioImagen::class, 'laboratorio_id','id');
 	}
 }
 

@@ -13,7 +13,7 @@
     <script src="<?php echo baseUrl ?>assets/bower/sweetalert2/dist/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="<?php echo baseUrl ?>assets/bower/bootstrap-table/dist/bootstrap-table.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo baseUrl ?>assets/bower/animate.css/animate.min.css">
-    <script src="<?php echo baseUrl ?>assets/bower/bootstrap-table/dist/bootstrap-table.min.js"></script>
+    <script src="<?php echo baseUrl ?>assets/bower/bootstrap-table/dist/bootstrap-table.min.js"></script>   
     <style>
     body
     {
@@ -78,17 +78,17 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" style="font-size: 1.2em;color: #fff;" href="<?php echo baseUrl ?>">
+                <a  class="navbar-brand" style="font-size: 1.2em;color: #fff;" href="<?php echo baseUrl ?>">
                 <i class="fa fa-medkit fa-2x" aria-hidden="true"></i> BANCO DE SANGRE</a>
               </div>
               <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                  <li><a href="<?php echo baseUrl ?>banco/donantes">DONANTES</a></li>
+                  <li style="background: #E9E9E9;"><a  href="<?php echo baseUrl ?>banco/donantes">DONANTES</a></li>
                   <li><a href="<?php echo baseUrl ?>banco/laboratorios">LABORATORIOS</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                   <li class="dropdown">
-                    <a class="fa fa-cog" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <a style="background: #E9E9E9;" class="fa fa-cog" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                       
                       <span class="caret"></span></a>
                       <ul class="dropdown-menu">
@@ -118,6 +118,8 @@
         <script src="<?php echo baseUrl ?>assets/bower/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="<?php echo baseUrl ?>assets/bower/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
         <script src="<?php echo baseUrl ?>assets/bower/bootstrap-checkbox/dist/js/bootstrap-checkbox.min.js"></script>
+
+
         <script type="text/javascript">
         $(':checkbox').checkboxpicker();
         // get the table element

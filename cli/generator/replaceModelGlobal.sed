@@ -1,3 +1,3 @@
 
-s/${model}/Banco/
-s/${tabla}/banco_sangre/
+s/${model}/LaboratorioImagen/
+s/${tabla}/laboratorios_imagenes/

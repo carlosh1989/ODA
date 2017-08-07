@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2
+-- version 4.2.12deb2+deb8u1
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 06-08-2017 a las 23:56:24
--- Versión del servidor: 5.7.17-0ubuntu0.16.04.1
--- Versión de PHP: 7.0.18-0ubuntu0.16.04.1
+-- Tiempo de generación: 07-08-2017 a las 16:19:46
+-- Versión del servidor: 5.5.49-0+deb8u1
+-- Versión de PHP: 5.6.27-0+deb8u1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de datos: `banco`
@@ -26,10 +26,10 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `banco_historias`
 --
 
-CREATE TABLE `banco_historias` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `banco_historias` (
+`id` int(11) NOT NULL,
   `pregunta` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `banco_historias`
@@ -45,8 +45,8 @@ INSERT INTO `banco_historias` (`id`, `pregunta`) VALUES
 -- Estructura de tabla para la tabla `banco_sangre_personal`
 --
 
-CREATE TABLE `banco_sangre_personal` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `banco_sangre_personal` (
+`id` int(11) NOT NULL,
   `usuario_id` int(11) NOT NULL,
   `nombre_apellido` varchar(100) NOT NULL,
   `nacionalidad` varchar(1) NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE `banco_sangre_personal` (
   `telefono_celular` varchar(50) NOT NULL,
   `direccion` text NOT NULL,
   `cargo` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `banco_sangre_personal`
@@ -72,8 +72,8 @@ INSERT INTO `banco_sangre_personal` (`id`, `usuario_id`, `nombre_apellido`, `nac
 -- Estructura de tabla para la tabla `donantes`
 --
 
-CREATE TABLE `donantes` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `donantes` (
+`id` int(11) NOT NULL,
   `nombre_apellido` varchar(50) NOT NULL,
   `nacionalidad` varchar(1) NOT NULL,
   `cedula` varchar(100) NOT NULL,
@@ -84,7 +84,7 @@ CREATE TABLE `donantes` (
   `direccion` text NOT NULL,
   `created_at` varchar(100) NOT NULL,
   `updated_at` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `donantes`
@@ -101,7 +101,7 @@ INSERT INTO `donantes` (`id`, `nombre_apellido`, `nacionalidad`, `cedula`, `emai
 -- Estructura de tabla para la tabla `donantes_estatus`
 --
 
-CREATE TABLE `donantes_estatus` (
+CREATE TABLE IF NOT EXISTS `donantes_estatus` (
   `id` int(11) NOT NULL,
   `donante_id` int(11) NOT NULL,
   `estatus` varchar(50) NOT NULL,
@@ -114,12 +114,12 @@ CREATE TABLE `donantes_estatus` (
 -- Estructura de tabla para la tabla `donantes_historia`
 --
 
-CREATE TABLE `donantes_historia` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `donantes_historia` (
+`id` int(11) NOT NULL,
   `donante_id` int(11) NOT NULL,
   `historia_id` int(11) NOT NULL,
   `respuesta` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `donantes_historia`
@@ -137,7 +137,7 @@ INSERT INTO `donantes_historia` (`id`, `donante_id`, `historia_id`, `respuesta`)
 -- Estructura de tabla para la tabla `donantes_serologia`
 --
 
-CREATE TABLE `donantes_serologia` (
+CREATE TABLE IF NOT EXISTS `donantes_serologia` (
   `id` int(11) NOT NULL,
   `donante_id` int(11) NOT NULL,
   `responsable` varchar(50) NOT NULL,
@@ -152,7 +152,7 @@ CREATE TABLE `donantes_serologia` (
 -- Estructura de tabla para la tabla `donantes_tipeaje`
 --
 
-CREATE TABLE `donantes_tipeaje` (
+CREATE TABLE IF NOT EXISTS `donantes_tipeaje` (
   `id` int(11) NOT NULL,
   `donante_id` int(11) NOT NULL,
   `responsable` varchar(50) NOT NULL,
@@ -167,13 +167,13 @@ CREATE TABLE `donantes_tipeaje` (
 -- Estructura de tabla para la tabla `laboratorios`
 --
 
-CREATE TABLE `laboratorios` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `laboratorios` (
+`id` int(11) NOT NULL,
   `razon_social` varchar(100) NOT NULL,
   `email` varchar(50) NOT NULL,
   `direccion` text NOT NULL,
   `telefono` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `laboratorios`
@@ -188,11 +188,34 @@ INSERT INTO `laboratorios` (`id`, `razon_social`, `email`, `direccion`, `telefon
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `laboratorios_imagenes`
+--
+
+CREATE TABLE IF NOT EXISTS `laboratorios_imagenes` (
+`id` int(11) NOT NULL,
+  `laboratorio_id` int(11) NOT NULL,
+  `imagen_original` varchar(300) NOT NULL,
+  `imagen_grande` varchar(300) NOT NULL,
+  `imagen_medio` varchar(300) NOT NULL,
+  `imagen_miniatura` varchar(300) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `laboratorios_imagenes`
+--
+
+INSERT INTO `laboratorios_imagenes` (`id`, `laboratorio_id`, `imagen_original`, `imagen_grande`, `imagen_medio`, `imagen_miniatura`) VALUES
+(1, 2, 'https://process.filestackapi.com/AhTgLagciQByzXpFGRI0Az/resize=w:1000/quality=value:70/compress/https://static.pexels.com/photos/50704/car-race-ferrari-racing-car-pirelli-50704.jpeg', 'https://process.filestackapi.com/AhTgLagciQByzXpFGRI0Az/resize=w:800/quality=value:70/compress/https://static.pexels.com/photos/50704/car-race-ferrari-racing-car-pirelli-50704.jpeg', 'https://process.filestackapi.com/AhTgLagciQByzXpFGRI0Az/resize=w:400/quality=value:70/compress/https://static.pexels.com/photos/50704/car-race-ferrari-racing-car-pirelli-50704.jpeg', 'https://process.filestackapi.com/AhTgLagciQByzXpFGRI0Az/resize=w:250/quality=value:70/compress/https://static.pexels.com/photos/50704/car-race-ferrari-racing-car-pirelli-50704.jpeg'),
+(2, 2, 'https://process.filestackapi.com/AhTgLagciQByzXpFGRI0Az/resize=w:1000/quality=value:70/compress/http://img.autobytel.com/car-reviews/autobytel/11694-good-looking-sports-cars/2016-Ford-Mustang-GT-burnout-red-tire-smoke.jpg', 'https://process.filestackapi.com/AhTgLagciQByzXpFGRI0Az/resize=w:800/quality=value:70/compress/http://img.autobytel.com/car-reviews/autobytel/11694-good-looking-sports-cars/2016-Ford-Mustang-GT-burnout-red-tire-smoke.jpg', 'https://process.filestackapi.com/AhTgLagciQByzXpFGRI0Az/resize=w:400/quality=value:70/compress/http://img.autobytel.com/car-reviews/autobytel/11694-good-looking-sports-cars/2016-Ford-Mustang-GT-burnout-red-tire-smoke.jpg', 'https://process.filestackapi.com/AhTgLagciQByzXpFGRI0Az/resize=w:250/quality=value:70/compress/http://img.autobytel.com/car-reviews/autobytel/11694-good-looking-sports-cars/2016-Ford-Mustang-GT-burnout-red-tire-smoke.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `laboratorios_personal`
 --
 
-CREATE TABLE `laboratorios_personal` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `laboratorios_personal` (
+`id` int(11) NOT NULL,
   `usuario_id` int(11) NOT NULL,
   `laboratorio_id` int(11) NOT NULL,
   `nombre_apellido` varchar(100) NOT NULL,
@@ -204,7 +227,7 @@ CREATE TABLE `laboratorios_personal` (
   `email` varchar(100) NOT NULL,
   `direccion` text NOT NULL,
   `cargo` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `laboratorios_personal`
@@ -220,7 +243,7 @@ INSERT INTO `laboratorios_personal` (`id`, `usuario_id`, `laboratorio_id`, `nomb
 -- Estructura de tabla para la tabla `phinxlog`
 --
 
-CREATE TABLE `phinxlog` (
+CREATE TABLE IF NOT EXISTS `phinxlog` (
   `version` bigint(20) NOT NULL,
   `migration_name` varchar(100) DEFAULT NULL,
   `start_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -241,15 +264,15 @@ INSERT INTO `phinxlog` (`version`, `migration_name`, `start_time`, `end_time`, `
 -- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `usuarios` (
+`id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `role` varchar(100) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -275,67 +298,73 @@ INSERT INTO `usuarios` (`id`, `name`, `password`, `email`, `role`, `created_at`,
 -- Indices de la tabla `banco_historias`
 --
 ALTER TABLE `banco_historias`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `banco_sangre_personal`
 --
 ALTER TABLE `banco_sangre_personal`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `donantes`
 --
 ALTER TABLE `donantes`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `donantes_estatus`
 --
 ALTER TABLE `donantes_estatus`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `donantes_historia`
 --
 ALTER TABLE `donantes_historia`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `donantes_serologia`
 --
 ALTER TABLE `donantes_serologia`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `donantes_tipeaje`
 --
 ALTER TABLE `donantes_tipeaje`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `laboratorios`
 --
 ALTER TABLE `laboratorios`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `laboratorios_imagenes`
+--
+ALTER TABLE `laboratorios_imagenes`
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `laboratorios_personal`
 --
 ALTER TABLE `laboratorios_personal`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `phinxlog`
 --
 ALTER TABLE `phinxlog`
-  ADD PRIMARY KEY (`version`);
+ ADD PRIMARY KEY (`version`);
 
 --
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -345,37 +374,42 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `banco_historias`
 --
 ALTER TABLE `banco_historias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `banco_sangre_personal`
 --
 ALTER TABLE `banco_sangre_personal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT de la tabla `donantes`
 --
 ALTER TABLE `donantes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT de la tabla `donantes_historia`
 --
 ALTER TABLE `donantes_historia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `laboratorios`
 --
 ALTER TABLE `laboratorios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT de la tabla `laboratorios_imagenes`
+--
+ALTER TABLE `laboratorios_imagenes`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `laboratorios_personal`
 --
 ALTER TABLE `laboratorios_personal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=41;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

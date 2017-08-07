@@ -19,6 +19,7 @@
         "animate.css": "*",
         "datatables.net": "*",
         "datatables.net-bs": "*",
-        "EasyAutocomplete": "*"
+        "EasyAutocomplete": "*",
+        "lightbox2": "*"
     }
 }
