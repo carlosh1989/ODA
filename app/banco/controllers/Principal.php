@@ -13,6 +13,6 @@ class Principal extends Controller
 
     public function index()
     {
-		View::ver('banco/principal/index');
+		Redirect::to('banco/donantes');
     }
 }

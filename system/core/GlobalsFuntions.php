@@ -39,16 +39,6 @@ function View($data=Null)
 	\System\template\View::view($data);
 }
 
-function Store($data)
-{
-	$modulo = URI_MODULO;  
-	$controlador = ucfirst(URI_CONTROLADOR);  
-	$cargarClase =  '\App\\'.$modulo.'\\repositories\\'.$controlador.'Repository';
-	//llamamos a la clase
-	$repository = new $cargarClase();
-	//return $repository->store($data);
-}
-
 function Repo($data=Null)
 {
 	$modulo = URI_MODULO;  
@@ -78,7 +68,7 @@ function RepoConfirm($data,$urlSuccess,$urlError)
     } 
     else 
     {
-        Error($urlError, $ingresarPersonal);
+        Error($urlError, $ingreso);
     }
 }
 

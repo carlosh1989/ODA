@@ -1,9 +1,11 @@
-<div class="panel panel-primary">
+
+<div id="panel" class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title text-muted">INGRESAR PERSONAL</h3>
+    <h3 class="panel-title text-muted"><i class="fa fa-user-plus fa-2x"></i> INGRESAR DONANTE</h3>
   </div>
+  <br>
   <div class="panel-body">
-    <form action="<?php echo baseUrl ?>laboratorio/donantes" method="POST">
+    <form action="<?php echo baseUrl ?>banco/donantes" method="POST">
       <?php echo Token::field() ?>
       <div class="row">
         <div class="col-lg-4">

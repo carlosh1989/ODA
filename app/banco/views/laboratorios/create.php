@@ -1,6 +1,6 @@
-<div class="panel panel-primary">
+<div id="panel" class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title text-muted">INGRESAR LABORATORIO</h3>
+    <h3 class="panel-title text-muted"><i class="fa fa-eyedropper fa-2x"></i><i class="fa fa-plus"></i> LABORATORIOS</h3>
   </div>
   <br>
   <div class="panel-body">

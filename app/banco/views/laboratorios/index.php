@@ -1,45 +1,100 @@
-    <div class="panel panel-primary">
+<div id="panel" class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title">Cuentas de banco de sangre</h3>
+    <h3 class="panel-title text-muted"><i class="fa fa-eyedropper fa-2x"></i> LABORATORIOS</h3>
   </div>
   <div class="panel-body">
-    <a class="btn btn-default animated fadeIn" href="<?php echo baseUrl ?>banco/laboratorios/create">  <i class="fa fa-plus text-primary"></i> Agregar Laboratorio</a>
-    <br><br>
-    <table class="table table-striped table-condensed table-responsive animated fadeIn" data-striped="true">
-      <thead>
-        <tr>
-          <th>id</th>
-          <th>Razon Social</th>
-          <th>Email</th>
-          <th>Dirección</th>
-          <th>Telefono</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach ($laboratorios as $c): ?>
-        <tr>
-          <td><?php echo $c->id ?></td>
-          <td><?php echo $c->razon_social ?></td>
-          <td><?php echo $c->email ?></td>
-          <td><?php echo $c->direccion ?></td>
-          <td><?php echo $c->telefono ?></td>
-          <td width="15%">
-            <!-- Single button -->
-            <div class="btn-group">
-              <button type="button" class="btn btn-default dropdown-toggle fa fa-cog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu">
-                <li><a href="<?php echo $baseUrl ?>banco/laboratorios/<?php echo $c->id ?>"> <pre class="text-primary">VER DATOS <i class="fa fa-search"></i></pre></a></li>
-                <li> <a href="<?php echo $baseUrl ?>banco/laboratorios/<?php echo $c->id ?>/edit"> <pre class="text-success">EDITAR <i class="fa fa-pencil"></i></pre></a></li></a></li>
-                <li><a href="<?php echo $baseUrl ?>banco/laboratorios/<?php echo $c->id ?>/delete"><pre class="text-danger">ELIMINAR <i class="fa fa-times"></i></pre></a></li>
-              </ul>
+    <div class="row">
+      <div class="col-md-12">
+        <form id="formulario" method="POST" action="<?php echo baseUrl ?>banco/laboratorios/busqueda">
+          <?php echo Token::field() ?>
+          <div class="col-md-6">
+            <div class="col-md-10">
+              <input class="form-control" name="razon_social" type="text" id="myInput" onkeyup="myFunction()" placeholder="Nombre de laboratorio..">
             </div>
-          </td>
-        </tr>
-        <?php endforeach ?>
-      </tbody>
-    </table>
+            <div class="col-md-2">
+              <div class="form-group">
+                <a class="btn btn-block btn-default animated" href="javascript:{}" onclick="$('#formulario').submit();"><i class="fa fa-search fa-2x text-primary"></i></a>
+              </div>
+            </div>
+          </div>
+          </form>
+          <div class="col-md-6">
+          <div class="col-md-12">
+            <a class="btn btn-default pull-right animated fadeIn" href="<?php echo baseUrl ?>banco/laboratorios/create">  <i class="fa fa-plus text-primary"></i> Agregar Laboratorio</a>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table id="myTable" class="table table-striped table-condensed animated fadeIn" data-striped="true">
+          <thead>
+            <tr>
+              <th>Razon Social</th>
+              <th>Email</th>
+              <th>Dirección</th>
+              <th>Telefono</th>
+              <th>Ver</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($laboratorios as $c): ?>
+            <tr>
+              <td><?php echo $c->razon_social ?></td>
+              <td><?php echo $c->email ?></td>
+              <td><?php echo $c->direccion ?></td>
+              <td><?php echo $c->telefono ?></td>
+              <td width="15%">
+              <a class="btn btn-default" href="<?php echo baseUrl ?>banco/laboratorios/<?php echo $c->id ?>"><i class="fa fa-search text-primary"></i></a>
+              </td>
+            </tr>
+            <?php endforeach ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    </div> <!-- /.box-footer-->
   </div>
-  </div> <!-- /.box-footer-->
-</div>
+  <script>
+  var options = {
+  data: [
+  <?php foreach ($laboratorios as $l): ?>
+  "<?php echo $l->razon_social ?>",
+  <?php endforeach ?>
+  ],
+    list: {
+    showAnimation: {
+      type: "fade", //normal|slide|fade
+      time: 200,
+      callback: function() {}
+    },
+
+    hideAnimation: {
+      type: "slide", //normal|slide|fade
+      time: 200,
+      callback: function() {}
+    }
+  }
+  };
+  $("#myInput").easyAutocomplete(options);
+  </script>
+  <script>
+  function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+  td = tr[i].getElementsByTagName("td")[0];
+  if (td) {
+  if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+  tr[i].style.display = "";
+  } else {
+  tr[i].style.display = "none";
+  }
+  }
+  }
+  }
+  </script>

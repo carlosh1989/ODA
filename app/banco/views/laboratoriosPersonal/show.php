@@ -1,8 +1,6 @@
-<div class="panel panel-default">
+<div id="panel" class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title">
-    DATOS DE PERSONAL
-    </h3>
+    <h3 class="panel-title text-muted"><i class="fa fa-user-secret fa-2x"></i>  <b><?php echo strtoupper($personal->cargo.' '.$personal->nombre_apellido) ?></b></h3>
   </div>
   <div class="panel-body">
     <div class="row">

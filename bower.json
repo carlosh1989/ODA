@@ -16,6 +16,9 @@
         "bootstrap": "*",
         "inputmask": "*",
         "bootstrap-checkbox": "*",
-        "animate.css": "*"
+        "animate.css": "*",
+        "datatables.net": "*",
+        "datatables.net-bs": "*",
+        "EasyAutocomplete": "*"
     }
 }

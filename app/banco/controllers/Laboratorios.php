@@ -43,4 +43,20 @@ class Laboratorios
     {
 
     }
+
+    /* FIN DE METODOS RESTFUL*/
+    public function busqueda()
+    {
+        extract($_POST);
+        $laboratorio = Laboratorio::where('razon_social', $razon_social)->first();
+        //Arr($laboratorio);
+        if($laboratorio)
+        {
+            Success('laboratorios/'.$laboratorio->id,'Ok');
+        }
+        else
+        {
+            Info('laboratorios','Laboratorio no registrado.');
+        }
+    }
 }
