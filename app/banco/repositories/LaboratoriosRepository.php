@@ -2,6 +2,7 @@
 namespace App\banco\repositories;
 
 use App\Laboratorio;
+use App\LaboratorioImagen;
 use Eloquent;
 
 class LaboratoriosRepository 
@@ -26,9 +27,25 @@ class LaboratoriosRepository
         $laboratorio->telefono = $telefono;
         $laboratorio->email = $email;
 
+        $laboratorioImagen = $imagen;
         if( $laboratorio->save())
         {
-            return $laboratorio->id;
+            $imagen = new LaboratorioImagen;
+            $imagen->laboratorio_id = $laboratorio->id;
+            $imagen->imagen_original = 'https://process.filestackapi.com/AhTgLagciQByzXpFGRI0Az/resize=w:1000/quality=value:70/compress/'.$laboratorioImagen;
+            $imagen->imagen_grande = 'https://process.filestackapi.com/AhTgLagciQByzXpFGRI0Az/resize=w:800/quality=value:70/compress/'.$laboratorioImagen;
+            $imagen->imagen_medio = 'https://process.filestackapi.com/AhTgLagciQByzXpFGRI0Az/resize=w:400/quality=value:70/compress/'.$laboratorioImagen;
+            $imagen->imagen_miniatura = 'https://process.filestackapi.com/AhTgLagciQByzXpFGRI0Az/resize=w:250/quality=value:70/compress/'.$laboratorioImagen;
+            //return $laboratorio->id;
+
+            if($imagen->save())
+            {
+                return $laboratorio->id;
+            }
+            else
+            {
+                return 'Error al ingresar imagen de laboratorio.';
+            }
         }
         else
         {

@@ -1,6 +1,7 @@
 <?php
 namespace App\banco\controllers;
 use App\Laboratorio;
+use System\template\View;
 
 class Laboratorios 
 {
@@ -42,6 +43,11 @@ class Laboratorios
     public function destroy($id)
     {
 
+    }
+
+    public function gps()
+    {
+        View::theme('edit','banco2');
     }
 
     /* FIN DE METODOS RESTFUL*/

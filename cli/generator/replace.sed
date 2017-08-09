@@ -1,4 +1,4 @@
 
 s/${modulo}/banco/
-s/${controller}/Historias/
+s/${controller}/LaboratoriosImagenes/
 s/${vista}/show/
