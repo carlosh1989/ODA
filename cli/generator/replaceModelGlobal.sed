@@ -1,3 +1,3 @@
 
-s/${model}/LaboratorioImagen/
-s/${tabla}/laboratorios_imagenes/
+s/${model}/Supervisor/
+s/${tabla}/tabla_supervisor/

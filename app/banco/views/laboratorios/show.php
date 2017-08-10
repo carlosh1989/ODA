@@ -36,22 +36,21 @@
       <div class="col-lg-4 animated fadeIn">
         <div id="map"></div>
         <script>
-      function initMap() {
-        var uluru = {lat: 8.597659700819962, lng: -70.18760691613159};
+        function initMap() {
+        var uluru = {lat: <?php echo $laboratorio->lat ?>, lng: <?php echo $laboratorio->lng ?>};
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 17,
-          center: uluru
+        zoom: 17,
+        center: uluru
         });
         var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
+        position: uluru,
+        map: map
         });
-      }
-    </script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJAW7MQOeI2ZgWp58Zdphfa9F7AQy3YRI&callback=initMap&libraries=places"
-                async defer></script>
-
-                
+        }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJAW7MQOeI2ZgWp58Zdphfa9F7AQy3YRI&callback=initMap&libraries=places"
+        async defer></script>
+        
       </div>
     </div>
     <hr>

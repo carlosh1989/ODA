@@ -1,4 +1,4 @@
 
-s/${modulo}/banco/
-s/${controller}/LaboratoriosImagenes/
+s/${modulo}/supervisor/
+s/${controller}/Principal/
 s/${vista}/show/

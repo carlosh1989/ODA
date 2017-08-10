@@ -25,7 +25,7 @@ border-color: #4d90fe;
 </style>
 <div id="panel" class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title text-muted"><i class="fa fa-eyedropper fa-2x"></i><i class="fa fa-plus"></i> LABORATORIOS</h3>
+    <h3 class="panel-title text-muted"><i class="fa fa-eyedropper fa-2x"></i><i class="fa fa-plus"></i> LABORATORIO</h3>
   </div>
   <br>
   <div class="panel-body">
@@ -37,11 +37,11 @@ border-color: #4d90fe;
             <input class="form-control" type="text" name="razon_social" placeholder="Razon Social" required>
           </div>
         </div>
-        <div class="col-lg-12 animated fadeIn">
+<!--         <div class="col-lg-12 animated fadeIn">
           <div class="form-group">
             <input class="form-control" type="text" name="direccion" placeholder="Dirección" required>
           </div>
-        </div>
+        </div> -->
         <div class="col-lg-6 animated fadeIn">
           <div class="form-group">
             <input class="form-control" type="email" name="email" placeholder="Email" required>
@@ -74,8 +74,8 @@ border-color: #4d90fe;
           <div class="map" id="map" style="width: 100%; height: 300px;"></div>
           <div class="form_area">
             <input type="text" name="location" id="location">
-            <input type="text" name="lat" id="lat">
-            <input type="text" name="lng" id="lng">
+            <input type="hidden" name="lat" id="lat">
+            <input type="hidden" name="lng" id="lng">
           </div>
         </div>
       </div>

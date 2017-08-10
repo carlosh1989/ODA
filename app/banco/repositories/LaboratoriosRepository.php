@@ -23,9 +23,11 @@ class LaboratoriosRepository
         extract($data);
         $laboratorio = new Laboratorio;
         $laboratorio->razon_social = $razon_social;
-        $laboratorio->direccion = $direccion;
+        $laboratorio->direccion = $location;
         $laboratorio->telefono = $telefono;
         $laboratorio->email = $email;
+        $laboratorio->lat = $lat;
+        $laboratorio->lng = $lng; 
 
         $laboratorioImagen = $imagen;
         if( $laboratorio->save())
