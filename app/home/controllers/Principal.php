@@ -1,6 +1,7 @@
 <?php
 namespace App\home\controllers;
 
+use App\Laboratorio;
 use App\home\models\PrincipalModel;
 use Controller,View,Token,Session,Arr,Message,Redirect,Permission,Url;
 
@@ -13,7 +14,7 @@ class Principal extends Controller
 
     public function index()
     {
-    	$laboratorios = laboratorio::all();
-		View::ver('home/principal/index', compact('laboratorios'));
+    	$laboratorios = Laboratorio::all();
+		View::show('index');
     }
 }
