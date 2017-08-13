@@ -3,6 +3,7 @@ namespace App;
 use App\DonanteEstatus;
 use App\DonanteHistoria;
 use App\DonanteSerologia;
+use App\DonanteTipeaje;
 use \Illuminate\Database\Eloquent\Model;
  
 class Donante extends Model {
@@ -23,6 +24,11 @@ class Donante extends Model {
 	public function serologia()
 	{
 		return $this->hasOne(DonanteSerologia::class, 'donante_id','id');
+	}
+
+	public function tipeaje()
+	{
+		return $this->hasOne(DonanteTipeaje::class, 'donante_id','id');
 	}
 
 	public function estatus()
