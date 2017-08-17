@@ -22,8 +22,8 @@
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label for="password">PASSWORD</label>
-                                    <input name="password" type="password" class="form-control" placeholder="Ingrese su Cedúla" id="password" required data-validation-required-message="Ingrese su clave de sessión.">
+                                    <label for="password">CLAVE</label>
+                                    <input name="password" type="password" class="form-control" placeholder="Clave" id="password" required data-validation-required-message="Ingrese su clave de sessión.">
                                 </div>
                             </div>
                             <br>
@@ -38,17 +38,18 @@
             </div>
         </section>
       
+            <!-- Footer -->
             <footer class="text-center">
                 <div class="footer-above">
                     <div class="container">
                         <div class="row">
                             <div class="footer-col col-md-4">
-                                <h3>Location</h3>
-                                <p>3481 Melrose Place
-                                <br>Beverly Hills, CA 90210</p>
+                                <h3>Localización</h3>
+                                <p>Barinas,
+                                <br>Hospital Luis Razzetti</p>
                             </div>
                             <div class="footer-col col-md-4">
-                                <h3>Around the Web</h3>
+                                <h3>ALREDEDOR DE LA WEB</h3>
                                 <ul class="list-inline">
                                     <li>
                                         <a href="#" class="btn-social btn-outline"><span class="sr-only">Facebook</span><i class="fa fa-fw fa-facebook"></i></a>
@@ -68,17 +69,8 @@
                                 </ul>
                             </div>
                             <div class="footer-col col-md-4">
-                                <h3>About Freelancer</h3>
-                                <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-below">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                Copyright &copy; Your Website 2016
+                                <h3>Sobre Nosotros</h3>
+                                <p>La Sociedad Venezolana de Hematología es una organización científica integrada por profesionales de la Hematología con el fin de promover el desarrollo de la especialidad, fomentar la investigación, la docencia y la práctica médica guiada por rigor científico y principios de bioética, para el beneficio de la población venezolana.</p>
                             </div>
                         </div>
                     </div>

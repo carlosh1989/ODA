@@ -23,14 +23,24 @@ class Principal extends Controller
     {
     	extract($_POST);
 
-    	$donante = Donante::where('cedula',$cedula)->get();
+    	$donante = Donante::where('cedula',$cedula)->first();
+
     	if($donante)
     	{
-	        Redirect::send('home/principal/index','success','Contraseña incorrecta.');
-    	}
+    		$donante = $donante->tipeaje->ABO.''.$donante->tipeaje->RH;
+    		if($donante)
+    		{
+	        	Redirect::send('home/principal/index#consulta','success','Su tipo de sangre es '.$donante);
+
+    		}
+    		else
+    		{
+	        	Redirect::send('home/principal/index#laboratorios','error','No se le ha hecho el tipeaje, puede dirigirse a algunos de los laboratorios parte del sistema.');
+    		}
+    	}    	
     	else
     	{
-	        Redirect::send('auth/login','error','Usted no se encuentra en el sistema, dirijase al laboratorio mas cercano a usted para que pueda ingresar en el sistema.');
+	        Redirect::send('home/principal/index#laboratorios','error','Usted no se encuentra en el sistema, dirijase al laboratorio mas cercano a usted para que pueda ingresar en el sistema.');
     	}
     }
 }
