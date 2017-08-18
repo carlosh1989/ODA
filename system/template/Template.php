@@ -1,6 +1,10 @@
 <?php
 namespace System\template;
 
+use Windwalker\Edge\Cache\EdgeFileCache;
+use Windwalker\Edge\Edge;
+use Windwalker\Edge\Loader\EdgeStringLoader;
+
 class Template
 {
     private $vars = array();
@@ -25,7 +29,9 @@ class Template
         extract($this->vars);
         ob_start();
         include($view_template_file);
-        return ob_get_clean();
+
+        $edge = new Edge(new EdgeStringLoader, null, new EdgeFileCache('cache/views'));
+        return $edge->render(ob_get_clean(), $this->vars);
     }
 
     public function renderOfuscado($view_template_file)

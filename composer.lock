@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b9ce4b67c8ac0547024a307a6e1cb6c0",
+    "hash": "283c89a0521484ffeec5a539a2705699",
+    "content-hash": "f2ddf91f2aa46d28562cd4984805eef0",
     "packages": [
         {
             "name": "beelab/bowerphp",
@@ -78,7 +79,7 @@
                 "frontend",
                 "package"
             ],
-            "time": "2017-04-04T08:55:35+00:00"
+            "time": "2017-04-04 08:55:35"
         },
         {
             "name": "cilex/cilex",
@@ -137,7 +138,7 @@
                 "cli",
                 "microframework"
             ],
-            "time": "2014-03-29T14:03:13+00:00"
+            "time": "2014-03-29 14:03:13"
         },
         {
             "name": "cilex/console-service-provider",
@@ -196,7 +197,7 @@
                 "service-provider",
                 "silex"
             ],
-            "time": "2012-12-19T10:50:58+00:00"
+            "time": "2012-12-19 10:50:58"
         },
         {
             "name": "container-interop/container-interop",
@@ -227,7 +228,7 @@
             ],
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "homepage": "https://github.com/container-interop/container-interop",
-            "time": "2017-02-14T19:40:03+00:00"
+            "time": "2017-02-14 19:40:03"
         },
         {
             "name": "danielstjules/stringy",
@@ -283,7 +284,7 @@
                 "utility",
                 "utils"
             ],
-            "time": "2015-07-23T00:54:12+00:00"
+            "time": "2015-07-23 00:54:12"
         },
         {
             "name": "doctrine/annotations",
@@ -351,7 +352,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2017-02-24T16:22:25+00:00"
+            "time": "2017-02-24 16:22:25"
         },
         {
             "name": "doctrine/inflector",
@@ -418,7 +419,7 @@
                 "singularize",
                 "string"
             ],
-            "time": "2015-11-06T14:35:42+00:00"
+            "time": "2015-11-06 14:35:42"
         },
         {
             "name": "doctrine/instantiator",
@@ -472,7 +473,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2015-06-14T21:17:01+00:00"
+            "time": "2015-06-14 21:17:01"
         },
         {
             "name": "doctrine/lexer",
@@ -526,7 +527,7 @@
                 "lexer",
                 "parser"
             ],
-            "time": "2014-09-09T13:34:57+00:00"
+            "time": "2014-09-09 13:34:57"
         },
         {
             "name": "erusev/parsedown",
@@ -568,7 +569,7 @@
                 "markdown",
                 "parser"
             ],
-            "time": "2017-03-29T16:04:15+00:00"
+            "time": "2017-03-29 16:04:15"
         },
         {
             "name": "filp/whoops",
@@ -629,7 +630,7 @@
                 "whoops",
                 "zf2"
             ],
-            "time": "2017-06-03T18:33:07+00:00"
+            "time": "2017-06-03 18:33:07"
         },
         {
             "name": "fzaninotto/faker",
@@ -677,7 +678,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2016-04-29T12:21:54+00:00"
+            "time": "2016-04-29 12:21:54"
         },
         {
             "name": "guzzle/guzzle",
@@ -773,7 +774,7 @@
                 "web service"
             ],
             "abandoned": "guzzlehttp/guzzle",
-            "time": "2015-03-18T18:23:50+00:00"
+            "time": "2015-03-18 18:23:50"
         },
         {
             "name": "herrera-io/json",
@@ -834,7 +835,7 @@
                 "validate"
             ],
             "abandoned": "kherge/json",
-            "time": "2013-10-30T16:51:34+00:00"
+            "time": "2013-10-30 16:51:34"
         },
         {
             "name": "herrera-io/phar-update",
@@ -892,7 +893,7 @@
                 "update"
             ],
             "abandoned": true,
-            "time": "2013-10-30T17:23:01+00:00"
+            "time": "2013-10-30 17:23:01"
         },
         {
             "name": "illuminate/container",
@@ -935,7 +936,7 @@
             ],
             "description": "The Illuminate Container package.",
             "homepage": "http://laravel.com",
-            "time": "2016-06-14T13:37:44+00:00"
+            "time": "2016-06-14 13:37:44"
         },
         {
             "name": "illuminate/contracts",
@@ -977,7 +978,7 @@
             ],
             "description": "The Illuminate Contracts package.",
             "homepage": "http://laravel.com",
-            "time": "2015-09-24T11:16:48+00:00"
+            "time": "2015-09-24 11:16:48"
         },
         {
             "name": "illuminate/database",
@@ -1036,7 +1037,7 @@
                 "orm",
                 "sql"
             ],
-            "time": "2015-07-20T16:50:34+00:00"
+            "time": "2015-07-20 16:50:34"
         },
         {
             "name": "illuminate/support",
@@ -1090,7 +1091,7 @@
             ],
             "description": "The Illuminate Support package.",
             "homepage": "http://laravel.com",
-            "time": "2016-06-11T16:44:59+00:00"
+            "time": "2016-06-11 16:44:59"
         },
         {
             "name": "jms/metadata",
@@ -1141,7 +1142,7 @@
                 "xml",
                 "yaml"
             ],
-            "time": "2016-12-05T10:18:33+00:00"
+            "time": "2016-12-05 10:18:33"
         },
         {
             "name": "jms/parser-lib",
@@ -1176,7 +1177,7 @@
                 "Apache2"
             ],
             "description": "A library for easily creating recursive-descent parsers.",
-            "time": "2012-11-18T18:08:43+00:00"
+            "time": "2012-11-18 18:08:43"
         },
         {
             "name": "jms/serializer",
@@ -1255,7 +1256,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-05-15T08:35:42+00:00"
+            "time": "2017-05-15 08:35:42"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -1321,7 +1322,7 @@
                 "json",
                 "schema"
             ],
-            "time": "2016-01-25T15:43:01+00:00"
+            "time": "2016-01-25 15:43:01"
         },
         {
             "name": "kherge/version",
@@ -1364,7 +1365,7 @@
             "description": "A parsing and comparison library for semantic versioning.",
             "homepage": "http://github.com/kherge/Version",
             "abandoned": true,
-            "time": "2012-08-16T17:13:03+00:00"
+            "time": "2012-08-16 17:13:03"
         },
         {
             "name": "knplabs/github-api",
@@ -1426,7 +1427,7 @@
                 "gist",
                 "github"
             ],
-            "time": "2016-07-26T08:49:38+00:00"
+            "time": "2016-07-26 08:49:38"
         },
         {
             "name": "mmucklo/krumo",
@@ -1487,7 +1488,7 @@
                 "print_r",
                 "var_dump"
             ],
-            "time": "2016-03-15T07:21:38+00:00"
+            "time": "2016-03-15 07:21:38"
         },
         {
             "name": "monolog/monolog",
@@ -1565,7 +1566,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2017-06-19T01:22:40+00:00"
+            "time": "2017-06-19 01:22:40"
         },
         {
             "name": "nesbot/carbon",
@@ -1618,7 +1619,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2017-01-16T07:55:07+00:00"
+            "time": "2017-01-16 07:55:07"
         },
         {
             "name": "nikic/php-parser",
@@ -1663,7 +1664,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2015-09-19T14:15:08+00:00"
+            "time": "2015-09-19 14:15:08"
         },
         {
             "name": "paragonie/random_compat",
@@ -1711,7 +1712,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2017-03-13T16:22:52+00:00"
+            "time": "2017-03-13 16:22:52"
         },
         {
             "name": "particle/validator",
@@ -1773,7 +1774,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2016-08-05T12:56:25+00:00"
+            "time": "2016-08-05 12:56:25"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -1821,7 +1822,7 @@
                 "sequence",
                 "set"
             ],
-            "time": "2015-05-17T12:39:23+00:00"
+            "time": "2015-05-17 12:39:23"
         },
         {
             "name": "phpdocumentor/fileset",
@@ -1864,7 +1865,7 @@
                 "fileset",
                 "phpdoc"
             ],
-            "time": "2013-08-06T21:07:42+00:00"
+            "time": "2013-08-06 21:07:42"
         },
         {
             "name": "phpdocumentor/graphviz",
@@ -1905,7 +1906,7 @@
                     "email": "mike.vanriel@naenius.com"
                 }
             ],
-            "time": "2016-02-02T13:00:08+00:00"
+            "time": "2016-02-02 13:00:08"
         },
         {
             "name": "phpdocumentor/phpdocumentor",
@@ -1994,7 +1995,7 @@
                 "documentation",
                 "phpdoc"
             ],
-            "time": "2016-05-22T09:50:56+00:00"
+            "time": "2016-05-22 09:50:56"
         },
         {
             "name": "phpdocumentor/reflection",
@@ -2048,7 +2049,7 @@
                 "reflection",
                 "static analysis"
             ],
-            "time": "2016-05-21T08:42:32+00:00"
+            "time": "2016-05-21 08:42:32"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -2097,7 +2098,7 @@
                     "email": "mike.vanriel@naenius.com"
                 }
             ],
-            "time": "2016-01-25T08:17:30+00:00"
+            "time": "2016-01-25 08:17:30"
         },
         {
             "name": "phpoption/phpoption",
@@ -2147,7 +2148,7 @@
                 "php",
                 "type"
             ],
-            "time": "2015-07-25T16:39:46+00:00"
+            "time": "2015-07-25 16:39:46"
         },
         {
             "name": "pimple/pimple",
@@ -2193,7 +2194,7 @@
                 "container",
                 "dependency injection"
             ],
-            "time": "2013-11-22T08:30:29+00:00"
+            "time": "2013-11-22 08:30:29"
         },
         {
             "name": "psr/container",
@@ -2242,7 +2243,7 @@
                 "container-interop",
                 "psr"
             ],
-            "time": "2017-02-14T16:28:37+00:00"
+            "time": "2017-02-14 16:28:37"
         },
         {
             "name": "psr/log",
@@ -2289,7 +2290,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10T12:19:37+00:00"
+            "time": "2016-10-10 12:19:37"
         },
         {
             "name": "railto/flash-messages",
@@ -2328,7 +2329,7 @@
                 "flash messages",
                 "messages"
             ],
-            "time": "2014-09-25T21:24:33+00:00"
+            "time": "2014-09-25 21:24:33"
         },
         {
             "name": "rcastera/session",
@@ -2369,7 +2370,7 @@
                 "php",
                 "session"
             ],
-            "time": "2013-09-28T21:19:58+00:00"
+            "time": "2013-09-28 21:19:58"
         },
         {
             "name": "robmorgan/phinx",
@@ -2435,7 +2436,7 @@
                 "migrations",
                 "phinx"
             ],
-            "time": "2017-01-23T08:53:20+00:00"
+            "time": "2017-01-23 08:53:20"
         },
         {
             "name": "samsonasik/package-versions",
@@ -2485,7 +2486,7 @@
                 }
             ],
             "description": "A backport of ocramius/package-versions that supports php ^5.6. Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
-            "time": "2016-07-21T12:03:58+00:00"
+            "time": "2016-07-21 12:03:58"
         },
         {
             "name": "seld/jsonlint",
@@ -2534,7 +2535,7 @@
                 "parser",
                 "validator"
             ],
-            "time": "2017-06-18T15:11:04+00:00"
+            "time": "2017-06-18 15:11:04"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -2612,7 +2613,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-05-22T02:43:20+00:00"
+            "time": "2017-05-22 02:43:20"
         },
         {
             "name": "stripe/stripe-php",
@@ -2667,7 +2668,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2017-06-30T18:30:35+00:00"
+            "time": "2017-06-30 18:30:35"
         },
         {
             "name": "symfony/config",
@@ -2723,7 +2724,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2017-04-12T14:07:15+00:00"
+            "time": "2017-04-12 14:07:15"
         },
         {
             "name": "symfony/console",
@@ -2784,7 +2785,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-02T14:36:56+00:00"
+            "time": "2017-06-02 14:36:56"
         },
         {
             "name": "symfony/debug",
@@ -2841,7 +2842,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-30T07:22:48+00:00"
+            "time": "2016-07-30 07:22:48"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -2901,7 +2902,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-02T07:47:27+00:00"
+            "time": "2017-06-02 07:47:27"
         },
         {
             "name": "symfony/filesystem",
@@ -2950,7 +2951,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-20T05:43:46+00:00"
+            "time": "2016-07-20 05:43:46"
         },
         {
             "name": "symfony/finder",
@@ -2999,7 +3000,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-01T20:52:29+00:00"
+            "time": "2017-06-01 20:52:29"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -3058,7 +3059,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-06-09T14:24:12+00:00"
+            "time": "2017-06-09 14:24:12"
         },
         {
             "name": "symfony/process",
@@ -3107,7 +3108,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2017-05-08T01:19:21+00:00"
+            "time": "2017-05-08 01:19:21"
         },
         {
             "name": "symfony/stopwatch",
@@ -3156,7 +3157,7 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2017-04-12T14:07:15+00:00"
+            "time": "2017-04-12 14:07:15"
         },
         {
             "name": "symfony/translation",
@@ -3220,7 +3221,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-30T07:22:48+00:00"
+            "time": "2016-07-30 07:22:48"
         },
         {
             "name": "symfony/validator",
@@ -3293,7 +3294,7 @@
             ],
             "description": "Symfony Validator Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-02T14:36:56+00:00"
+            "time": "2017-06-02 14:36:56"
         },
         {
             "name": "symfony/yaml",
@@ -3348,7 +3349,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-02T22:05:06+00:00"
+            "time": "2017-06-02 22:05:06"
         },
         {
             "name": "twig/twig",
@@ -3413,7 +3414,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-06-07T18:45:17+00:00"
+            "time": "2017-06-07 18:45:17"
         },
         {
             "name": "typo3/class-alias-loader",
@@ -3471,7 +3472,7 @@
                 "classloader",
                 "composer"
             ],
-            "time": "2015-10-06T10:25:44+00:00"
+            "time": "2015-10-06 10:25:44"
         },
         {
             "name": "usmanhalalit/strana",
@@ -3572,7 +3573,7 @@
                 "semver",
                 "versioning"
             ],
-            "time": "2015-05-02T19:28:54+00:00"
+            "time": "2015-05-02 19:28:54"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -3622,7 +3623,54 @@
                 "env",
                 "environment"
             ],
-            "time": "2016-09-01T10:05:43+00:00"
+            "time": "2016-09-01 10:05:43"
+        },
+        {
+            "name": "windwalker/edge",
+            "version": "3.2.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ventoviro/windwalker-edge.git",
+                "reference": "5da3081225b29047d9318f4a40adc2c787ac5a79"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ventoviro/windwalker-edge/zipball/5da3081225b29047d9318f4a40adc2c787ac5a79",
+                "reference": "5da3081225b29047d9318f4a40adc2c787ac5a79",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "windwalker/dom": "~3.0",
+                "windwalker/test": "~3.0"
+            },
+            "type": "windwalker-package",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Windwalker\\Edge\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.0+"
+            ],
+            "description": "Windwalker Edge package, a blade compatible template engine.",
+            "homepage": "https://github.com/ventoviro/windwalker-edge",
+            "keywords": [
+                "edge",
+                "engine",
+                "framework",
+                "template",
+                "windwalker"
+            ],
+            "time": "2017-06-09 18:19:49"
         },
         {
             "name": "zendframework/zend-cache",
@@ -3691,7 +3739,7 @@
                 "cache",
                 "zf2"
             ],
-            "time": "2016-12-16T11:35:47+00:00"
+            "time": "2016-12-16 11:35:47"
         },
         {
             "name": "zendframework/zend-config",
@@ -3747,7 +3795,7 @@
                 "config",
                 "zf2"
             ],
-            "time": "2016-02-04T23:01:10+00:00"
+            "time": "2016-02-04 23:01:10"
         },
         {
             "name": "zendframework/zend-eventmanager",
@@ -3801,7 +3849,7 @@
                 "events",
                 "zf2"
             ],
-            "time": "2016-12-19T21:47:12+00:00"
+            "time": "2016-12-19 21:47:12"
         },
         {
             "name": "zendframework/zend-filter",
@@ -3861,7 +3909,7 @@
                 "filter",
                 "zf2"
             ],
-            "time": "2017-05-17T20:56:17+00:00"
+            "time": "2017-05-17 20:56:17"
         },
         {
             "name": "zendframework/zend-hydrator",
@@ -3919,7 +3967,7 @@
                 "hydrator",
                 "zf2"
             ],
-            "time": "2016-02-18T22:38:26+00:00"
+            "time": "2016-02-18 22:38:26"
         },
         {
             "name": "zendframework/zend-i18n",
@@ -3986,7 +4034,7 @@
                 "i18n",
                 "zf2"
             ],
-            "time": "2017-05-17T17:00:12+00:00"
+            "time": "2017-05-17 17:00:12"
         },
         {
             "name": "zendframework/zend-json",
@@ -4036,7 +4084,7 @@
                 "json",
                 "zf2"
             ],
-            "time": "2016-04-01T02:34:00+00:00"
+            "time": "2016-04-01 02:34:00"
         },
         {
             "name": "zendframework/zend-serializer",
@@ -4093,7 +4141,7 @@
                 "serializer",
                 "zf2"
             ],
-            "time": "2016-06-21T17:01:55+00:00"
+            "time": "2016-06-21 17:01:55"
         },
         {
             "name": "zendframework/zend-servicemanager",
@@ -4145,7 +4193,7 @@
                 "servicemanager",
                 "zf2"
             ],
-            "time": "2016-12-19T19:14:29+00:00"
+            "time": "2016-12-19 19:14:29"
         },
         {
             "name": "zendframework/zend-stdlib",
@@ -4204,7 +4252,7 @@
                 "stdlib",
                 "zf2"
             ],
-            "time": "2016-04-12T21:17:31+00:00"
+            "time": "2016-04-12 21:17:31"
         },
         {
             "name": "zetacomponents/base",
@@ -4267,7 +4315,7 @@
             ],
             "description": "The Base package provides the basic infrastructure that all packages rely on. Therefore every component relies on this package.",
             "homepage": "https://github.com/zetacomponents",
-            "time": "2014-09-19T03:28:34+00:00"
+            "time": "2014-09-19 03:28:34"
         },
         {
             "name": "zetacomponents/document",
@@ -4318,7 +4366,7 @@
             ],
             "description": "The Document components provides a general conversion framework for different semantic document markup languages like XHTML, Docbook, RST and similar.",
             "homepage": "https://github.com/zetacomponents",
-            "time": "2013-12-19T11:40:00+00:00"
+            "time": "2013-12-19 11:40:00"
         }
     ],
     "packages-dev": [],

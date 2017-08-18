@@ -15,8 +15,8 @@ class Principal extends Controller
 
     public function index()
     {
-    	$laboratorios = Laboratorio::all();
-		View::show('index');
+        $nombre = 'lorem asdasdsadasdasdasdasd asdas';
+		View::show('index',compact('nombre'));
     }
 
     public function consultar()

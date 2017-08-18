@@ -30,7 +30,8 @@
         "usmanhalalit/strana": "1.*@dev",
         "railto/flash-messages": "1.0.*",
         "nesbot/carbon": "^1.22",
-        "beelab/bowerphp": "^0.5.2"
+        "beelab/bowerphp": "^0.5.2",
+        "windwalker/edge": "^3.2"
     },
     "autoload": {
         "psr-4": {
