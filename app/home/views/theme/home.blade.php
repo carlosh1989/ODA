@@ -96,7 +96,7 @@
             </div>
             <!-- /.container-fluid -->
         </nav>
-         <?php echo $content ?>
+         @yield('content')
         <!-- /container -->
         <!-- MENSAJES FLASH SWEET ALERT 2 -->
         <?php if (Message::hasMessages()): ?>

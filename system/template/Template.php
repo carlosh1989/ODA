@@ -29,9 +29,7 @@ class Template
         extract($this->vars);
         ob_start();
         include($view_template_file);
-
-        $edge = new Edge(new EdgeStringLoader, null, new EdgeFileCache('cache/views'));
-        return $edge->render(ob_get_clean(), $this->vars);
+        return ob_get_clean();
     }
 
     public function renderOfuscado($view_template_file)

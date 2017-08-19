@@ -6,7 +6,7 @@
                     <div class="col-lg-12">
                         <img width="200" class="img-responsive" src="http://localhost/banco/assets/img/doctor.png" alt="">
                         <div class="intro-text">
-                            <h1 class="name">Banco de Sangre</h1>
+                            <h1 class="name"><?php echo $this->escape(titulo); ?></h1>
                             <hr class="star-light">
                             <span class="skills">Donar es dar vida.</span>
                         </div>
@@ -28,7 +28,7 @@
                         <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                         <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
                         <form action="http://localhost/banco/home/principal/consultar" method="POST">
-                        <input type="hidden" name="xtPsdThM0G" value="1a793c5b09439278a5be6694ad64b74e1da2f5480c61dee369fb74a6c24a4ff3" />                            <div class="row control-group">
+                        <input type="hidden" name="ebYUz7ndT6" value="45a9f1ac42fa84879eff6a923f70387a363a127d8c206d1125f8cf9b82ac4984" />                            <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
                                     <label for="cedula">Cédula</label>
                                     <input name="cedula" type="number" class="form-control" placeholder="Ingrese su Cedúla" id="cedula" required data-validation-required-message="Porfavor ingrese un cedula de identidad.">
@@ -61,9 +61,9 @@
                     </div>
                     <script type="text/javascript">
                     var locations = [
-                                        ['caritas','https://process.filestackapi.com/AhTgLagciQByzXpFGRI0Az/resize=w:400/quality=value:70/compress/https://cdn.filestackcontent.com/YudsVoJPSJW7KaEcvSek','http://localhost/banco/10',8.619276368876456,-70.2342479206543,'02735894587','caritas@gmail.com'],
-                                        ['yormex','https://process.filestackapi.com/AhTgLagciQByzXpFGRI0Az/resize=w:400/quality=value:70/compress/https://cdn.filestackcontent.com/z8Okcjz9RYyPSgWuOf4z','http://localhost/banco/11',8.625822894662683,-70.20607670611571,'02735338045','yormex@gmail.com'],
-                                        ['calez','https://process.filestackapi.com/AhTgLagciQByzXpFGRI0Az/resize=w:400/quality=value:70/compress/https://cdn.filestackcontent.com/GU01iG5SSy6nFTWN3zbz','http://localhost/banco/12',8.630278010390596,-70.21586140460204,'02735338034','caasdas@gmail.com'],
+                                        ['paez','https://process.filestackapi.com/AhTgLagciQByzXpFGRI0Az/resize=w:400/quality=value:70/compress/https://cdn.filestackcontent.com/2me48vbjRO6HAlRzuxu5','http://localhost/banco/6',8.62917484377364,-70.22045334643553,'04127624857','paez@gmail.com'],
+                                        ['caritas','https://process.filestackapi.com/AhTgLagciQByzXpFGRI0Az/resize=w:400/quality=value:70/compress/https://cdn.filestackcontent.com/HLPjy9rIT8q6JZUuggQo','http://localhost/banco/7',8.62162230884392,-70.20860871142577,'02735338034','caritas@gmail.com'],
+                                        ['Laboratorios Ordoñez (Hospital razetti)','https://process.filestackapi.com/AhTgLagciQByzXpFGRI0Az/resize=w:400/quality=value:70/compress/https://cdn.filestackcontent.com/dFNISmkXReeeKnikFfQl','http://localhost/banco/9',8.627769288377795,-70.21082451062011,'02735338035','ordones@gmail.com'],
                                         ];
                     var map = new google.maps.Map(document.getElementById('map'), {
                     zoom: 13,
@@ -266,15 +266,6 @@
                             <div class="footer-col col-md-4">
                                 <h3>Sobre Nosotros</h3>
                                 <p>La Sociedad Venezolana de Hematología es una organización científica integrada por profesionales de la Hematología con el fin de promover el desarrollo de la especialidad, fomentar la investigación, la docencia y la práctica médica guiada por rigor científico y principios de bioética, para el beneficio de la población venezolana.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-below">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                Copyright &copy; Your Website 2016
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-
+<?php $this->startSection('content'); ?>
         <!-- Header -->
         <header style="background: #fff;background-image: url('http://barcelonamedicaldestination.com/wp-content/themes/bmdcustom/img/carousel/carousel_02.jpg');background-repeat: no-repeat;background-position: center center;background-attachment: fixed;background-size: cover;">
             <div class="container" id="maincontent" tabindex="-1">
@@ -6,7 +6,7 @@
                     <div class="col-lg-12">
                         <img width="200" class="img-responsive" src="<?php echo baseUrl ?>assets/img/doctor.png" alt="">
                         <div class="intro-text">
-                            <h1 class="name">{{$titulo}}</h1>
+                            <h1 class="name"><?php echo $this->escape($titulo); ?></h1>
                             <hr class="star-light">
                             <span class="skills">Donar es dar vida.</span>
                         </div>
@@ -501,3 +501,5 @@
                     </div>
                 </div>
             </div>
+<?php $this->stopSection(); ?>
+<?php echo $this->render('theme.home', $this->arrayExcept(get_defined_vars(), array('__data', '__path'))); ?>

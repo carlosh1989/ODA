@@ -3,12 +3,6 @@
     "description": "framework de la ODA",
     "version": "v1.0.1",
     "license": "MIT",
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/carlosh1989/ODA"
-        }
-    ],
     "authors": [
         {
             "name": "carlos silva",

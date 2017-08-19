@@ -1,4 +1,6 @@
+@extends('theme.home')
 
+@section('content')
         <!-- Header -->
         <header style="background: #fff;background-image: url('http://barcelonamedicaldestination.com/wp-content/themes/bmdcustom/img/carousel/carousel_02.jpg');background-repeat: no-repeat;background-position: center center;background-attachment: fixed;background-size: cover;">
             <div class="container" id="maincontent" tabindex="-1">
@@ -501,3 +503,4 @@
                     </div>
                 </div>
             </div>
+@endsection

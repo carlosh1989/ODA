@@ -1,6 +1,10 @@
 <?php  
 namespace System\template;
 
+use Windwalker\Edge\Cache\EdgeFileCache;
+use Windwalker\Edge\Edge;
+use Windwalker\Edge\Loader\EdgeFileLoader;
+use Windwalker\Edge\Loader\EdgeStringLoader;
 use System\template\Template;
 
 class View
@@ -22,6 +26,7 @@ class View
         $view->content = $view->renderOfuscado('app/'.$modulo.'/views/'.$controlador.'/'.$vista.'.php');
         echo $view->renderOfuscado('app/'.$modulo.'/views/theme/'.$modulo.'.php');
         //app/auth/views/theme/auth
+
     }
 
     public static function theme($vista,$theme, $array=Null)
@@ -43,8 +48,7 @@ class View
         echo $view->render('app/'.$modulo.'/views/theme/'.$theme.'.php'); 
     } 
 
-
-    public static function show($vista, $array=Null)
+    public static function show($vista,$theme, $array=Null)
     {
         $view = new Template();
         if ($array) {
@@ -60,7 +64,14 @@ class View
 
         $view->baseUrl = baseUrl;
         $view->content = $view->render('app/'.$modulo.'/views/'.$controlador.'/'.$vista.'.php');
-        echo $view->render('app/'.$modulo.'/views/theme/'.$modulo.'.php'); 
+        echo $view->render('app/'.$modulo.'/views/theme/'.$theme.'.php'); 
+    } 
+
+
+    public static function blade($vista, $array1=Null)
+    {
+        $array2 = array('baseUrl' => baseUrl);
+        echo (new Edge(new EdgeFileLoader(array('app/'.URI_MODULO.'/views')), null, new EdgeFileCache('cache/views')))->render(URI_CONTROLADOR.'.'.$vista,array_unique( array_merge( $array1 , $array2 )));
     } 
 
     public static function go($array=Null)
