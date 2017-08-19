@@ -48,7 +48,7 @@ class View
         echo $view->render('app/'.$modulo.'/views/theme/'.$theme.'.php'); 
     } 
 
-    public static function show($vista,$theme, $array=Null)
+    public static function show($vista, $array=Null)
     {
         $view = new Template();
         if ($array) {

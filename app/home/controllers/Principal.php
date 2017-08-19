@@ -16,7 +16,7 @@ class Principal extends Controller
     public function index()
     {
         $titulo = 'BANCO DE SANGRE';
-		View::show('index',compact('titulo'));
+		View(compact('titulo'));
     }
 
     public function consultar()
