@@ -1,4 +1,4 @@
 
-s/${modulo}/auth/
-s/${controller}/Login/
-s/${vista}/index/
+s/${modulo}/ventas/
+s/${controller}/Principal/
+s/${vista}/show/

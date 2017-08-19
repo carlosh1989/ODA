@@ -4,12 +4,21 @@
 ![alt tag](https://lh3.googleusercontent.com/ToTErc7vRJ3C71P9KZz3Tyy4xy_14ZGb_zThT6HfvGP0pR6edsVbGBP2KX5E7eUzeJ287taCGEpPZg=w1440-h900-no)
 
 # FRAMEWORK ODA
-> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi placeat praesentium recusandae delectus sint, nesciunt. Iure laboriosam error ea dolorem dignissimos labore? Molestias blanditiis labore, autem suscipit dicta earum, voluptates.
+> Un framework enfocado en el entorno de desarrollo linux
 
 ##REQUERIMIENTOS
-> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam enim hic nostrum. Dolorum voluptatibus aperiam ipsum delectus fugiat omnis quasi, illum iusto commodi repudiandae obcaecati, quis asperiores impedit minima, ab!
+* PHP 5.6 - 7.1
+* Distribuciones UBUNTU o en su defeto Debian.
+* MySQL o MariaDB
 
 ##INSTALACIÓN
-> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde necessitatibus quidem quis velit et tempore, voluptas adipisci! Porro, odio alias dignissimos architecto numquam praesentium inventore laudantium necessitatibus voluptatem, perspiciatis voluptate.
+1) git clone https://github.com/carlosh1989/shigoto.git NOMBRE_PROYECTO
+> Clone el repositorio en la carpeta www o en su defecto html de su servidor local, cambie NOMBRE_PROYECTO por el respectivo nombre de su proyecto.
+
+2) ./cli/install/config.sh
+> Ingrese este comando en su terminal, el cual no es mas que el crear alias para los comandos maestros cli y box 
+
+3) box
+> Ingrese el comando box a secas, y automaticamente procedera a el proceso de instalación y de creación de base de datos de su proyecto, ekn el cual se le preguntara si quiere el modulo de AUTH con roles de usuario listo el cual puede modificar luego. 
 
 
