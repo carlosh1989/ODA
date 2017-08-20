@@ -74,6 +74,14 @@ class View
         echo (new Edge(new EdgeFileLoader(array('app/'.URI_MODULO.'/views')), null, new EdgeFileCache('cache/views')))->render(URI_CONTROLADOR.'.'.$vista,array_unique( array_merge( $array1 , $array2 )));
     } 
 
+    public static function bladeView($array1=Null)
+    {
+        $array2 = array('baseUrl' => baseUrl);
+        $data = ($array1) ? $data = array_unique( array_merge( $array1 , $array2 )) : $data = $array2;
+        $blade = new Edge(new EdgeFileLoader(array('app/'.URI_MODULO.'/views')), null, new EdgeFileCache('cache/views'));
+        echo $blade->render(URI_CONTROLADOR.'.'.debug_backtrace()[2]['function'],$data);
+    } 
+
     public static function go($array=Null)
     {
         $view = new Template();

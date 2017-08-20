@@ -4,43 +4,39 @@
   </div>
   <div class="panel-body">
     <div class="row">
-      <div class="col-lg-4 dl-horizontal">
-        <dt>Nombre:</dt>
-        <dd><?php echo $personal->nombre_apellido ?></dd>
-      </div>
-      <div class="col-lg-4 dl-horizontal">
-        <dt>Cédula:</dt>
-        <dd><?php echo $personal->cedula ?></dd>
-      </div>
-      <div class="col-lg-4 dl-horizontal">
-        <dt>Email:</dt>
-        <dd><?php echo $personal->email ?> </dd>
-      </div>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col-lg-4 dl-horizontal">
-        <dt>Telefono fijo:</dt>
-        <dd><?php echo $personal->telefono_fijo ?> </dd>
-      </div>
-      <div class="col-lg-4 dl-horizontal">
-        <dt>Telefono celular:</dt>
-        <dd><?php echo $personal->telefono_celular ?> </dd>
-      </div>
-      <div class="col-lg-4 dl-horizontal">
-        <dt>Cargo:</dt>
-        <dd><?php echo $personal->cargo ?> </dd>
-      </div>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col-lg-4 dl-horizontal">
-        <dt>Role:</dt>
-        <dd><?php echo $personal->usuario->role ?> </dd>
-      </div>
-      <div class="col-lg-4 dl-horizontal">
-        <dt>Dirección:</dt>
-        <dd><?php echo $personal->direccion ?> </dd>
+      <div class="col-lg-6 animated fadeIn">
+        <table class="table table-user-information panel panel-default animated fadeIn">
+          <tbody>
+            <tr>
+              <td style="background: #E0E0E0;"><b><i class="fa fa-address-card-o"></i> Nombre:</b></td>
+              <td><?php echo ucwords($personal->nombre_apellido) ?></td>
+            </tr>
+            <tr>
+              <td style="background: #E0E0E0;"><b><i class="fa fa-address-card"></i> Cédula:</b></td>
+              <td><?php echo $personal->cedula ?></td>
+            </tr>
+            <tr>
+              <td style="background: #E9E9E9;"><b><i class="fa fa-envelope"></i> Email:</b></td>
+              <td><?php echo $personal->email ?></td>
+            </tr>
+            <tr>
+              <td style="background: #E0E0E0;"><b><i class="fa fa-volume-control-phone"></i> Telefono Fijo:</b></td>
+              <td><?php echo $personal->telefono_fijo ?></td>
+            </tr>
+            <tr>
+              <td style="background: #E0E0E0;"><b><i class="fa fa-mobile"></i> Telefono Celular:</b></td>
+              <td><?php echo $personal->telefono_celular ?></td>
+            </tr>
+            <tr>
+              <td style="background: #E9E9E9;"><b><i class="fa fa-briefcase"></i> Cargo:</b></td>
+              <td><?php echo ucfirst($personal->cargo) ?></td>
+            </tr>
+            <tr>
+              <td style="background: #E9E9E9;"><b><i class="fa fa-map-signs"></i> Dirección:</b></td>
+              <td><?php echo $personal->direccion ?></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

@@ -1,7 +1,8 @@
-<div class="panel panel-default">
+<div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title text-muted">INGRESAR PERSONAL</h3>
+    <h3 class="panel-title text-muted"><i class="fa fa-user-secret fa-2x"></i><i class="fa fa-plus"></i> INGRESAR PERSONAL</h3>
   </div>
+  <br>
   <div class="panel-body">
     <form action="<?php echo baseUrl ?>banco/laboratoriosPersonal" method="POST">
       <?php echo Token::field() ?>
@@ -71,7 +72,7 @@
           </div>
         </div>
       </div>
-      <button type="submit" class="btn btn-lg btn-success pull-right"><i class="fa fa-save fa-2x"></i></button>
+      <button type="submit" class="btn btn-lg btn-primary pull-right"><i class="fa fa-save fa-2x"></i></button>
     </form>
   </div>
 </div>

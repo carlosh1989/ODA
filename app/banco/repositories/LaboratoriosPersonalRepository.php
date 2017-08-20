@@ -39,6 +39,7 @@ class LaboratoriosPersonalRepository
             $personal->telefono_celular = $telefono_celular;
             $personal->cargo = $cargo;
             $personal->direccion = $direccion;
+            $personal->email = $email;
 
             if($personal->save())
             {

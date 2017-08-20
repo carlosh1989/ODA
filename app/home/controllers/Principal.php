@@ -15,8 +15,14 @@ class Principal extends Controller
 
     public function index()
     {
-        $titulo = 'BANCO DE SANGRE';
-		View(compact('titulo'));
+        if(Session::isRegistered())
+        {
+            Redirect::to('auth/login');
+        }
+        else
+        {
+            View::ver('home/principal/index');  
+        }
     }
 
     public function consultar()

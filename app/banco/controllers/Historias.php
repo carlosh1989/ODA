@@ -27,38 +27,29 @@ class Historias
 
     public function store()
     {
+        $preguntas = BancoHistoria::all();
         extract($_POST);
-        //Arr($respuestas);
-        $donante = Donante::find($donante_id);
 
-        if($donante->historia)
+        DonanteHistoria::where('donante_id',$donante_id)->delete();
+
+        foreach ($preguntas as $p) 
         {
-            if(isset($respuestas))
+            $var = 'pregunta-'.$p->id;
+            echo $_POST[$var];
+            $respuesta = $_POST[$var];
+
+            $registro = new DonanteHistoria;
+            $registro->donante_id = $donante_id;
+            $registro->historia_id = $p->id;
+            $registro->respuesta = $respuesta;
+
+            if($registro->save())
             {
-                foreach ($respuestas as $r) 
-                {
-                    $donante_historia = DonanteHistoria::where('donante_id',$donante_id)->where('historia_id',$r)->first();
-                    $donante_historia->respuesta = 'yes';
-                    $donante_historia->save();
-                }
+                Success('donantes/'.$donante_id,'Ingresado el historial de paciente.');
             }
             else
             {
-                $updateArray = ['respuesta' => 'no'];
-                $donante_historia = DonanteHistoria::where('donante_id',$donante_id)->update($updateArray);
-            }
-        }
-        else
-        {
-            $banco_historias = BancoHistoria::all();
-
-            foreach ($banco_historias as $h) 
-            {
-                $donante_historia = new DonanteHistoria;
-                $donante_historia->donante_id = $donante_id;
-                $donante_historia->historia_id = $h->id;
-                $donante_historia->respuesta = 'no';
-                $donante_historia->save();
+                Error('donantes/'.$donante_id,'Error al ingresar historial.');
             }
         }
     }
