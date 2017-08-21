@@ -35,7 +35,6 @@ class Historias
         foreach ($preguntas as $p) 
         {
             $var = 'pregunta-'.$p->id;
-            echo $_POST[$var];
             $respuesta = $_POST[$var];
 
             $registro = new DonanteHistoria;

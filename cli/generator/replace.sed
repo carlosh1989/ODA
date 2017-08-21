@@ -1,4 +1,4 @@
 
-s/${modulo}/supervisor/
-s/${controller}/Principal/
+s/${modulo}/banco/
+s/${controller}/Serologias/
 s/${vista}/show/

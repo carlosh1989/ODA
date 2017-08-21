@@ -61,12 +61,26 @@ do
 		#CARPETA VIEWS/
 		if [ -d $APP/$MODULO/$VIEWS_FOLDER ];
 		then
+
+			if [ -d $APP/$MODULO/'views/theme' ];
+			then
+				echo "Sí, sí existe app/"$MODULO/$THEME_FOLDER
+			else
+			mkdir -m 777 $APP/$MODULO/'views/theme'
+			fi
+
+			if [ -f $APP/$MODULO/'views/theme/'$MODULO'.php' ];
+			then
+				echo "Sí, sí existe app/"$MODULO/$THEME_FOLDER
+			else
+			echo "Creado app/"$MODULO/$VIEWS_FOLDER/$CONTROLLER/$VISTA
+			touch $APP/$MODULO/'views/theme/'$MODULO'.php'
+			./cli/generator/make/makeTheme.sh $MODULO $CONTROLLER $VISTA
+			#./generator.sh $MODULO $CONTROLADOR $VISTA
+			fi
 			#CARPETA VIEWS/CONTROLLER
 			if [ -d $APP/$MODULO/$VIEWS_FOLDER/$CONTROLLER ];
 			then
-				mkdir -m 777 $APP/$MODULO/'views/theme'
-				touch $APP/$MODULO/'views/theme/'$MODULO'.php'
-				./cli/generator/make/makeTheme.sh $MODULO $CONTROLLER $VISTA
 				if [ -f $APP/$MODULO/$VIEWS_FOLDER/$CONTROLLER/$VISTA ];
 				then
 					echo "Sí, sí existe app/"$MODULO/$VIEWS_FOLDER/$CONTROLLER/$VISTA

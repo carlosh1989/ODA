@@ -1,6 +1,6 @@
 
         <!-- Header -->
-        <header style="background: #fff;background-image: url('http://barcelonamedicaldestination.com/wp-content/themes/bmdcustom/img/carousel/carousel_02.jpg');background-repeat: no-repeat;background-position: center center;background-attachment: fixed;background-size: cover;">
+        <header style="background: #fff;background-image: url('<?php echo baseUrl ?>assets/img/fondoHome2.jpg');background-repeat: no-repeat;background-position: center center;background-attachment: fixed;background-size: cover;">
             <div class="container" id="maincontent" tabindex="-1">
                 <div class="row">
                     <div class="col-lg-12">

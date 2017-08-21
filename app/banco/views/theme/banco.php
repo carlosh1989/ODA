@@ -19,7 +19,7 @@
         <style>
         body
         {
-        background-image:url('<?php echo baseUrl ?>assets/img/bancoFondo.jpg');
+        background-image:url('<?php echo baseUrl ?>assets/img/fondoHome2.jpg');
         background-repeat: no-repeat;
         background-position: center center;
         background-attachment: fixed;

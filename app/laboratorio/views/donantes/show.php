@@ -1,52 +1,80 @@
-<div class="panel panel-default">
-  
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#datos" data-toggle="tab" aria-expanded="true">DATOS</a></li>
-    <li class=""><a href="#historia" data-toggle="tab" aria-expanded="false">HISTORIA</a></li>
-    <li class=""><a href="#serologia" data-toggle="tab" aria-expanded="false">SEROLOGIA</a></li>
-  </ul>
-  <div id="myTabContent" class="tab-content">
-    <div class="tab-pane fade active in" id="datos">
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-lg-4 dl-horizontal">
-            <dt>Nombre:</dt>
-            <dd><?php echo $donante->nombre_apellido ?></dd>
-          </div>
-          <div class="col-lg-4 dl-horizontal">
-            <dt>Cédula:</dt>
-            <dd><?php echo $donante->cedula ?></dd>
-          </div>
-          <div class="col-lg-4 dl-horizontal">
-            <dt>Email:</dt>
-            <dd><?php echo $donante->email ?> </dd>
-          </div>
-        </div>
-        <br>
-        <div class="row">
-          <div class="col-lg-4 dl-horizontal">
-            <dt>Telefono fijo:</dt>
-            <dd><?php echo $donante->telefono_fijo ?> </dd>
-          </div>
-          <div class="col-lg-4 dl-horizontal">
-            <dt>Telefono celular:</dt>
-            <dd><?php echo $donante->telefono_celular ?> </dd>
-          </div>
-          <div class="col-lg-4 dl-horizontal">
-            <dt>Dirección:</dt>
-            <dd><?php echo $donante->direccion ?> </dd>
+<div id="panel" class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title text-muted"><i class="fa fa-user fa-2x"></i>  <b><?php echo strtoupper($donante->cargo.' '.$donante->nombre_apellido) ?></b></h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-lg-6 animated fadeIn">
+        <table class="table table-user-information panel panel-default animated fadeIn">
+          <tbody>
+            <tr>
+              <td style="background: #E0E0E0;"><b><i class="fa fa-address-card-o"></i> Nombre:</b></td>
+              <td><?php echo ucwords($donante->nombre_apellido) ?></td>
+            </tr>
+            <tr>
+              <td style="background: #E0E0E0;"><b><i class="fa fa-address-card"></i> Cédula:</b></td>
+              <td><?php echo $donante->cedula ?></td>
+            </tr>
+            <tr>
+              <td style="background: #E9E9E9;"><b><i class="fa fa-envelope"></i> Email:</b></td>
+              <td><?php echo $donante->email ?></td>
+            </tr>
+            <tr>
+              <td style="background: #E0E0E0;"><b><i class="fa fa-volume-control-phone"></i> Telefono Fijo:</b></td>
+              <td><?php echo $donante->telefono_fijo ?></td>
+            </tr>
+            <tr>
+              <td style="background: #E0E0E0;"><b><i class="fa fa-mobile"></i> Telefono Celular:</b></td>
+              <td><?php echo $donante->telefono_celular ?></td>
+            </tr>
+            <tr>
+              <td style="background: #E9E9E9;"><b><i class="fa fa-briefcase"></i> Cargo:</b></td>
+              <td><?php echo ucfirst($donante->cargo) ?></td>
+            </tr>
+            <tr>
+              <td style="background: #E9E9E9;"><b><i class="fa fa-map-signs"></i> Dirección:</b></td>
+              <td><?php echo $donante->direccion ?></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-lg-6">
+        <div class="panel panel-default animated fadeIn">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-12 animated flash">
+                <?php if ($donante->estatus): ?>
+                <i class="fa fa-warning fa-2x text-warning animated tada"></i> <b>El paciente no tiene estatus asigando porque no ha hecho aun la serologia.</b>
+                <?php else: ?>
+                <i class="fa fa-warning fa-2x text-warning animated tada"></i> <b>El paciente no tiene estatus asigando porque no ha hecho aun la serologia.</b>
+                <?php endif ?>
+              </div>
+              <div class="col-lg-12">
+                <?php if ($donante->historia): ?>
+                <a class="btn btn-default animated fadeInRight" href="<?php echo baseUrl ?>banco/historias/create/<?php echo $donante->id ?>">
+                  <i class="fa fa-address-card-o fa-2x text-primary" aria-hidden="true"></i> Ver Historia
+                </a>
+                <?php else: ?>
+                <a class="btn btn-default animated fadeInRight" href="<?php echo baseUrl ?>banco/historias/create/<?php echo $donante->id ?>">
+                  <i class="fa fa-address-card-o fa-2x text-warning" aria-hidden="true"></i> Ingresar Historia
+                </a>
+                <?php endif ?>
+              </div>
+              <div class="col-lg-12">
+                <?php if ($donante->serologia): ?>
+                <a class="btn btn-primary animated fadeInUp" href="<?php echo baseUrl ?>banco/historias/create/<?php echo $donante->id ?>">
+                  <i class="fa fa-address-card-o fa-2x text-primary" aria-hidden="true"></i> Ver Serologia
+                </a>
+                <?php else: ?>
+                <a class="btn btn-default animated fadeInUp" href="<?php echo baseUrl ?>banco/historias/create/<?php echo $donante->id ?>">
+                  <i class="fa fa-user-md fa-2x" aria-hidden="true"></i> Ingresar Serologia
+                </a>
+                <?php endif ?>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="tab-pane fade" id="historia">
-      <p>Historia</p>
-    </div>
-    <div class="tab-pane fade" id="dropdown1">
-      <p>Serologia</p>
-    </div>
-    <div class="tab-pane fade" id="dropdown2">
-      <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater.</p>
     </div>
   </div>
 </div>

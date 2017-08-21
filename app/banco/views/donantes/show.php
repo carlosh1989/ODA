@@ -62,11 +62,11 @@
               </div>
               <div class="col-lg-12">
                 <?php if ($donante->serologia): ?>
-                <a class="btn btn-primary animated fadeInUp" href="<?php echo baseUrl ?>banco/historias/create/<?php echo $donante->id ?>">
+                <a class="btn btn-primary animated fadeInUp" href="<?php echo baseUrl ?>banco/serologias/<?php echo $donante->id ?>">
                   <i class="fa fa-address-card-o fa-2x text-primary" aria-hidden="true"></i> Ver Serologia
                 </a>
                 <?php else: ?>
-                <a class="btn btn-default animated fadeInUp" href="<?php echo baseUrl ?>banco/historias/create/<?php echo $donante->id ?>">
+                <a class="btn btn-default animated fadeInUp" href="<?php echo baseUrl ?>banco/serologias/create/<?php echo $donante->id ?>">
                   <i class="fa fa-user-md fa-2x" aria-hidden="true"></i> Ingresar Serologia
                 </a>
                 <?php endif ?>
