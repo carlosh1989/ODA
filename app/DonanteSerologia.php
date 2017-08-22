@@ -8,4 +8,8 @@ class DonanteSerologia extends Model {
 
     //Ejemplo de definir campos
     //protected $fillable = ['username','email','password'];
+	public function historia_pregunta()
+	{
+		return $this->belongsTo(BancoHistoria::class, 'historia_id','id');
+	}	
 }

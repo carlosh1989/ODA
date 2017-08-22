@@ -37,7 +37,8 @@ class SerologiasRepository
 
     public function show($id)
     {
-
+        $data['serologia'] =DonanteSerologia::where('donante_id',$id)->get();
+        return $data;
     }
 
     public function update($id,$data)
