@@ -39,7 +39,7 @@ class Serologias
 
     public function show($id)
     {
-
+        View(Repo($id));
     }
 
     public function edit($id)

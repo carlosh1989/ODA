@@ -67,6 +67,8 @@
         #map {
         height: 250px;
         }
+
+        .top-buffer { margin-top:20px; }
         </style>
     </head>
     <body>
